@@ -1,18 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Roboto:wght@300;400;500;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --bg: #ffffff;
-  --bg-soft: #faf9f6;
-  --bg-tint: #f2efe6;
-  --onyx: #111111;
-  --ink: #2a2a2a;
-  --muted: #6b6b6b;
-  --champagne: #b8912f;
-  --champagne-bright: #d4af37;
-  --platinum: #e6e3da;
+  --bg-soft: #F5F8FC;
+  --bg-tint: #EEF2F7;
+  --onyx: #0A2540;
+  --ink: #334155;
+  --muted: #5B6B7F;
+  --champagne: #C6A15B;
+  --champagne-bright: #D8B36A;
+  --platinum: #D9E1EC;
+  --navy: #0A2540;
+  --navy-deep: #071A30;
+  --corp-blue: #1E4E8C;
+  --slate: #5B6B7F;
+  --light-gray: #EEF2F7;
   --background: 0 0% 100%;
   --foreground: 0 0% 6%;
   --card: 0 0% 100%;
@@ -44,17 +49,17 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--onyx);
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Google Sans', 'Product Sans', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-::selection { background: var(--champagne-bright); color: #111; }
+::selection { background: var(--champagne-bright); color: #0A2540; }
 
-.font-display { font-family: 'Playfair Display', serif; }
-.font-accent { font-family: 'Cormorant Garamond', serif; }
-.font-body { font-family: 'Outfit', sans-serif; }
+.font-display { font-family: 'Montserrat', sans-serif; }
+.font-accent { font-family: 'Montserrat', sans-serif; font-style: italic; }
+.font-body { font-family: 'Google Sans', 'Product Sans', 'Roboto', sans-serif; }
 
 .text-champagne { color: var(--champagne); }
 .bg-champagne { background-color: var(--champagne); }
@@ -98,12 +103,12 @@ body {
 
 /* Pill button */
 .btn-gold {
-  background: var(--onyx); color: #fff; border-radius: 999px;
+  background: var(--onyx); color: #fff; border-radius: 10px;
   transition: transform .35s cubic-bezier(.2,.7,.2,1), background-color .35s ease, color .35s ease;
 }
-.btn-gold:hover { background: var(--champagne); color: #111; transform: translateY(-2px); }
+.btn-gold:hover { background: var(--champagne); color: var(--navy-deep); transform: translateY(-2px); }
 .btn-ghost {
-  background: transparent; color: var(--onyx); border: 1px solid var(--onyx); border-radius: 999px;
+  background: transparent; color: var(--onyx); border: 1px solid var(--onyx); border-radius: 10px;
   transition: transform .35s cubic-bezier(.2,.7,.2,1), background-color .35s ease, color .35s ease;
 }
 .btn-ghost:hover { background: var(--onyx); color: #fff; transform: translateY(-2px); }

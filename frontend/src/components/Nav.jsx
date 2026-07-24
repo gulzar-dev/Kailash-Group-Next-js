@@ -45,9 +45,9 @@ export const Nav = () => {
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 flex items-center justify-between">
         <Link to="/" data-testid="nav-logo" className="flex items-center gap-2 group">
-          <span className="font-display text-xl tracking-tight text-[#111]">Kailash</span>
+          <span className="font-display text-xl tracking-tight text-[#0A2540]">Kailash</span>
           <span className="w-1.5 h-1.5 rounded-full bg-champagne group-hover:scale-150 transition-transform" />
-          <span className="font-accent text-lg text-[#6b6b6b] italic">Group</span>
+          <span className="font-accent text-lg text-[#5B6B7F] italic">Group</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-9">
@@ -56,7 +56,7 @@ export const Nav = () => {
               key={l.label}
               data-testid={`nav-${l.label.toLowerCase()}`}
               onClick={() => goToHash(l.to)}
-              className="link-underline text-sm tracking-wide text-[#2a2a2a] hover:text-[#111]"
+              className="link-underline text-sm tracking-wide text-[#334155] hover:text-[#0A2540]"
             >
               {l.label}
             </button>
@@ -73,7 +73,7 @@ export const Nav = () => {
 
         <button
           data-testid="nav-mobile-toggle"
-          className="lg:hidden text-[#111]"
+          className="lg:hidden text-[#0A2540]"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X size={24} /> : <Menu size={24} />}
@@ -91,14 +91,14 @@ export const Nav = () => {
               <button
                 key={l.label}
                 onClick={() => goToHash(l.to)}
-                className="text-left text-lg font-display text-[#111]"
+                className="text-left text-lg font-display text-[#0A2540]"
               >
                 {l.label}
               </button>
             ))}
             <div className="h-px gold-line my-2" />
             {COMPANIES.map((c) => (
-              <Link key={c.slug} to={`/company/${c.slug}`} onClick={() => setOpen(false)} className="text-sm text-[#6b6b6b]">
+              <Link key={c.slug} to={`/company/${c.slug}`} onClick={() => setOpen(false)} className="text-sm text-[#5B6B7F]">
                 {c.name}
               </Link>
             ))}

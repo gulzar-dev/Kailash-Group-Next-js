@@ -29,14 +29,14 @@ export default function Company() {
       <section className="relative min-h-[85vh] flex items-end overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <img src={company.image} alt={company.name} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-[#111]/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-[#0A2540]/30" />
         </div>
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12 pb-20 w-full">
-          <button data-testid="company-back" onClick={() => navigate("/")} className="inline-flex items-center gap-2 text-sm text-[#111] mb-10 link-underline">
+          <button data-testid="company-back" onClick={() => navigate("/")} className="inline-flex items-center gap-2 text-sm text-[#0A2540] mb-10 link-underline">
             <ArrowLeft size={16} /> Kailash Group
           </button>
           <div className="overline mb-5">{company.short} — Kailash Group</div>
-          <h1 className="font-display font-light text-5xl sm:text-6xl lg:text-7xl tracking-tight text-[#111] leading-[0.98] max-w-4xl">
+          <h1 className="font-display font-light text-5xl sm:text-6xl lg:text-7xl tracking-tight text-[#0A2540] leading-[0.98] max-w-4xl">
             <MaskLines lines={[company.name]} />
           </h1>
           <p className="mt-6 font-accent italic text-2xl text-champagne">{company.tagline}</p>
@@ -47,22 +47,22 @@ export default function Company() {
       <section className="bg-white py-24">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12 grid lg:grid-cols-2 gap-16">
           <Reveal>
-            <p className="font-display text-2xl sm:text-3xl font-light text-[#111] leading-snug">{company.intro}</p>
-            <p className="mt-8 text-lg text-[#4a4a4a] font-light leading-relaxed">{company.body}</p>
+            <p className="font-display text-2xl sm:text-3xl font-light text-[#0A2540] leading-snug">{company.intro}</p>
+            <p className="mt-8 text-lg text-[#475569] font-light leading-relaxed">{company.body}</p>
             <Link to="/#contact" className="mt-10 inline-flex btn-gold px-8 py-4 text-sm items-center gap-2">
               Enquire Now <ArrowUpRight size={18} />
             </Link>
           </Reveal>
           <Reveal delay={0.15}>
             <div className="glass rounded-3xl p-8 sm:p-10">
-              <div className="overline mb-6">What we do</div>
+              <h3 className="font-display text-2xl text-[#0A2540] mb-6">What we do</h3>
               <ul className="space-y-4">
                 {company.practice.map((p) => (
                   <li key={p} className="flex items-center gap-4 py-3 border-b border-black/5 last:border-0">
                     <span className="w-8 h-8 rounded-full bg-champagne/15 flex items-center justify-center shrink-0">
                       <Check size={15} className="text-champagne" />
                     </span>
-                    <span className="text-[#111]">{p}</span>
+                    <span className="text-[#0A2540]">{p}</span>
                   </li>
                 ))}
               </ul>
@@ -72,9 +72,9 @@ export default function Company() {
       </section>
 
       {/* Other companies */}
-      <section className="bg-[#faf9f6] py-24">
+      <section className="bg-[#F5F8FC] py-24">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
-          <div className="overline mb-10">Explore the Group</div>
+          <h2 className="font-display text-3xl text-[#0A2540] mb-10">Explore the Group</h2>
           <div className="grid sm:grid-cols-2 gap-6">
             {others.map((o) => (
               <motion.button
@@ -82,11 +82,11 @@ export default function Company() {
                 whileHover={{ y: -6 }}
                 onClick={() => navigate(`/company/${o.slug}`)}
                 data-testid={`related-${o.slug}`}
-                className="text-left rounded-2xl border border-[#e6e3da] bg-white p-8 flex items-center justify-between group"
+                className="text-left rounded-2xl border border-[#D9E1EC] bg-white p-8 flex items-center justify-between group"
               >
                 <div>
-                  <div className="font-display text-2xl text-[#111]">{o.name}</div>
-                  <p className="mt-2 text-sm text-[#6b6b6b]">{o.tagline}</p>
+                  <div className="font-display text-2xl text-[#0A2540]">{o.name}</div>
+                  <p className="mt-2 text-sm text-[#5B6B7F]">{o.tagline}</p>
                 </div>
                 <ArrowUpRight className="text-champagne group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </motion.button>

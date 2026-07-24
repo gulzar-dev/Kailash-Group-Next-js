@@ -32,14 +32,13 @@ export const Contact = () => {
   };
 
   const inputCls =
-    "w-full bg-white/60 border border-[#e6e3da] rounded-xl px-4 py-3.5 text-[#111] placeholder-[#9a9a9a] outline-none focus:border-champagne focus:bg-white transition-colors";
+    "w-full bg-white/60 border border-[#D9E1EC] rounded-xl px-4 py-3.5 text-[#0A2540] placeholder-[#94A3B8] outline-none focus:border-champagne focus:bg-white transition-colors";
 
   return (
     <section id="contact" data-testid="contact-section" className="relative z-10 bg-white py-28 md:py-40">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         <Reveal className="max-w-2xl mb-16">
-          <div className="overline mb-5">Get in Touch</div>
-          <h2 className="font-display font-light text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#111] leading-[1.02]">
+          <h2 className="font-display font-light text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.02]">
             Let&apos;s transform your <span className="italic font-accent text-champagne">vision</span> into value.
           </h2>
         </Reveal>
@@ -78,11 +77,11 @@ export const Contact = () => {
                 <a key={label} href={href} className="glass rounded-2xl p-5 hover:-translate-y-1 transition-transform block">
                   <Icon className="text-champagne mb-3" size={20} />
                   <div className="overline text-[0.6rem] mb-1">{label}</div>
-                  <div className="text-sm text-[#111] break-words">{val}</div>
+                  <div className="text-sm text-[#0A2540] break-words">{val}</div>
                 </a>
               ))}
             </div>
-            <div className="rounded-3xl overflow-hidden border border-[#e6e3da] flex-1 min-h-[320px] glass p-2">
+            <div className="rounded-3xl overflow-hidden border border-[#D9E1EC] flex-1 min-h-[320px] glass p-2">
               <iframe
                 title="Kailash Group — Parramatta NSW"
                 data-testid="contact-map"

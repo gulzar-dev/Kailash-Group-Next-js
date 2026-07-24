@@ -11,14 +11,13 @@ export const Ecosystem = () => {
   const radius = 230;
 
   return (
-    <section id="companies" data-testid="ecosystem-section" className="relative z-10 bg-[#faf9f6] py-28 md:py-40 overflow-hidden">
+    <section id="companies" data-testid="ecosystem-section" className="relative z-10 bg-[#F5F8FC] py-28 md:py-40 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         <Reveal className="max-w-2xl mb-20">
-          <div className="overline mb-5">The Ecosystem</div>
-          <h2 className="font-display font-light text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#111] leading-[1.02]">
+          <h2 className="font-display font-light text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.02]">
             One group,<br /><span className="italic font-accent text-champagne">three specialisms.</span>
           </h2>
-          <p className="mt-6 text-lg text-[#4a4a4a] font-light">
+          <p className="mt-6 text-lg text-[#475569] font-light">
             Three companies orbit a single vision — connected by the Kailash Group brand,
             each an expert in its own right.
           </p>
@@ -53,7 +52,7 @@ export const Ecosystem = () => {
                   >
                     <div className="glass rounded-2xl p-5 shadow-[0_20px_50px_rgba(0,0,0,0.06)] group-hover:shadow-[0_30px_70px_rgba(184,145,47,0.2)] transition-shadow">
                       <div className="overline text-[0.6rem] mb-2">{c.short}</div>
-                      <div className="font-display text-lg leading-tight text-[#111]">{c.name}</div>
+                      <div className="font-display text-lg leading-tight text-[#0A2540]">{c.name}</div>
                       <div className="mt-3 inline-flex items-center gap-1 text-xs text-champagne">
                         Discover <ArrowUpRight size={14} />
                       </div>
@@ -64,7 +63,7 @@ export const Ecosystem = () => {
             </motion.div>
             {/* center logo */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="w-40 h-40 rounded-full bg-[#111] flex flex-col items-center justify-center text-white shadow-[0_20px_60px_rgba(17,17,17,0.3)]">
+              <div className="w-40 h-40 rounded-full bg-[#0A2540] flex flex-col items-center justify-center text-white shadow-[0_20px_60px_rgba(17,17,17,0.3)]">
                 <span className="font-display text-2xl">Kailash</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-champagne my-1" />
                 <span className="font-accent italic text-white/60">Group</span>
@@ -83,8 +82,8 @@ export const Ecosystem = () => {
                 className="glass rounded-2xl p-6 text-left w-full h-full"
               >
                 <div className="overline text-[0.6rem] mb-2">{c.short}</div>
-                <div className="font-display text-xl text-[#111]">{c.name}</div>
-                <p className="mt-2 text-sm text-[#6b6b6b]">{c.tagline}</p>
+                <div className="font-display text-xl text-[#0A2540]">{c.name}</div>
+                <p className="mt-2 text-sm text-[#5B6B7F]">{c.tagline}</p>
                 <div className="mt-4 inline-flex items-center gap-1 text-xs text-champagne">
                   Discover <ArrowUpRight size={14} />
                 </div>

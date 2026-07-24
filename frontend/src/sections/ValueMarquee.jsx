@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 const words = ["Integrity", "Excellence", "Trust", "Innovation", "Expertise", "Community"];
 
 export const ValueMarquee = () => (
-  <section data-testid="value-marquee" className="py-10 bg-[#111] relative z-10 overflow-hidden">
+  <section data-testid="value-marquee" className="py-10 bg-[#0A2540] relative z-10 overflow-hidden">
     <Marquee speed={40} gradient={false} autoFill>
       {words.map((w, i) => (
         <div key={i} className="flex items-center">

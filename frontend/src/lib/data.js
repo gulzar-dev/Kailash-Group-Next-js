@@ -8,6 +8,14 @@ export const CONTACT = {
     "https://www.google.com/maps?q=60+Phillip+Street+Parramatta+NSW+2150&output=embed",
 };
 
+const IMG = {
+  legal: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1400&q=80",
+  invest: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80",
+  develop: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80",
+  apartment: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80",
+  housing: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1400&q=80",
+};
+
 export const COMPANIES = [
   {
     slug: "kailash-lawyers",
@@ -24,9 +32,8 @@ export const COMPANIES = [
     ],
     body:
       "Kailash Lawyers & Consultants brings clarity to complexity. Whether you are buying a home, protecting a family, migrating to Australia or building a business, our team combines rigorous legal expertise with genuine care — serving clients across NSW, Queensland and Western Australia.",
-    accent: "#1e3a5f",
-    image:
-      "https://images.pexels.com/photos/6077665/pexels-photo-6077665.jpeg",
+    accent: "#0A2540",
+    image: IMG.legal,
   },
   {
     slug: "koala-invest",
@@ -43,9 +50,8 @@ export const COMPANIES = [
     ],
     body:
       "Koala Invest guides everyday Australians toward financial success through data-driven property investment. With offices in Parramatta, NSW and Gurgaon, India, we pair rigorous research with a genuine commitment to community — adopting a koala for every client who joins the Koala Invest family.",
-    accent: "#3f6b3f",
-    image:
-      "https://images.pexels.com/photos/15422346/pexels-photo-15422346.jpeg",
+    accent: "#1E4E8C",
+    image: IMG.apartment,
   },
   {
     slug: "kuber-projects",
@@ -62,9 +68,8 @@ export const COMPANIES = [
     ],
     body:
       "Kuber Projects delivers considered, high-quality residential developments from concept to completion. Our end-to-end approach to low-rise density projects is built to maximise ROI for investors while creating homes and communities Australians are proud to live in.",
-    accent: "#7a5a1e",
-    image:
-      "https://images.pexels.com/photos/15422346/pexels-photo-15422346.jpeg",
+    accent: "#C6A15B",
+    image: IMG.housing,
   },
 ];
 
@@ -73,19 +78,19 @@ export const SERVICES = [
     n: "01",
     title: "Legal Services",
     desc: "Property, family, immigration and commercial law — principled counsel with a personal touch.",
-    image: "https://images.pexels.com/photos/6077665/pexels-photo-6077665.jpeg",
+    image: IMG.legal,
   },
   {
     n: "02",
     title: "Real Estate Investment Solutions",
     desc: "Research-led advisory that turns market data into resilient, long-term property portfolios.",
-    image: "https://images.pexels.com/photos/33977174/pexels-photo-33977174.jpeg",
+    image: IMG.invest,
   },
   {
     n: "03",
     title: "Property Development",
     desc: "End-to-end delivery of low-rise density projects engineered for quality and return.",
-    image: "https://images.pexels.com/photos/15422346/pexels-photo-15422346.jpeg",
+    image: IMG.develop,
   },
 ];
 
@@ -111,25 +116,25 @@ export const COMMUNITY = [
   {
     title: "Koala Conservation Australia",
     desc: "For every client who joins the Koala Invest family, we adopt a koala in their name — protecting an emblem of our natural heritage.",
-    image: "https://images.unsplash.com/photo-1610616649366-93774a4ee9d4",
+    image: "https://images.unsplash.com/photo-1610616649366-93774a4ee9d4?auto=format&fit=crop&w=1400&q=80",
     tag: "Wildlife",
   },
   {
     title: "Art of Living",
     desc: "A proud supporter of the Art of Living Foundation, operating in 180 countries toward a stress-free, violence-free society.",
-    image: "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg",
+    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1400&q=80",
     tag: "Wellbeing",
   },
   {
     title: "AASHA Foundation",
     desc: "A major sponsor of AASHA (Wentworthville), supporting the wellbeing of senior citizens from culturally diverse communities.",
-    image: "https://images.pexels.com/photos/7551617/pexels-photo-7551617.jpeg",
+    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1400&q=80",
     tag: "Community",
   },
 ];
 
 export const IMAGES = {
-  hero: "https://images.pexels.com/photos/33977174/pexels-photo-33977174.jpeg",
-  portrait: "https://images.pexels.com/photos/28426641/pexels-photo-28426641.jpeg",
-  trophy: "https://images.pexels.com/photos/6532362/pexels-photo-6532362.jpeg",
+  hero: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=1920&q=80",
+  portrait: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1000&q=80",
+  trophy: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&w=1000&q=80",
 };
