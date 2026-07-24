@@ -45,9 +45,9 @@ export const Nav = () => {
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 flex items-center justify-between">
         <Link to="/" data-testid="nav-logo" className="flex items-center gap-2 group">
-          <span className="font-display text-xl tracking-tight text-[#0A2540]">Kailash</span>
+          <span className="font-display font-bold text-lg tracking-[0.14em] text-[#0A2540] uppercase">Kailash</span>
           <span className="w-1.5 h-1.5 rounded-full bg-champagne group-hover:scale-150 transition-transform" />
-          <span className="font-accent text-lg text-[#5B6B7F] italic">Group</span>
+          <span className="font-display font-bold text-lg tracking-[0.14em] text-[#0A2540] uppercase">Group</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-9">

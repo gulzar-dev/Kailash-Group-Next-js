@@ -24,9 +24,9 @@ export const Hero = ({ onExplore, onContact }) => {
       {/* Hero content */}
       <motion.div
         style={{ y: textY, opacity: fade }}
-        className="max-w-[1400px] mx-auto px-6 sm:px-12 pt-44 md:pt-52 pb-24 relative z-10"
+        className="max-w-[1400px] mx-auto px-6 sm:px-12 pt-32 md:pt-40 pb-16 relative z-10"
       >
-        <h1 className="font-display font-light text-5xl sm:text-6xl lg:text-[5.5rem] leading-[0.98] tracking-tight text-[#0A2540] max-w-5xl mt-4">
+        <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-[5.5rem] leading-[0.98] tracking-tight text-[#0A2540] max-w-5xl mt-4">
           <MaskLines delay={0.4} lines={["Transforming Your", "Real Estate Vision"]} />
           <span className="reveal-mask block">
             <motion.span

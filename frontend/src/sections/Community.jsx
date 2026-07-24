@@ -3,11 +3,11 @@ import { Reveal } from "../components/Reveal";
 import { COMMUNITY } from "../lib/data";
 
 export const Community = () => (
-  <section id="community" data-testid="community-section" className="relative z-10 bg-[#EEF2F7] py-28 md:py-40 overflow-hidden">
+  <section id="community" data-testid="community-section" className="relative z-10 bg-[#EEF2F7] py-20 md:py-28 overflow-hidden">
     <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
         <Reveal className="max-w-2xl">
-          <h2 className="font-display font-light text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.02]">
+          <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.02]">
             Giving back, <span className="italic font-accent text-champagne">naturally.</span>
           </h2>
         </Reveal>

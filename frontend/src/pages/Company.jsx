@@ -36,7 +36,7 @@ export default function Company() {
             <ArrowLeft size={16} /> Kailash Group
           </button>
           <div className="overline mb-5">{company.short} — Kailash Group</div>
-          <h1 className="font-display font-light text-5xl sm:text-6xl lg:text-7xl tracking-tight text-[#0A2540] leading-[0.98] max-w-4xl">
+          <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl tracking-tight text-[#0A2540] leading-[0.98] max-w-4xl">
             <MaskLines lines={[company.name]} />
           </h1>
           <p className="mt-6 font-accent italic text-2xl text-champagne">{company.tagline}</p>
@@ -44,7 +44,7 @@ export default function Company() {
       </section>
 
       {/* Intro + practice */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-16 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12 grid lg:grid-cols-2 gap-16">
           <Reveal>
             <p className="font-display text-2xl sm:text-3xl font-light text-[#0A2540] leading-snug">{company.intro}</p>
@@ -72,7 +72,7 @@ export default function Company() {
       </section>
 
       {/* Other companies */}
-      <section className="bg-[#F5F8FC] py-24">
+      <section className="bg-[#F5F8FC] py-16 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
           <h2 className="font-display text-3xl text-[#0A2540] mb-10">Explore the Group</h2>
           <div className="grid sm:grid-cols-2 gap-6">

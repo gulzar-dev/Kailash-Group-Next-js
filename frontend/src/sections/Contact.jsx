@@ -35,10 +35,10 @@ export const Contact = () => {
     "w-full bg-white/60 border border-[#D9E1EC] rounded-xl px-4 py-3.5 text-[#0A2540] placeholder-[#94A3B8] outline-none focus:border-champagne focus:bg-white transition-colors";
 
   return (
-    <section id="contact" data-testid="contact-section" className="relative z-10 bg-white py-28 md:py-40">
+    <section id="contact" data-testid="contact-section" className="relative z-10 bg-white py-20 md:py-28">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
-        <Reveal className="max-w-2xl mb-16">
-          <h2 className="font-display font-light text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.02]">
+        <Reveal className="max-w-2xl mb-10">
+          <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.02]">
             Let&apos;s transform your <span className="italic font-accent text-champagne">vision</span> into value.
           </h2>
         </Reveal>

@@ -7,9 +7,9 @@ export const Footer = () => (
       <div className="grid md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
         <div className="md:col-span-5">
           <div className="flex items-center gap-2">
-            <span className="font-display text-3xl">Kailash</span>
+            <span className="font-display font-bold text-2xl tracking-[0.14em] uppercase">Kailash</span>
             <span className="w-1.5 h-1.5 rounded-full bg-champagne" />
-            <span className="font-accent text-2xl italic text-white/60">Group</span>
+            <span className="font-display font-bold text-2xl tracking-[0.14em] uppercase">Group</span>
           </div>
           <p className="mt-6 max-w-md text-white/60 font-light leading-relaxed">
             Where legal expertise meets property investment and development — delivering
@@ -17,7 +17,7 @@ export const Footer = () => (
           </p>
         </div>
         <div className="md:col-span-3">
-          <div className="overline mb-5">Companies</div>
+          <div className="text-sm font-semibold text-white mb-5">Companies</div>
           <ul className="space-y-3">
             {COMPANIES.map((c) => (
               <li key={c.slug}>
@@ -29,7 +29,7 @@ export const Footer = () => (
           </ul>
         </div>
         <div className="md:col-span-4">
-          <div className="overline mb-5">Contact</div>
+          <div className="text-sm font-semibold text-white mb-5">Contact</div>
           <ul className="space-y-3 text-white/70">
             <li><a href={`tel:${CONTACT.phone}`} className="hover:text-champagne transition-colors">{CONTACT.phone}</a></li>
             <li><a href={`mailto:${CONTACT.email}`} className="hover:text-champagne transition-colors">{CONTACT.email}</a></li>

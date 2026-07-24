@@ -11,10 +11,10 @@ export const Ecosystem = () => {
   const radius = 230;
 
   return (
-    <section id="companies" data-testid="ecosystem-section" className="relative z-10 bg-[#F5F8FC] py-28 md:py-40 overflow-hidden">
+    <section id="companies" data-testid="ecosystem-section" className="relative z-10 bg-[#F5F8FC] py-20 md:py-28 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
-        <Reveal className="max-w-2xl mb-20">
-          <h2 className="font-display font-light text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.02]">
+        <Reveal className="max-w-2xl mb-12">
+          <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.02]">
             One group,<br /><span className="italic font-accent text-champagne">three specialisms.</span>
           </h2>
           <p className="mt-6 text-lg text-[#475569] font-light">

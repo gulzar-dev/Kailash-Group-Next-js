@@ -15,7 +15,7 @@ export const About = () => {
   const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   return (
-    <section id="about" data-testid="about-section" className="relative z-10 bg-[#F5F8FC] py-28 md:py-40 overflow-hidden">
+    <section id="about" data-testid="about-section" className="relative z-10 bg-[#F5F8FC] py-20 md:py-28 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Portrait with clipped frame + spotlight */}
@@ -32,7 +32,7 @@ export const About = () => {
           </Reveal>
 
           <div className="order-1 lg:order-2">
-            <h2 className="font-display font-light text-4xl sm:text-5xl tracking-tight text-[#0A2540] leading-[1.05]">
+            <h2 className="font-display font-semibold text-4xl sm:text-5xl tracking-tight text-[#0A2540] leading-[1.05]">
               Nearly <span className="italic font-accent text-champagne">20 years</span> of trusted leadership.
             </h2>
             <div className="mt-10 space-y-8">
@@ -50,7 +50,7 @@ export const About = () => {
         </div>
 
         {/* Timeline */}
-        <div className="mt-28">
+        <div className="mt-20">
           <div className="grid md:grid-cols-5 gap-8 relative">
             <div className="hidden md:block absolute top-3 left-0 right-0 h-px bg-[#D9E1EC]" />
             {TIMELINE.map((t, i) => (
