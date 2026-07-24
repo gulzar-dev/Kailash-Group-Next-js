@@ -1,0 +1,114 @@
+{
+  "theme": "light",
+  "archetype": "LUXURY",
+  "brand": "Kailash Group",
+  "typography": {
+    "fonts": {
+      "headings": "Playfair Display",
+      "body": "Outfit",
+      "accent": "Cormorant Garamond"
+    },
+    "scale": {
+      "h1": "text-5xl sm:text-6xl lg:text-7xl tracking-tighter leading-none font-light",
+      "h2": "text-4xl sm:text-5xl tracking-tight leading-tight font-light",
+      "h3": "text-2xl sm:text-3xl tracking-tight",
+      "body": "text-base sm:text-lg text-slate-600 font-light leading-relaxed",
+      "overline": "text-xs tracking-[0.25em] uppercase text-champagne-600 font-semibold"
+    }
+  },
+  "colors": {
+    "background": {
+      "primary": "#FFFFFF",
+      "secondary": "#FAFAFA",
+      "tertiary": "#F2F2F2"
+    },
+    "text": {
+      "primary": "#111111",
+      "secondary": "#4A4A4A",
+      "tertiary": "#8A8A8A"
+    },
+    "accents": {
+      "champagne": "#D4AF37",
+      "champagne_light": "#F7F0D6",
+      "platinum": "#E5E4E2",
+      "gold_glow": "rgba(212, 175, 55, 0.15)"
+    }
+  },
+  "spacing_and_layout": {
+    "philosophy": "Airy, editorial, and sophisticated. Use massive padding (p-16 to p-32) to let the typography and imagery breathe.",
+    "bento_grids": "Use Mode A (Tetris Grid) for 'Community Impact' and 'Services'. Asymmetry creates tension.",
+    "max_width": "max-w-[1400px] mx-auto px-6 sm:px-12",
+    "corners": "Slightly rounded (rounded-xl or rounded-2xl) but lean towards sharp/minimalist (rounded-none for editorial images)."
+  },
+  "surfaces_and_materials": {
+    "glassmorphism": "Use 'Crystal Glass' for Contact Panel and Sticky Header: backdrop-blur-2xl bg-white/70 border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.05)].",
+    "cards": "Premium floating cards with soft ambient shadow on hover (shadow-2xl shadow-champagne/10), 1px solid platinum border (border-platinum)."
+  },
+  "motion_and_interactions": {
+    "smooth_scroll": "Lenis is MANDATORY. Momentum scrolling is critical for the premium Awwwards feel.",
+    "hero_reveal": "Masked line-by-line headline reveal using Framer Motion (y: 100% to 0, overflow hidden wrapper).",
+    "parallax": "Subtle y-axis shifts on large images during scroll.",
+    "pseudo_3d": "Use react-parallax-tilt or framer-motion for Services floating cards (tilt and reflection effect on hover).",
+    "orbital_hub": "Company Ecosystem (3 companies) orbit around the Kailash Group logo. Use Framer Motion for continuous slow rotation of the container, and counter-rotation for the items to keep them upright."
+  },
+  "visual_enhancers": {
+    "textures": "Subtle noise overlay (opacity 2-3%) across the entire site to remove digital flatness.",
+    "glows": "Awards timeline should feature a very soft radial gradient glow (champagne colored) behind the glowing trophies.",
+    "lighting": "Realistic lighting emulation on 3D elements via CSS drop-shadows with multiple layers."
+  },
+  "components_strategy": {
+    "navigation": "Sticky glassmorphism header. Must be z-50. Minimalist logo left, links center, CTA right.",
+    "services_cards": "Floating tall bento cards. Animate on hover with depth (scale up 1.02, elevate shadow).",
+    "awards_timeline": "Horizontal scrolling or flex-row timeline. Elegant minimal vertical lines connecting the nodes.",
+    "about_timeline": "Refined corporate timeline spanning ~20 years. Large elegant typography for years.",
+    "contact_panel": "Split layout. Left: Enquiry form (Shadcn customized). Right: Embedded interactive Google Map of Parramatta NSW wrapped in glassmorphism border.",
+    "marquee": "One slow editorial marquee (Serif font, wide spacing) reading values like 'INTEGRITY • EXCELLENCE • TRUST'."
+  },
+  "image_urls": {
+    "hero_bg": {
+      "url": "https://images.pexels.com/photos/33977174/pexels-photo-33977174.jpeg",
+      "description": "Australian city skyline (Sydney) waterfront, premium view for parallax background."
+    },
+    "property_development": {
+      "url": "https://images.pexels.com/photos/15422346/pexels-photo-15422346.jpeg",
+      "description": "Luxury modern residential architecture."
+    },
+    "legal_services": {
+      "url": "https://images.pexels.com/photos/6077665/pexels-photo-6077665.jpeg",
+      "description": "Elegant justice scales on a premium office desk."
+    },
+    "awards_trophy": {
+      "url": "https://images.pexels.com/photos/6532362/pexels-photo-6532362.jpeg",
+      "description": "Golden trophies for Awards timeline."
+    },
+    "amit_pall_portrait": {
+      "url": "https://images.pexels.com/photos/28426641/pexels-photo-28426641.jpeg",
+      "description": "Professional male corporate leader portrait for About section."
+    },
+    "koala_conservation": {
+      "url": "https://images.unsplash.com/photo-1610616649366-93774a4ee9d4",
+      "description": "Koala bear on a tree for Community Impact section."
+    }
+  },
+  "required_libraries": [
+    "framer-motion",
+    "lenis",
+    "lucide-react",
+    "react-parallax-tilt",
+    "react-fast-marquee"
+  ],
+  "accessibility": {
+    "contrast": "Maintain 4.5:1 ratio. Since it's a light theme, use Deep Onyx (#111111) for text.",
+    "motion": "Respect prefers-reduced-motion for the parallax and orbital hub."
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "No generic centered layouts. Emphasize asymmetry and tension.",
+    "Avoid the 'AI slop' aesthetic by using generous padding (p-16, p-24) and crisp, 1px subtle borders (border-black/5).",
+    "Never apply 'transition: all' as it breaks Framer Motion transforms.",
+    "Do not center-align the app container (.App { text-align: center; } is banned).",
+    "Every interactive element must have hover states (color shift, subtle translate).",
+    "All key informational elements MUST include a 'data-testid' attribute for testing.",
+    "For the UI, the user explicitly chose a LIGHT/white premium theme instead of dark. No dark mode by default.",
+    "If implementing the orbital hub, ensure it is fully responsive, breaking down to a grid on mobile if orbiting is too complex for small screens."
+  ]
+}
