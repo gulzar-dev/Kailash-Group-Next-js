@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
@@ -5,7 +7,7 @@ import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
 import { Reveal } from "../components/Reveal";
 import { CONTACT, COMPANIES } from "../lib/data";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const API = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api`;
 
 export const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "" });

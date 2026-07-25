@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 
 // Masked line-by-line reveal for headlines

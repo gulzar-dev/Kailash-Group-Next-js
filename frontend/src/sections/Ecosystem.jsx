@@ -1,4 +1,6 @@
-import { useNavigate } from "react-router-dom";
+"use client";
+
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "../components/Reveal";
@@ -7,7 +9,7 @@ import { COMPANIES } from "../lib/data";
 // Orbital hub: three companies orbit the Kailash Group logo (desktop),
 // graceful grid on mobile.
 export const Ecosystem = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const radius = 230;
 
   return (
@@ -43,7 +45,7 @@ export const Ecosystem = () => {
                   <motion.button
                     key={c.slug}
                     data-testid={`orbit-${c.slug}`}
-                    onClick={() => navigate(`/company/${c.slug}`)}
+                    onClick={() => router.push(`/company/${c.slug}`)}
                     className="absolute w-[180px] group text-left"
                     style={{ left: cx, top: cy }}
                     animate={{ rotate: -360 }}
@@ -78,7 +80,7 @@ export const Ecosystem = () => {
             <Reveal key={c.slug}>
               <button
                 data-testid={`orbit-mobile-${c.slug}`}
-                onClick={() => navigate(`/company/${c.slug}`)}
+                onClick={() => router.push(`/company/${c.slug}`)}
                 className="glass rounded-2xl p-6 text-left w-full h-full"
               >
                 <div className="overline text-[0.6rem] mb-2">{c.short}</div>

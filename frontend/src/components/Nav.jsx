@@ -1,8 +1,11 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { COMPANIES } from "../lib/data";
+import { COMPANIES } from "@/lib/data";
 
 const links = [
   { label: "Companies", to: "#companies" },
@@ -15,8 +18,8 @@ const links = [
 export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -26,8 +29,8 @@ export const Nav = () => {
 
   const goToHash = (hash) => {
     setOpen(false);
-    if (location.pathname !== "/") {
-      navigate("/" + hash);
+    if (pathname !== "/") {
+      router.push("/" + hash);
     } else {
       document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
     }
@@ -44,7 +47,7 @@ export const Nav = () => {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 flex items-center justify-between">
-        <Link to="/" data-testid="nav-logo" className="flex items-center gap-2 group">
+        <Link href="/" data-testid="nav-logo" className="flex items-center gap-2 group">
           <span className="font-display font-bold text-lg tracking-[0.14em] text-[#0A2540] uppercase">Kailash</span>
           <span className="w-1.5 h-1.5 rounded-full bg-champagne group-hover:scale-150 transition-transform" />
           <span className="font-display font-bold text-lg tracking-[0.14em] text-[#0A2540] uppercase">Group</span>
@@ -98,7 +101,7 @@ export const Nav = () => {
             ))}
             <div className="h-px gold-line my-2" />
             {COMPANIES.map((c) => (
-              <Link key={c.slug} to={`/company/${c.slug}`} onClick={() => setOpen(false)} className="text-sm text-[#5B6B7F]">
+              <Link key={c.slug} href={`/company/${c.slug}`} onClick={() => setOpen(false)} className="text-sm text-[#5B6B7F]">
                 {c.name}
               </Link>
             ))}

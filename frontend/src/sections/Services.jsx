@@ -1,3 +1,5 @@
+"use client";
+
 import Tilt from "react-parallax-tilt";
 import { Reveal } from "../components/Reveal";
 import { SERVICES } from "../lib/data";

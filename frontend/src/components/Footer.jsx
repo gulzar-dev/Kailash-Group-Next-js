@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { CONTACT, COMPANIES } from "../lib/data";
+import Link from "next/link";
+import { CONTACT, COMPANIES } from "@/lib/data";
 
 export const Footer = () => (
   <footer data-testid="site-footer" className="bg-[#0A2540] text-white pt-24 pb-10 relative z-10">
@@ -21,7 +21,7 @@ export const Footer = () => (
           <ul className="space-y-3">
             {COMPANIES.map((c) => (
               <li key={c.slug}>
-                <Link to={`/company/${c.slug}`} className="text-white/70 hover:text-champagne transition-colors">
+                <Link href={`/company/${c.slug}`} className="text-white/70 hover:text-champagne transition-colors">
                   {c.name}
                 </Link>
               </li>

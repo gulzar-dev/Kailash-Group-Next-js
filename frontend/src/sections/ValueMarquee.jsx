@@ -1,3 +1,5 @@
+"use client";
+
 import Marquee from "react-fast-marquee";
 
 const words = ["Integrity", "Excellence", "Trust", "Innovation", "Expertise", "Community"];
