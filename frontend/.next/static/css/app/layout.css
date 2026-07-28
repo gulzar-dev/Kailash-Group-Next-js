@@ -1651,6 +1651,9 @@ video {
 .font-semibold{
   font-weight: 600;
 }
+.uppercase{
+  text-transform: uppercase;
+}
 .italic{
   font-style: italic;
 }
@@ -1683,6 +1686,9 @@ video {
 }
 .tracking-widest{
   letter-spacing: 0.1em;
+}
+.tracking-\[0\.14em\]{
+  letter-spacing: 0.14em;
 }
 .text-\[\#0A2540\]{
   --tw-text-opacity: 1;
@@ -2357,6 +2363,12 @@ body {
 .group:hover .group-hover\:scale-\[1\.03\]{
   --tw-scale-x: 1.03;
   --tw-scale-y: 1.03;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.group:hover .group-hover\:scale-150{
+  --tw-scale-x: 1.5;
+  --tw-scale-y: 1.5;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 

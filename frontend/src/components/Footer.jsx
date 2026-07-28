@@ -6,8 +6,10 @@ export const Footer = () => (
     <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
       <div className="grid md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
         <div className="md:col-span-5">
-          <div className="inline-flex bg-white rounded-xl p-3">
-            <img src="/kailash-logo.png" alt="Kailash Group" className="h-11 w-auto" />
+          <div className="flex items-center gap-2">
+            <span className="font-display font-bold text-2xl tracking-[0.14em] uppercase">Kailash</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-champagne" />
+            <span className="font-display font-bold text-2xl tracking-[0.14em] uppercase">Group</span>
           </div>
           <p className="mt-6 max-w-md text-white/60 font-light leading-relaxed">
             Where legal expertise meets property investment and development — delivering
