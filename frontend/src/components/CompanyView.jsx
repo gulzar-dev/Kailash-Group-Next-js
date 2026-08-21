@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, ExternalLink } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { MaskLines, Reveal } from "@/components/Reveal";
 import { COMPANIES } from "@/lib/data";
@@ -55,6 +55,17 @@ export function CompanyView({ slug }) {
             <Link href="/#contact" className="mt-10 inline-flex btn-gold px-8 py-4 text-sm items-center gap-2">
               Enquire Now <ArrowUpRight size={18} />
             </Link>
+            {company.website && (
+              <a
+                href={company.website}
+                target="_blank"
+                rel="noreferrer"
+                data-testid="company-visit-website"
+                className="mt-4 sm:mt-10 sm:ml-4 inline-flex btn-ghost px-8 py-4 text-sm items-center gap-2"
+              >
+                Visit Website <ExternalLink size={16} />
+              </a>
+            )}
           </Reveal>
           <Reveal delay={0.15}>
             <div className="glass rounded-3xl p-8 sm:p-10">

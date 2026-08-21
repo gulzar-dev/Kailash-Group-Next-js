@@ -15,7 +15,7 @@ export const Hero = ({ onExplore, onContact }) => {
   const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
-    <section ref={ref} data-testid="hero-section" className="relative min-h-screen overflow-hidden">
+    <section ref={ref} data-testid="hero-section" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Parallax background */}
       <motion.div style={{ y: imgY, scale: imgScale }} className="absolute inset-0 -z-10">
         <img src={IMAGES.hero} alt="Australian skyline" className="w-full h-[120%] object-cover" />
@@ -26,7 +26,7 @@ export const Hero = ({ onExplore, onContact }) => {
       {/* Hero content */}
       <motion.div
         style={{ y: textY, opacity: fade }}
-        className="max-w-[1400px] mx-auto px-6 sm:px-12 pt-32 md:pt-40 pb-16 relative z-10"
+        className="max-w-[1400px] mx-auto px-6 sm:px-12 py-32 md:py-24 relative z-10 w-full"
       >
         <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-[5.5rem] leading-[0.98] tracking-tight text-[#0A2540] max-w-5xl mt-4">
           <MaskLines delay={0.4} lines={["Built on Expertise."]} />

@@ -21,7 +21,7 @@ const TEAM = [
     name: "Dhawal Amlani",
     role: "Chief Financial Officer",
     initials: "DA",
-    image: null,
+    image: "/dhawal-amlani.jpeg",
     bio: "Steward of the Group's financial discipline — architecting resilient capital structures across our legal, investment and development businesses.",
     color: "#1E4E8C",
   },
@@ -29,7 +29,7 @@ const TEAM = [
     name: "Sumeet Gupta",
     role: "Business Consultant",
     initials: "SG",
-    image: null,
+    image: "/sumeet-gupta.jpeg",
     bio: "Strategic advisor helping the Group scale with rigour — from operational excellence to market intelligence across Australia and beyond.",
     color: "#C6A15B",
   },
@@ -178,15 +178,19 @@ export function AboutView() {
               The <span className="italic font-accent text-champagne">journey.</span>
             </h2>
           </Reveal>
-          <div className="grid md:grid-cols-5 gap-8 relative">
-            <div className="hidden md:block absolute top-3 left-0 right-0 h-px bg-[#D9E1EC]" />
+          <div className="grid md:grid-cols-5 gap-8">
             {TIMELINE.map((t, i) => (
-              <Reveal key={t.year} delay={i * 0.08} className="relative">
-                <div className="w-2.5 h-2.5 rounded-full bg-champagne mb-6 relative z-10" />
-                <div className="font-display font-semibold text-3xl text-[#0A2540]">{t.year}</div>
-                <div className="mt-2 font-medium text-sm text-[#0A2540]">{t.title}</div>
-                <p className="mt-2 text-sm text-[#5B6B7F] font-light">{t.desc}</p>
-              </Reveal>
+              <div key={t.year} className="relative">
+                {i < TIMELINE.length - 1 && (
+                  <div className="hidden md:block absolute top-[7px] left-1/2 w-full h-px bg-[#D9E1EC] z-0" />
+                )}
+                <Reveal delay={i * 0.08}>
+                  <div className="w-3.5 h-3.5 rounded-full bg-champagne border-2 border-white ring-2 ring-champagne/25 relative z-10 mb-6" />
+                  <div className="font-display font-semibold text-3xl text-[#0A2540]">{t.year}</div>
+                  <div className="mt-2 font-medium text-sm text-[#0A2540]">{t.title}</div>
+                  <p className="mt-2 text-sm text-[#5B6B7F] font-light">{t.desc}</p>
+                </Reveal>
+              </div>
             ))}
           </div>
         </div>

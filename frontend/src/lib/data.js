@@ -34,6 +34,7 @@ export const COMPANIES = [
       "Kailash Lawyers & Consultants brings clarity to complexity. Whether you are buying a home, protecting a family, migrating to Australia or building a business, our team combines rigorous legal expertise with genuine care — serving clients across NSW, Queensland and Western Australia.",
     accent: "#0A2540",
     image: IMG.legal,
+    website: "https://www.kailash.com.au/",
   },
   {
     slug: "koala-invest",
@@ -52,6 +53,7 @@ export const COMPANIES = [
       "Koala Invest guides everyday Australians toward financial success through data-driven property investment. With offices in Parramatta, NSW and Gurgaon, India, we pair rigorous research with a genuine commitment to community — adopting a koala for every client who joins the Koala Invest family.",
     accent: "#1E4E8C",
     image: IMG.apartment,
+    website: "https://koalainvest.com.au/",
   },
   {
     slug: "kuber-projects",
@@ -70,6 +72,7 @@ export const COMPANIES = [
       "Kuber Projects delivers considered, high-quality residential developments from concept to completion. Our end-to-end approach to low-rise density projects is built to maximise ROI for investors while creating homes and communities Australians are proud to live in.",
     accent: "#C6A15B",
     image: IMG.housing,
+    website: "https://kuberprojects.com.au/",
   },
 ];
 

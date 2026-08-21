@@ -37,7 +37,11 @@ export const Footer = () => (
       </div>
       <div className="pt-8 flex flex-col sm:flex-row justify-between gap-4 text-sm text-white/40">
         <span>© {new Date().getFullYear()} Kailash Group. All rights reserved.</span>
-        <span className="font-accent italic">Trust · Expertise · Innovation</span>
+        <div className="flex flex-wrap gap-x-6 gap-y-2">
+          <Link href="/legal/privacy" className="hover:text-champagne transition-colors" data-testid="footer-privacy">Privacy Policy</Link>
+          <Link href="/legal/disclaimer" className="hover:text-champagne transition-colors" data-testid="footer-disclaimer">Disclaimer</Link>
+          <Link href="/legal/acknowledgement" className="hover:text-champagne transition-colors" data-testid="footer-acknowledgement">Acknowledgement</Link>
+        </div>
       </div>
     </div>
   </footer>

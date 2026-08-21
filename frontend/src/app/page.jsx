@@ -7,6 +7,7 @@ import { Ecosystem } from "@/sections/Ecosystem";
 import { Services } from "@/sections/Services";
 import { About } from "@/sections/About";
 import { Awards } from "@/sections/Awards";
+import { LinkedInPosts } from "@/sections/LinkedInPosts";
 import { Community } from "@/sections/Community";
 import { Contact } from "@/sections/Contact";
 import { Footer } from "@/components/Footer";
@@ -31,6 +32,7 @@ export default function HomePage() {
       <Services />
       <About />
       <Awards />
+      <LinkedInPosts />
       <Community />
       <Contact />
       <Footer />

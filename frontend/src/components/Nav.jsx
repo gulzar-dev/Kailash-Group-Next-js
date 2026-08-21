@@ -1,25 +1,27 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { COMPANIES } from "@/lib/data";
 
 const links = [
-  { label: "Companies", to: "#companies" },
+  { label: "Companies", to: "#companies", isDropdown: true },
   { label: "Services", to: "#services" },
   { label: "About", to: "/about", isPage: true },
-  { label: "Awards", to: "#awards" },
+  { label: "Awards", to: "/awards", isPage: true },
   { label: "Community", to: "#community" },
 ];
 
 export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const closeTimer = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -42,6 +44,14 @@ export const Nav = () => {
     }
   };
 
+  const openDrop = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setDropdown(true);
+  };
+  const closeDropSoon = () => {
+    closeTimer.current = setTimeout(() => setDropdown(false), 150);
+  };
+
   return (
     <motion.header
       data-testid="site-nav"
@@ -58,16 +68,57 @@ export const Nav = () => {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-9">
-          {links.map((l) => (
-            <button
-              key={l.label}
-              data-testid={`nav-${l.label.toLowerCase()}`}
-              onClick={() => goToHash(l.to)}
-              className="link-underline text-sm tracking-wide text-[#334155] hover:text-[#0A2540]"
-            >
-              {l.label}
-            </button>
-          ))}
+          {links.map((l) =>
+            l.isDropdown ? (
+              <div
+                key={l.label}
+                className="relative"
+                onMouseEnter={openDrop}
+                onMouseLeave={closeDropSoon}
+              >
+                <button
+                  data-testid={`nav-${l.label.toLowerCase()}`}
+                  className="link-underline inline-flex items-center gap-1 text-sm tracking-wide text-[#334155] hover:text-[#0A2540]"
+                  onClick={() => setDropdown((v) => !v)}
+                >
+                  {l.label} <ChevronDown size={14} className={`transition-transform ${dropdown ? "rotate-180" : ""}`} />
+                </button>
+                <AnimatePresence>
+                  {dropdown && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.18 }}
+                      className="absolute left-1/2 -translate-x-1/2 top-full mt-4 min-w-[280px] glass rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(10,37,64,0.12)]"
+                    >
+                      {COMPANIES.map((c) => (
+                        <Link
+                          key={c.slug}
+                          href={`/company/${c.slug}`}
+                          onClick={() => setDropdown(false)}
+                          data-testid={`nav-company-${c.slug}`}
+                          className="block px-5 py-4 hover:bg-white/50 transition-colors border-b border-black/5 last:border-0"
+                        >
+                          <div className="font-display font-semibold text-[#0A2540] text-sm">{c.name}</div>
+                          <div className="text-xs text-[#5B6B7F] mt-0.5">{c.tagline}</div>
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              <button
+                key={l.label}
+                data-testid={`nav-${l.label.toLowerCase()}`}
+                onClick={() => goToHash(l)}
+                className="link-underline text-sm tracking-wide text-[#334155] hover:text-[#0A2540]"
+              >
+                {l.label}
+              </button>
+            )
+          )}
         </nav>
 
         <button
@@ -97,7 +148,7 @@ export const Nav = () => {
             {links.map((l) => (
               <button
                 key={l.label}
-                onClick={() => goToHash(l)}
+                onClick={() => l.isDropdown ? null : goToHash(l)}
                 className="text-left text-lg font-display text-[#0A2540]"
               >
                 {l.label}

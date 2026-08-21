@@ -121,11 +121,86 @@ class TestEnquiries:
 class TestFrontendRoutes:
     @pytest.mark.parametrize(
         "path",
-        ["/", "/company/kailash-lawyers", "/company/koala-invest", "/company/kuber-projects"],
+        [
+            "/",
+            "/about",
+            "/awards",
+            "/company/kailash-lawyers",
+            "/company/koala-invest",
+            "/company/kuber-projects",
+            "/legal/privacy",
+            "/legal/disclaimer",
+            "/legal/acknowledgement",
+        ],
     )
     def test_route_200(self, api_client, path):
         r = requests.get(f"{BASE_URL}{path}", timeout=60)
         assert r.status_code == 200, f"{path} -> {r.status_code}"
+
+    # New static assets added for awards/about/ecosystem
+    @pytest.mark.parametrize(
+        "asset",
+        ["/logo-white-stack.png", "/dhawal-amlani.jpeg", "/sumeet-gupta.jpeg", "/awards-group.webp", "/amit-pall.jpeg"],
+    )
+    def test_static_assets_200(self, asset):
+        r = requests.get(f"{BASE_URL}{asset}", timeout=60)
+        assert r.status_code == 200, f"{asset} -> {r.status_code}"
+
+    # Legal pages must render the correct h1 title
+    @pytest.mark.parametrize(
+        "path,title",
+        [
+            ("/legal/privacy", "Privacy Policy"),
+            ("/legal/disclaimer", "Disclaimer"),
+            ("/legal/acknowledgement", "Acknowledgement of Country"),
+        ],
+    )
+    def test_legal_page_title(self, path, title):
+        r = requests.get(f"{BASE_URL}{path}", timeout=60)
+        assert r.status_code == 200
+        assert title in r.text, f"{path} missing title {title}"
+
+    def test_legal_unknown_slug_404(self):
+        r = requests.get(f"{BASE_URL}/legal/nope-qa", timeout=60)
+        assert r.status_code == 404, f"expected 404, got {r.status_code}"
+
+    def test_awards_page_content(self):
+        r = requests.get(f"{BASE_URL}/awards", timeout=60)
+        assert r.status_code == 200
+        for token in ["awards-page", "awards-group.webp", "certificate-appreciation",
+                      "Woh Lamhe Musical", "Bandeesh Group", "PropertyGuru",
+                      "Specifically identified", "Koala Invest", "Kuber Projects"]:
+            assert token in r.text, f"/awards missing '{token}'"
+
+    def test_about_page_team_photos(self):
+        r = requests.get(f"{BASE_URL}/about", timeout=60)
+        assert r.status_code == 200
+        for token in ["about-page", "/amit-pall.jpeg", "/dhawal-amlani.jpeg", "/sumeet-gupta.jpeg"]:
+            assert token in r.text, f"/about missing '{token}'"
+        assert "Portrait coming soon" not in r.text
+
+    @pytest.mark.parametrize(
+        "slug,website",
+        [
+            ("kailash-lawyers", "https://www.kailash.com.au/"),
+            ("koala-invest", "https://koalainvest.com.au/"),
+            ("kuber-projects", "https://kuberprojects.com.au/"),
+        ],
+    )
+    def test_company_visit_website(self, slug, website):
+        r = requests.get(f"{BASE_URL}/company/{slug}", timeout=60)
+        assert r.status_code == 200
+        assert "company-visit-website" in r.text
+        assert website in r.text, f"{slug} missing website {website}"
+
+    def test_home_new_sections(self):
+        r = requests.get(f"{BASE_URL}/", timeout=60)
+        assert r.status_code == 200
+        for token in ["linkedin-section", "linkedin-post-0", "linkedin-post-1", "linkedin-post-2",
+                      "linkedin-follow-btn", "logo-white-stack.png", "footer-privacy",
+                      "footer-disclaimer", "footer-acknowledgement", "Reach out"]:
+            assert token in r.text, f"home missing '{token}'"
+        assert "KAILASH • GROUP" not in r.text
 
     def test_unknown_route_returns_404(self, api_client):
         r = requests.get(f"{BASE_URL}/does-not-exist-qa", timeout=60)

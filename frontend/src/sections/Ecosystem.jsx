@@ -65,10 +65,8 @@ export const Ecosystem = () => {
             </motion.div>
             {/* center logo */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="w-40 h-40 rounded-full bg-[#0A2540] flex flex-col items-center justify-center text-white shadow-[0_20px_60px_rgba(17,17,17,0.3)]">
-                <span className="font-display text-2xl">Kailash</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-champagne my-1" />
-                <span className="font-accent italic text-white/60">Group</span>
+              <div className="w-44 h-44 rounded-full bg-[#0A2540] flex items-center justify-center shadow-[0_20px_60px_rgba(10,37,64,0.35)]">
+                <img src="/logo-white-stack.png" alt="Kailash Group" className="w-28 h-28 object-contain" />
               </div>
             </div>
           </div>
