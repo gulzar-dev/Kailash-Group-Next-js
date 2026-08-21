@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "81cdf67625c83e529b1396697cd92dde",
-    "previewModeSigningKey": "5178c84645724fc12e2c1eccd168eeda3b380af3e23aba74e0a5509373cbe974",
-    "previewModeEncryptionKey": "137b351f1602de89903d1003903ead524b2d66db9479069ff2a9c451e7c3e33d"
-  }
-}
+{"version":4,"routes":{"/company/kailash-lawyers":{},"/company/koala-invest":{},"/company/kuber-projects":{}},"dynamicRoutes":{"/company/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/company/[slug]","routeRegex":"^\\/company\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"d8f8a70135f27946163ed2528b5854be","previewModeSigningKey":"f53da9f358ca0b071583aff74863eec04b0c6963241673fa7206454951f0b9b5","previewModeEncryptionKey":"ec8d2d6a2f03b5b5931969254430ecd4a842dc17437620d8c31b38f6dfbc2f67"}}
