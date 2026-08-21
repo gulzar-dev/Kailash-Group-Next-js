@@ -39,7 +39,7 @@ export const Services = () => (
                 className="group relative h-[460px] rounded-2xl overflow-hidden border border-[#D9E1EC] bg-white"
               >
                 <div className="absolute inset-0">
-                  <img src={s.image} alt={s.title} className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-[1.2s]" />
+                  <img src={s.image} alt={s.title} className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-[1200ms]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540]/90 via-[#0A2540]/30 to-transparent" />
                 </div>
                 <div className="relative h-full flex flex-col justify-between p-8 text-white">

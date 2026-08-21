@@ -1604,6 +1604,10 @@ video {
   font-size: 3rem;
   line-height: 1;
 }
+.text-6xl{
+  font-size: 3.75rem;
+  line-height: 1;
+}
 .text-\[0\.6rem\]{
   font-size: 0.6rem;
 }

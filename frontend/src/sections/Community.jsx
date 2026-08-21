@@ -25,7 +25,7 @@ export const Community = () => (
               className="rounded-2xl overflow-hidden bg-white border border-[#D9E1EC] h-full"
             >
               <div className="relative h-56 overflow-hidden">
-                <img src={c.image} alt={c.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-[1.2s]" />
+                <img src={c.image} alt={c.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-[1200ms]" />
                 <span className="absolute top-4 left-4 glass rounded-full px-3 py-1 text-xs font-medium text-[#0A2540]">{c.tag}</span>
               </div>
               <div className="p-7">

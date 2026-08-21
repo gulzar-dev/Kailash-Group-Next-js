@@ -1,0 +1,41 @@
+{
+  "summary": "Verified the Vercel build regression fix and full app regression. `cd /app/frontend && rm -rf .next && yarn build` exits 0 and emits the expected routes table: / (static), /_not-found (static), /company/[slug] (SSG) with all 3 slugs (kailash-lawyers, koala-invest, kuber-projects) = 7 static pages. The previous PageNotFoundError for /_not-found is gone. Backend: 13/14 pytest tests pass (health, status CRUD+persistence, enquiries create/list/validation, frontend route reachability). Frontend: all 8 home sections render, direct + client-side company routing works, custom 404 returns real HTTP 404 with 'Back to Kailash Group' link, and the contact form POSTs /api/enquiries -> 200 with the sonner 'Thank you' toast and form reset. Note: the initial run showed / and company routes returning 500 purely because `rm -rf .next` was executed against the live dev server; after `supervisorctl restart frontend` all routes returned 200. This is a local-dev artifact only, NOT a product bug (Vercel builds in a clean workspace).",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "GET /company/{unknown-slug}", "issue": "Soft 404: an unknown company slug (e.g. /company/not-a-company) returns HTTP 200 and renders CompanyView's client-side 'Company not found' fallback instead of a real 404. Bad for SEO/crawlers. Fix: in src/app/company/[slug]/page.jsx call notFound() from 'next/navigation' when COMPANIES.find(...) is undefined (and/or set `export const dynamicParams = false`)."},
+      {"endpoint": "POST /api/enquiries", "issue": "Always returns 200 even when both Resend emails fail (exceptions only logged). Caller cannot distinguish 'stored + emailed' from 'stored, email dropped'. Consider returning an email_status flag."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Ecosystem orbit cards", "issue": "The orbit company buttons are perpetually animated (bbox moved ~9px x / ~11px y in 600ms), so Playwright's normal click times out with 'element is not stable' and real users have to chase a moving target. Force-click confirms routing works. Recommend pausing the orbit animation on hover/focus (animation-play-state: paused) so the click target settles.", "selector": "[data-testid=\"orbit-koala-invest\"]", "priority": "MEDIUM"},
+      {"component": "Community.jsx / Services.jsx", "issue": "Tailwind emits a build warning on every build: 'The class `duration-[1200ms]` is ambiguous and matches multiple utilities' (collides with tailwindcss-animate's animation-duration). Build still succeeds but the utility may not apply as intended. Fix: use `[transition-duration:1200ms]`.", "selector": ".transition-transform.duration-\\[1200ms\\]", "priority": "LOW"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Contact section", "issues": ["'Area of interest' uses a native browser <select> (data-testid='contact-company') styled with the text-input class, so it renders the OS default dropdown arrow/menu and visually mismatches the rest of the glass form. Replace with the shadcn Select component for consistency."]}
+    ]
+  },
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "Call notFound() in src/app/company/[slug]/page.jsx for unknown slugs so /company/<bad-slug> returns HTTP 404 instead of a soft 200.",
+    "Replace `duration-[1200ms]` with `[transition-duration:1200ms]` in src/sections/Community.jsx:28 and src/sections/Services.jsx:42 to clear the Tailwind ambiguous-class build warning.",
+    "Pause the ecosystem orbit animation on hover/focus so the company cards are a stable click target.",
+    "Optional: swap the native <select> in Contact.jsx for the shadcn Select to match the design system."
+  ],
+  "critical_code_review_comments": [
+    "src/app/company/[slug]/page.jsx renders CompanyView for any slug; the 'not found' state is handled client-side, defeating the new not-found.jsx work for the /company subtree.",
+    "next.config.js hardcodes the preview hostname in allowedDevOrigins — harmless on Vercel (dev-only) but should ideally be env-driven.",
+    "package.json still carries CRA-era deps (react-scripts, cra-template, @craco/craco, react-router-dom) after the Next migration; removing them shrinks the Vercel install/build time and removes a source of resolution conflicts.",
+    "server.py reads EMERGENT_EMAIL_KEY/EMAIL_FROM_NAME/OWNER_EMAIL via os.environ[...] at import time — correct fail-fast, but these must be set in the deployment environment or the backend will refuse to boot."
+  ],
+  "updated_files": ["/app/backend/tests/backend_test.py"],
+  "success_rate": {"backend": "93% (13/14)", "frontend": "100% of core flows (orbit click needs force due to animation)"},
+  "seed_data_creation": "Created 3 test enquiries (name prefixed TEST_QA_/TEST_MIN_, email delivered@resend.dev) and TEST_ status_check docs via the public API. Contact-form UI test also created one enquiry for 'QA Test Bot'.",
+  "should_call_test_agent_after_fix": false,
+  "should_main_agent_self_test": true,
+  "test_credentials": "None required (no auth in app); /app/memory/test_credentials.md not needed",
+  "context_for_next_testing_agent": "Regression suite lives at /app/backend/tests/backend_test.py (pytest, uses NEXT_PUBLIC_BACKEND_URL from /app/frontend/.env). It covers /api/, /api/status, /api/enquiries and frontend route reachability. The one known failure is TestFrontendRoutes::test_unknown_company_slug_404 (soft-404 defect, intentionally left strict). IMPORTANT: do NOT run `rm -rf .next` while the supervisor dev server is running — it makes every route 500 until `sudo supervisorctl restart frontend`. Orbit ecosystem buttons need click(force=True) because of the continuous animation.",
+  "rca_of_the_issue": "Original Vercel failure (PageNotFoundError / 'Failed to collect page data for /_not-found') was caused by the App Router having no explicit not-found boundary after the CRA->Next migration; adding src/app/not-found.jsx supplies the module Next tries to collect during the prerender phase. The Tailwind `duration-[1.2s]` -> `duration-[1200ms]` change removed the hard error but a residual ambiguity warning remains. Verified fix by running the exact Vercel command (`next build`) on a cleaned .next: exit 0, 7/7 pages generated. Both fixes are non-regressive — home, SSG company pages, client-side routing, the 404 route (real HTTP 404) and the contact form -> POST /api/enquiries (200) all still work end-to-end."
+}
