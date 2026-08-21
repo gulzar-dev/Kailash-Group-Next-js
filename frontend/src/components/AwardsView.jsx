@@ -9,34 +9,27 @@ import { MaskLines, Reveal } from "@/components/Reveal";
 
 const COMPANY_AWARDS = [
   {
-    key: "koala-invest",
-    name: "Koala Invest",
-    color: "#1E4E8C",
-    items: [
-      { year: "2021", title: "Local Business Awards" },
-      { year: "2022", title: "Local Business Awards" },
-      { year: "2023", title: "Australian Professionals Small Business Champion Awards" },
-      { year: "2023", title: "Australian Professionals Small Business Champion Awards" },
-      { year: "2025", title: "Local Business Awards" },
-      { year: "2025", title: "Parramatta Local Business Awards", note: "Finalist" },
-    ],
-  },
-  {
     key: "kailash-lawyers",
     name: "Kailash Lawyers & Consultants",
     color: "#0A2540",
     items: [
-      { year: "2021", title: "Local Business Awards" },
-      { year: "2022", title: "NSW Volunteer of the Year" },
-      { year: "2022", title: "Local Business Awards" },
-      { year: "2023", title: "Australian Professionals Small Business Champion Awards" },
-      { year: "2023", title: "Australian Professionals Small Business Champion Awards" },
-      { year: "2025", title: "Australian Professionals Small Business Champion Awards" },
+      { year: "2021", title: "Parramatta Local Business Awards", note: "Winner" },
+      { year: "2022", title: "NSW Volunteer of the Year", note: "Recognition" },
+      { year: "2022", title: "Parramatta Local Business Awards, Outstanding Professional Services", note: "Finalist" },
+      { year: "2023", title: "Australian Small Business Champion Awards, Legal Services", note: "Finalist" },
+      { year: "2025", title: "Australian Small Business Champion Awards", note: "Recognition" },
     ],
-    highlights: [
-      { year: "2021", title: "Parramatta Local Business Awards", tag: "Winner" },
-      { year: "2022", title: "Parramatta Local Business Awards — Outstanding Professional Services", tag: "Finalist" },
-      { year: "2023", title: "Australian Small Business Champion Awards — Legal Services", tag: "Finalist" },
+  },
+  {
+    key: "koala-invest",
+    name: "Koala Invest",
+    color: "#1E4E8C",
+    items: [
+      { year: "2021", title: "Local Business Awards", note: "Recognition" },
+      { year: "2022", title: "Local Business Awards", note: "Recognition" },
+      { year: "2023", title: "Australian Small Business Champion Awards", note: "Recognition" },
+      { year: "2025", title: "Local Business Awards", note: "Recognition" },
+      { year: "2025", title: "Parramatta Local Business Awards", note: "Finalist" },
     ],
   },
   {
@@ -44,7 +37,9 @@ const COMPANY_AWARDS = [
     name: "Kuber Projects",
     color: "#C6A15B",
     items: [
-      { year: "2025", title: "The PropertyGuru Asia Property Awards (Australia)" },
+      { year: "2025", title: "PropertyGuru Asia Property Awards (Australia), Best Breakthrough Developer", note: "Winner" },
+      { year: "2025", title: "PropertyGuru Asia Property Awards (Australia), Best Housing Development (Western Australia), Kuber Villas, Mandurah", note: "Winner" },
+      { year: "2025", title: "PropertyGuru Asia Property Awards (Australia), Best Investment Housing Development, Kuber Villas, Golden Bay", note: "Winner" },
     ],
   },
 ];
@@ -60,15 +55,15 @@ export function AwardsView() {
           <img
             src="/awards-group.webp"
             alt="Kailash Group team at the Australian Professionals Small Business Champion Awards 2025"
-            className="w-full h-full object-cover opacity-45"
+            className="w-full h-full object-cover opacity-95"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540] via-[#0A2540]/70 to-[#0A2540]/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540] via-[#0A2540]/55 to-[#0A2540]/10" />
         </div>
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-12 pb-20 pt-40 w-full text-white">
           <Link href="/" className="inline-flex items-center gap-2 text-sm text-white/80 mb-10 link-underline">
             <ArrowLeft size={16} /> Kailash Group
           </Link>
-          <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-[0.98] max-w-4xl">
+          <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08] max-w-4xl">
             <MaskLines lines={["Awards &"]} />
             <span className="reveal-mask block">
               <motion.span
@@ -81,7 +76,7 @@ export function AwardsView() {
             </span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-white/70 font-light leading-relaxed">
-            Nearly two decades of trust, expertise and community — recognised by
+            Nearly two decades of trust, expertise and community, recognised by
             juries, peers and the industries we serve across Australia.
           </p>
         </div>
@@ -162,8 +157,8 @@ export function AwardsView() {
       <section className="bg-[#F5F8FC] py-20 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
           <Reveal className="mb-10">
-            <h2 className="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[#0A2540] leading-[1.05]">
-              Other <span className="italic font-accent text-champagne">recognition.</span>
+            <h2 className="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[#0A2540] leading-[1.1]">
+              Kailash <span className="italic font-accent text-champagne">Group.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -196,7 +191,7 @@ export function AwardsView() {
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12 flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div>
             <h2 className="font-display font-semibold text-3xl sm:text-4xl">Work with an award-winning team.</h2>
-            <p className="mt-3 text-white/60 font-light">Legal counsel, investment research, and property development — under one roof.</p>
+            <p className="mt-3 text-white/60 font-light">Legal counsel, investment research, and property development, under one roof.</p>
           </div>
           <Link href="/#contact" className="inline-flex px-8 py-4 text-sm items-center gap-2 bg-champagne text-[#0A2540] rounded-[10px] font-medium hover:bg-white transition-colors">
             Reach out to us

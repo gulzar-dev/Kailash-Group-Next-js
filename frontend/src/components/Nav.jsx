@@ -23,6 +23,9 @@ export const Nav = () => {
   const router = useRouter();
   const closeTimer = useRef(null);
 
+  const darkPage = pathname === "/awards" || pathname?.startsWith("/company");
+  const dark = !scrolled && darkPage;
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
@@ -59,12 +62,12 @@ export const Nav = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-[background,box-shadow,padding] duration-500 ${
-        scrolled ? "glass py-3" : "bg-transparent py-6"
+        scrolled ? "glass py-3" : dark ? "bg-[#0A2540]/35 backdrop-blur-md py-5 border-b border-white/10" : "bg-transparent py-6"
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 flex items-center justify-between">
         <Link href="/" data-testid="nav-logo" className="flex items-center group">
-          <img src="/logo-header.png" alt="Kailash Group" className="h-10 sm:h-12 w-auto transition-transform group-hover:scale-[1.03]" />
+          <img src={dark ? "/logo-footer.png" : "/logo-header.png"} alt="Kailash Group" className="h-10 sm:h-12 w-auto transition-transform group-hover:scale-[1.03]" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-9">
@@ -78,7 +81,7 @@ export const Nav = () => {
               >
                 <button
                   data-testid={`nav-${l.label.toLowerCase()}`}
-                  className="link-underline inline-flex items-center gap-1 text-sm tracking-wide text-[#334155] hover:text-[#0A2540]"
+                  className={`link-underline inline-flex items-center gap-1 text-sm tracking-wide ${dark ? "text-white/85 hover:text-white" : "text-[#334155] hover:text-[#0A2540]"}`}
                   onClick={() => setDropdown((v) => !v)}
                 >
                   {l.label} <ChevronDown size={14} className={`transition-transform ${dropdown ? "rotate-180" : ""}`} />
@@ -113,7 +116,7 @@ export const Nav = () => {
                 key={l.label}
                 data-testid={`nav-${l.label.toLowerCase()}`}
                 onClick={() => goToHash(l)}
-                className="link-underline text-sm tracking-wide text-[#334155] hover:text-[#0A2540]"
+                className={`link-underline text-sm tracking-wide ${dark ? "text-white/85 hover:text-white" : "text-[#334155] hover:text-[#0A2540]"}`}
               >
                 {l.label}
               </button>

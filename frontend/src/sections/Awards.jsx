@@ -9,7 +9,7 @@ export const Awards = () => (
   <section id="awards" data-testid="awards-section" className="relative z-10 bg-white py-20 md:py-28 overflow-hidden">
     <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
       <Reveal className="max-w-2xl mb-10">
-        <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.02]">
+        <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.1]">
           Recognised for <span className="italic font-accent text-champagne">excellence.</span>
         </h2>
       </Reveal>

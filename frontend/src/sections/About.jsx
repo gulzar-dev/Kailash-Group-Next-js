@@ -7,7 +7,7 @@ import { TIMELINE, IMAGES } from "../lib/data";
 
 const chapters = [
   { n: "01", t: "A principled foundation", d: "Two decades of leadership under Amit Pall, built on integrity, trust and an unwavering commitment to clients." },
-  { n: "02", t: "Integrated expertise", d: "Legal counsel, investment research and property development — three disciplines, one accountable team." },
+  { n: "02", t: "Integrated expertise", d: "Legal counsel, investment research and property development, three disciplines, one accountable team." },
   { n: "03", t: "Australian at heart", d: "Rooted in Parramatta, serving clients across NSW, Queensland and Western Australia." },
 ];
 

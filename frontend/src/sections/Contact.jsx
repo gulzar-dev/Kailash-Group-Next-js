@@ -24,7 +24,7 @@ export const Contact = () => {
     setLoading(true);
     try {
       await axios.post(`${API}/enquiries`, form);
-      toast.success("Thank you — your enquiry has been sent. We'll be in touch shortly.");
+      toast.success("Thank you, your enquiry has been sent. We'll be in touch shortly.");
       setForm({ name: "", email: "", phone: "", company: "", message: "" });
     } catch (err) {
       toast.error("Something went wrong. Please try again or call us directly.");
@@ -40,7 +40,7 @@ export const Contact = () => {
     <section id="contact" data-testid="contact-section" className="relative z-10 bg-white py-20 md:py-28">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         <Reveal className="max-w-2xl mb-10">
-          <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.02]">
+          <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.1]">
             Reach out <span className="italic font-accent text-champagne">to us.</span>
           </h2>
         </Reveal>
@@ -85,7 +85,7 @@ export const Contact = () => {
             </div>
             <div className="rounded-3xl overflow-hidden border border-[#D9E1EC] flex-1 min-h-[320px] glass p-2">
               <iframe
-                title="Kailash Group — Parramatta NSW"
+                title="Kailash Group, Parramatta NSW"
                 data-testid="contact-map"
                 src={CONTACT.mapEmbed}
                 className="w-full h-full min-h-[300px] rounded-2xl"

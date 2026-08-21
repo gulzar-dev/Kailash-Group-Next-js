@@ -7,7 +7,7 @@ const POSTS = [
   {
     date: "Nov 2025",
     body:
-      "Honoured to see Koala Invest recognised again at the Local Business Awards. Awards are lovely — but the trust of every family who invests with us matters more. Grateful.",
+      "Honoured to see Koala Invest recognised again at the Local Business Awards. Awards are lovely, but the trust of every family who invests with us matters more. Grateful.",
     likes: 412,
     comments: 38,
     reposts: 21,
@@ -16,7 +16,7 @@ const POSTS = [
   {
     date: "Sept 2025",
     body:
-      "Best Investment Housing Development at the PropertyGuru Asia Property Awards — thank you to our Kuber Projects team, partners and every homeowner backing our vision for better Australian communities.",
+      "Best Investment Housing Development at the PropertyGuru Asia Property Awards, thank you to our Kuber Projects team, partners and every homeowner backing our vision for better Australian communities.",
     likes: 806,
     comments: 74,
     reposts: 55,
@@ -45,7 +45,7 @@ export const LinkedInPosts = () => (
     <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
         <Reveal className="max-w-2xl">
-          <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.02]">
+          <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.1]">
             From the <span className="italic font-accent text-champagne">founder.</span>
           </h2>
           <p className="mt-4 text-lg text-[#475569] font-light">

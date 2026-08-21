@@ -33,13 +33,13 @@ export function CompanyView({ slug }) {
       <section className="relative min-h-[85vh] flex items-end overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <img src={company.image} alt={company.name} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-[#0A2540]/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540]/95 via-[#0A2540]/50 to-transparent" />
         </div>
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12 pb-20 w-full">
-          <button data-testid="company-back" onClick={() => router.push("/")} className="inline-flex items-center gap-2 text-sm text-[#0A2540] mb-10 link-underline">
+          <button data-testid="company-back" onClick={() => router.push("/")} className="inline-flex items-center gap-2 text-sm text-white/90 mb-10 link-underline">
             <ArrowLeft size={16} /> Kailash Group
           </button>
-          <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl tracking-tight text-[#0A2540] leading-[0.98] max-w-4xl">
+          <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-[1.08] max-w-4xl">
             <MaskLines lines={[company.name]} />
           </h1>
           <p className="mt-6 font-accent italic text-2xl text-champagne">{company.tagline}</p>

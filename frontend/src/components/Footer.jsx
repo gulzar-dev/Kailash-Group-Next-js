@@ -10,7 +10,7 @@ export const Footer = () => (
             <img src="/logo-footer.png" alt="Kailash Group" className="h-14 w-auto" />
           </div>
           <p className="mt-6 max-w-md text-white/60 font-light leading-relaxed">
-            Where legal expertise meets property investment and development — delivering
+            Where legal expertise meets property investment and development, delivering
             trusted solutions across Australia.
           </p>
         </div>
@@ -40,7 +40,6 @@ export const Footer = () => (
         <div className="flex flex-wrap gap-x-6 gap-y-2">
           <Link href="/legal/privacy" className="hover:text-champagne transition-colors" data-testid="footer-privacy">Privacy Policy</Link>
           <Link href="/legal/disclaimer" className="hover:text-champagne transition-colors" data-testid="footer-disclaimer">Disclaimer</Link>
-          <Link href="/legal/acknowledgement" className="hover:text-champagne transition-colors" data-testid="footer-acknowledgement">Acknowledgement</Link>
         </div>
       </div>
     </div>

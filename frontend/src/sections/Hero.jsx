@@ -28,7 +28,7 @@ export const Hero = ({ onExplore, onContact }) => {
         style={{ y: textY, opacity: fade }}
         className="max-w-[1400px] mx-auto px-6 sm:px-12 py-32 md:py-24 relative z-10 w-full"
       >
-        <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-[5.5rem] leading-[0.98] tracking-tight text-[#0A2540] max-w-5xl mt-4">
+        <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-[5.5rem] leading-[1.08] tracking-tight text-[#0A2540] max-w-5xl mt-4">
           <MaskLines delay={0.4} lines={["Built on Expertise."]} />
           <span className="reveal-mask block">
             <motion.span

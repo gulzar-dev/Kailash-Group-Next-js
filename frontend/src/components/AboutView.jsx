@@ -3,9 +3,9 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, Linkedin, Mail } from "lucide-react";
+import { ArrowUpRight, Linkedin, Mail } from "lucide-react";
 import { Footer } from "@/components/Footer";
-import { MaskLines, Reveal } from "@/components/Reveal";
+import { Reveal } from "@/components/Reveal";
 import { TIMELINE } from "@/lib/data";
 
 const TEAM = [
@@ -22,7 +22,7 @@ const TEAM = [
     role: "Chief Financial Officer",
     initials: "DA",
     image: "/dhawal-amlani.jpeg",
-    bio: "Steward of the Group's financial discipline — architecting resilient capital structures across our legal, investment and development businesses.",
+    bio: "Steward of the Group's financial discipline, architecting resilient capital structures across our legal, investment and development businesses.",
     color: "#1E4E8C",
   },
   {
@@ -30,13 +30,13 @@ const TEAM = [
     role: "Business Consultant",
     initials: "SG",
     image: "/sumeet-gupta.jpeg",
-    bio: "Strategic advisor helping the Group scale with rigour — from operational excellence to market intelligence across Australia and beyond.",
+    bio: "Strategic advisor helping the Group scale with rigour, from operational excellence to market intelligence across Australia and beyond.",
     color: "#C6A15B",
   },
 ];
 
 const values = [
-  { n: "01", t: "Integrity above all", d: "Every recommendation, contract and project is answerable to the client's long-term interest — never the short-term win." },
+  { n: "01", t: "Integrity above all", d: "Every recommendation, contract and project is answerable to the client's long-term interest, never the short-term win." },
   { n: "02", t: "Expertise that connects", d: "Legal, investment and development under one roof means the right specialist is never more than one conversation away." },
   { n: "03", t: "Purpose beyond profit", d: "We measure success not only in value created but in the koalas protected, the elders supported and the communities strengthened." },
 ];
@@ -50,18 +50,9 @@ const Avatar = ({ person }) => {
     );
   }
   return (
-    <div
-      className="aspect-[4/5] w-full rounded-2xl border border-[#D9E1EC] flex items-center justify-center relative overflow-hidden"
-      style={{ background: `linear-gradient(160deg, ${person.color}12, ${person.color}05)` }}
-    >
-      <div
-        className="w-40 h-40 rounded-full flex items-center justify-center font-display font-semibold text-5xl tracking-wide"
-        style={{ background: person.color, color: "#fff" }}
-      >
+    <div className="aspect-[4/5] w-full rounded-2xl border border-[#D9E1EC] flex items-center justify-center" style={{ background: `${person.color}12` }}>
+      <div className="w-40 h-40 rounded-full flex items-center justify-center font-display font-semibold text-5xl text-white" style={{ background: person.color }}>
         {person.initials}
-      </div>
-      <div className="absolute inset-x-8 bottom-6 text-xs text-[#94A3B8] tracking-widest uppercase text-center">
-        Portrait coming soon
       </div>
     </div>
   );
@@ -72,56 +63,32 @@ export function AboutView() {
 
   return (
     <main data-testid="about-page">
-      {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-end overflow-hidden bg-gradient-to-b from-[#F5F8FC] to-white pt-40 pb-20">
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 w-full">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm text-[#0A2540] mb-10 link-underline">
-            <ArrowLeft size={16} /> Kailash Group
-          </Link>
-          <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl tracking-tight text-[#0A2540] leading-[0.98] max-w-4xl">
-            <MaskLines lines={["Built on Expertise."]} />
-            <span className="reveal-mask block">
-              <motion.span
-                className="block italic font-accent text-champagne"
-                initial={{ y: "110%" }} animate={{ y: "0%" }}
-                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
-              >
-                Driven by Purpose.
-              </motion.span>
-            </span>
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg text-[#475569] font-light leading-relaxed">
-            Bringing together expertise across law, property and development to
-            create lasting value for people and communities.
-          </p>
-        </div>
-      </section>
-
-      {/* Story + values */}
-      <section className="bg-white py-16 md:py-20">
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 grid lg:grid-cols-2 gap-16">
-          <Reveal>
-            <p className="font-display text-2xl sm:text-3xl font-light text-[#0A2540] leading-snug">
-              Nearly two decades ago, Amit Pall began a practice grounded in a single
-              conviction: that people deserve advisors who put purpose ahead of profit.
-            </p>
-            <p className="mt-8 text-lg text-[#475569] font-light leading-relaxed">
-              What began as a Parramatta law firm has grown into Kailash Group — an
-              integrated professional services group where legal counsel, property
-              investment research and end-to-end property development live under one
-              accountable roof. Same conviction. Wider reach.
-            </p>
+      {/* Banner + values */}
+      <section className="bg-white pt-32 md:pt-40 pb-16 md:pb-24">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 grid lg:grid-cols-12 gap-10 items-center">
+          <Reveal className="lg:col-span-6">
+            <div className="relative rounded-3xl overflow-hidden border border-[#D9E1EC] aspect-[4/5] lg:aspect-[4/4.6] shadow-[0_30px_80px_rgba(10,37,64,0.12)]">
+              <img src="/about-banner.webp" alt="Kailash Group team" className="w-full h-full object-cover" />
+            </div>
           </Reveal>
-          <Reveal delay={0.15} className="space-y-8">
-            {values.map((v) => (
-              <div key={v.n} className="flex gap-6">
-                <span className="font-accent italic text-2xl text-champagne shrink-0">{v.n}</span>
-                <div>
-                  <h3 className="font-display font-semibold text-xl text-[#0A2540]">{v.t}</h3>
-                  <p className="mt-2 text-[#475569] font-light">{v.d}</p>
+          <Reveal delay={0.15} className="lg:col-span-6">
+            <div className="text-[11px] tracking-[0.28em] uppercase text-champagne font-semibold mb-4">
+              Our team
+            </div>
+            <h2 className="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[#0A2540] leading-[1.15]">
+              One Group. Three specialisms. <span className="italic font-accent text-champagne">One shared standard.</span>
+            </h2>
+            <div className="mt-10 space-y-8">
+              {values.map((v) => (
+                <div key={v.n} className="flex gap-6">
+                  <span className="font-accent italic text-4xl text-champagne shrink-0 leading-none pt-1">{v.n}</span>
+                  <div>
+                    <h3 className="font-display font-semibold text-2xl text-[#0A2540]">{v.t}</h3>
+                    <p className="mt-2 text-[#475569] font-light leading-relaxed">{v.d}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </Reveal>
         </div>
       </section>
@@ -130,12 +97,11 @@ export function AboutView() {
       <section className="bg-[#F5F8FC] py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
           <Reveal className="max-w-2xl mb-14">
-            <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.02]">
+            <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.1]">
               Leadership <span className="italic font-accent text-champagne">team.</span>
             </h2>
             <p className="mt-6 text-lg text-[#475569] font-light">
-              The people behind the Group — advisors, operators and builders,
-              united by a shared standard of care.
+              Advisors, operators and builders, united by a shared standard of care.
             </p>
           </Reveal>
           <div className="grid md:grid-cols-3 gap-8">
@@ -174,7 +140,7 @@ export function AboutView() {
       <section className="bg-white py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
           <Reveal className="mb-14">
-            <h2 className="font-display font-semibold text-4xl sm:text-5xl tracking-tight text-[#0A2540] leading-[1.02]">
+            <h2 className="font-display font-semibold text-4xl sm:text-5xl tracking-tight text-[#0A2540] leading-[1.1]">
               The <span className="italic font-accent text-champagne">journey.</span>
             </h2>
           </Reveal>
@@ -196,18 +162,18 @@ export function AboutView() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-[#0A2540] py-16 md:py-20 text-white">
+      {/* CTA - navy band, gold button (matches Awards CTA) */}
+      <section className="bg-[#0A2540] py-16 md:py-20 text-white" data-testid="about-cta">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12 flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div>
-            <h2 className="font-display font-semibold text-3xl sm:text-4xl">
+            <h2 className="font-display font-semibold text-3xl sm:text-4xl leading-[1.15]">
               Ready to work with a team that means it?
             </h2>
             <p className="mt-3 text-white/60 font-light">
               Start a conversation with our advisors today.
             </p>
           </div>
-          <Link href="/#contact" className="inline-flex btn-gold px-8 py-4 text-sm items-center gap-2 bg-champagne text-[#0A2540] hover:bg-white">
+          <Link href="/#contact" data-testid="about-get-in-touch" className="inline-flex px-8 py-4 text-sm items-center gap-2 bg-champagne text-[#0A2540] rounded-[10px] font-medium hover:bg-white transition-colors">
             Get in Touch <ArrowUpRight size={18} />
           </Link>
         </div>

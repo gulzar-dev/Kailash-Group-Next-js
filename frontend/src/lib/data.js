@@ -1,4 +1,4 @@
-// Central content data for Kailash Group — sourced from kailashgroup.com.au
+// Central content data for Kailash Group, sourced from kailashgroup.com.au
 
 export const CONTACT = {
   phone: "02 9633 4233",
@@ -31,7 +31,7 @@ export const COMPANIES = [
       "Business & Commercial Law",
     ],
     body:
-      "Kailash Lawyers & Consultants brings clarity to complexity. Whether you are buying a home, protecting a family, migrating to Australia or building a business, our team combines rigorous legal expertise with genuine care — serving clients across NSW, Queensland and Western Australia.",
+      "Kailash Lawyers & Consultants brings clarity to complexity. Whether you are buying a home, protecting a family, migrating to Australia or building a business, our team combines rigorous legal expertise with genuine care, serving clients across NSW, Queensland and Western Australia.",
     accent: "#0A2540",
     image: IMG.legal,
     website: "https://www.kailash.com.au/",
@@ -50,7 +50,7 @@ export const COMPANIES = [
       "Buyer Representation",
     ],
     body:
-      "Koala Invest guides everyday Australians toward financial success through data-driven property investment. With offices in Parramatta, NSW and Gurgaon, India, we pair rigorous research with a genuine commitment to community — adopting a koala for every client who joins the Koala Invest family.",
+      "Koala Invest guides everyday Australians toward financial success through data-driven property investment. With offices in Parramatta, NSW and Gurgaon, India, we pair rigorous research with a genuine commitment to community, adopting a koala for every client who joins the Koala Invest family.",
     accent: "#1E4E8C",
     image: IMG.apartment,
     website: "https://koalainvest.com.au/",
@@ -78,19 +78,19 @@ export const COMPANIES = [
 
 export const SERVICES = [
   {
-    n: "01",
+    slug: "kailash-lawyers",
     title: "Legal Services",
-    desc: "Property, family, immigration and commercial law — principled counsel with a personal touch.",
+    desc: "Property, family, immigration and commercial law, principled counsel with a personal touch.",
     image: IMG.legal,
   },
   {
-    n: "02",
+    slug: "koala-invest",
     title: "Real Estate Investment Solutions",
     desc: "Research-led advisory that turns market data into resilient, long-term property portfolios.",
     image: IMG.invest,
   },
   {
-    n: "03",
+    slug: "kuber-projects",
     title: "Property Development",
     desc: "End-to-end delivery of low-rise density projects engineered for quality and return.",
     image: IMG.develop,
@@ -118,7 +118,7 @@ export const AWARDS = [
 export const COMMUNITY = [
   {
     title: "Koala Conservation Australia",
-    desc: "For every client who joins the Koala Invest family, we adopt a koala in their name — protecting an emblem of our natural heritage.",
+    desc: "For every client who joins the Koala Invest family, we adopt a koala in their name, protecting an emblem of our natural heritage.",
     image: "https://images.unsplash.com/photo-1610616649366-93774a4ee9d4?auto=format&fit=crop&w=1400&q=80",
     tag: "Wildlife",
   },

@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const company = COMPANIES.find((c) => c.slug === slug);
   return {
-    title: company ? `${company.name} — Kailash Group` : "Kailash Group",
+    title: company ? `${company.name}, Kailash Group` : "Kailash Group",
     description: company?.intro,
   };
 }

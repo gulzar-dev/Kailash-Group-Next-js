@@ -91,7 +91,12 @@ body {
 .gold-line { background: linear-gradient(90deg, transparent, var(--champagne-bright), transparent); }
 
 /* Masked reveal */
-.reveal-mask { overflow: hidden; display: block; }
+.reveal-mask {
+  overflow: hidden;
+  display: block;
+  padding-bottom: 0.18em;
+  line-height: 1.12;
+}
 
 /* Marquee track */
 .link-underline { position: relative; }
@@ -112,6 +117,15 @@ body {
   transition: transform .35s cubic-bezier(.2,.7,.2,1), background-color .35s ease, color .35s ease;
 }
 .btn-ghost:hover { background: var(--onyx); color: #fff; transform: translateY(-2px); }
+
+.btn-yellow {
+  background: #F5B915;
+  color: #0A2540;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), background-color .35s ease;
+}
+.btn-yellow:hover { background: #FFCA2C; transform: translateY(-2px); }
 
 .custom-cursor { cursor: none; }
 

@@ -16,11 +16,11 @@ export const Ecosystem = () => {
     <section id="companies" data-testid="ecosystem-section" className="relative z-10 bg-[#F5F8FC] py-20 md:py-28 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         <Reveal className="max-w-2xl mb-12">
-          <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.02]">
+          <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.1]">
             One group,<br /><span className="italic font-accent text-champagne">three specialisms.</span>
           </h2>
           <p className="mt-6 text-lg text-[#475569] font-light">
-            Three companies orbit a single vision — connected by the Kailash Group brand,
+            Three companies orbit a single vision, connected by the Kailash Group brand,
             each an expert in its own right.
           </p>
         </Reveal>

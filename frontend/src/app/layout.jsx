@@ -2,7 +2,7 @@ import "@/index.css";
 import { SiteChrome } from "./site-chrome";
 
 export const metadata = {
-  title: "Kailash Group — Legal, Property Investment & Development",
+  title: "Kailash Group, Legal, Property Investment & Development",
   description:
     "Where legal expertise meets property investment and development, delivering trusted solutions across Australia.",
 };
