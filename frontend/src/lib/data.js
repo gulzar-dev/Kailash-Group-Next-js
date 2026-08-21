@@ -10,10 +10,10 @@ export const CONTACT = {
 
 const IMG = {
   legal: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1400&q=80",
-  invest: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80",
-  develop: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80",
-  apartment: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80",
-  housing: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1400&q=80",
+  invest: "/services-koala.png",
+  develop: "/services-kuber.png",
+  apartment: "/services-koala.png",
+  housing: "/services-kuber.png",
 };
 
 export const COMPANIES = [

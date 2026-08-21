@@ -10,7 +10,7 @@ import { COMPANIES } from "@/lib/data";
 const links = [
   { label: "Companies", to: "#companies" },
   { label: "Services", to: "#services" },
-  { label: "About", to: "#about" },
+  { label: "About", to: "/about", isPage: true },
   { label: "Awards", to: "#awards" },
   { label: "Community", to: "#community" },
 ];
@@ -27,8 +27,14 @@ export const Nav = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const goToHash = (hash) => {
+  const goToHash = (link) => {
+    const target = typeof link === "string" ? { to: link } : link;
     setOpen(false);
+    if (target.isPage) {
+      router.push(target.to);
+      return;
+    }
+    const hash = target.to;
     if (pathname !== "/") {
       router.push("/" + hash);
     } else {
@@ -47,10 +53,8 @@ export const Nav = () => {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 flex items-center justify-between">
-        <Link href="/" data-testid="nav-logo" className="flex items-center gap-2 group">
-          <span className="font-display font-bold text-lg tracking-[0.14em] text-[#0A2540] uppercase">Kailash</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-champagne group-hover:scale-150 transition-transform" />
-          <span className="font-display font-bold text-lg tracking-[0.14em] text-[#0A2540] uppercase">Group</span>
+        <Link href="/" data-testid="nav-logo" className="flex items-center group">
+          <img src="/logo-header.png" alt="Kailash Group" className="h-10 sm:h-12 w-auto transition-transform group-hover:scale-[1.03]" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-9">
@@ -93,7 +97,7 @@ export const Nav = () => {
             {links.map((l) => (
               <button
                 key={l.label}
-                onClick={() => goToHash(l.to)}
+                onClick={() => goToHash(l)}
                 className="text-left text-lg font-display text-[#0A2540]"
               >
                 {l.label}

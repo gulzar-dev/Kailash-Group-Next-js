@@ -41,7 +41,7 @@ export const Contact = () => {
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         <Reveal className="max-w-2xl mb-10">
           <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.02]">
-            Let&apos;s transform your <span className="italic font-accent text-champagne">vision</span> into value.
+            Built on Expertise. <span className="italic font-accent text-champagne">Driven by Purpose.</span>
           </h2>
         </Reveal>
 

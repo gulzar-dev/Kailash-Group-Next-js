@@ -29,14 +29,14 @@ export const Hero = ({ onExplore, onContact }) => {
         className="max-w-[1400px] mx-auto px-6 sm:px-12 pt-32 md:pt-40 pb-16 relative z-10"
       >
         <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-[5.5rem] leading-[0.98] tracking-tight text-[#0A2540] max-w-5xl mt-4">
-          <MaskLines delay={0.4} lines={["Transforming Your", "Real Estate Vision"]} />
+          <MaskLines delay={0.4} lines={["Built on Expertise."]} />
           <span className="reveal-mask block">
             <motion.span
               className="block italic font-accent text-champagne"
               initial={{ y: "110%" }} animate={{ y: "0%" }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.76 }}
             >
-              Into Value.
+              Driven by Purpose.
             </motion.span>
           </span>
         </h1>
@@ -46,8 +46,8 @@ export const Hero = ({ onExplore, onContact }) => {
           transition={{ delay: 1.1, duration: 0.9 }}
           className="mt-8 max-w-xl text-lg text-[#475569] font-light leading-relaxed"
         >
-          Where legal expertise meets property investment and development,
-          delivering trusted solutions across Australia.
+          Bringing together expertise across law, property and development
+          to create lasting value for people and communities.
         </motion.p>
 
         <motion.div
