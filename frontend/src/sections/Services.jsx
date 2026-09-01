@@ -45,7 +45,7 @@ export const Services = () => {
                 >
                   <div className="absolute inset-0">
                     <img src={s.image} alt={s.title} className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-[1200ms]" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540]/92 via-[#0A2540]/35 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540] via-[#0A2540]/70 via-40% to-transparent" />
                   </div>
                   <div className="relative h-full flex flex-col justify-end p-8 text-white">
                     <div className="flex items-start justify-between">

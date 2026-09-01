@@ -40,7 +40,7 @@ export const COMPANIES = [
   {
     slug: "koala-invest",
     name: "Koala Invest",
-    short: "Invest",
+    short: "Real Estate",
     tagline: "Research-led property investment.",
     intro:
       "A licensed real estate research and advisory firm focused on residential property investment for long-term wealth.",
