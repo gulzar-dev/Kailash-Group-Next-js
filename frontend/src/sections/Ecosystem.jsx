@@ -66,7 +66,7 @@ export const Ecosystem = () => {
             {/* center logo */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <div className="w-44 h-44 rounded-full bg-[#0A2540] flex items-center justify-center shadow-[0_20px_60px_rgba(10,37,64,0.35)]">
-                <img src="/logo-white-stack.png" alt="Kailash Group" className="w-28 h-28 object-contain" />
+                <img src="/kailash-logo-vertical-white.png" alt="Kailash Group" className="w-32 h-32 object-contain" />
               </div>
             </div>
           </div>
