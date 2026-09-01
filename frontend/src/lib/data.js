@@ -29,9 +29,10 @@ export const COMPANIES = [
       "Family Law",
       "Immigration Law",
       "Business & Commercial Law",
+      "Pro Bono Services",
     ],
     body:
-      "Kailash Lawyers & Consultants brings clarity to complexity. Whether you are buying a home, protecting a family, migrating to Australia or building a business, our team combines rigorous legal expertise with genuine care, serving clients across NSW, Queensland and Western Australia.",
+      "Kailash Lawyers & Consultants brings clarity to complexity. Whether you are buying a home, protecting a family, migrating to Australia or building a business, our team combines rigorous legal expertise with genuine care, serving clients across Australia. We are also proud to offer pro bono support to those who need it most.",
     accent: "#0A2540",
     image: IMG.legal,
     website: "https://www.kailash.com.au/",
@@ -80,7 +81,7 @@ export const SERVICES = [
   {
     slug: "kailash-lawyers",
     title: "Legal Services",
-    desc: "Property, family, immigration and commercial law, principled counsel with a personal touch.",
+    desc: "Property, family, immigration and commercial law, plus pro bono support, principled counsel with a personal touch.",
     image: IMG.legal,
   },
   {

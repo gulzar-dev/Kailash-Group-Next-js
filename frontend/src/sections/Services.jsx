@@ -54,7 +54,7 @@ export const Services = () => {
                         <ArrowUpRight size={16} className="text-white" />
                       </span>
                     </div>
-                    <p className="mt-3 text-sm text-white/75 font-light max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-500 overflow-hidden">
+                    <p className="mt-3 text-sm text-white/90 font-light leading-relaxed">
                       {s.desc}
                     </p>
                   </div>
