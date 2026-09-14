@@ -54,7 +54,7 @@ export const LinkedInPosts = () => (
         </Reveal>
         <Reveal delay={0.1}>
           <a
-            href="https://www.linkedin.com/"
+            href="https://au.linkedin.com/in/amit-pall-a0236710"
             target="_blank"
             rel="noreferrer"
             data-testid="linkedin-follow-btn"

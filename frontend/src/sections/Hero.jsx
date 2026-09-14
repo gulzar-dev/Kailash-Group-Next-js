@@ -41,14 +41,14 @@ export const Hero = ({ onExplore, onContact }) => {
           </span>
         </h1>
 
-        <motion.p
+        <motion.h2
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.9 }}
           className="mt-8 max-w-xl text-lg text-[#475569] font-light leading-relaxed"
         >
-          Bringing together expertise across law, property and development
-          to create lasting value for people and communities.
-        </motion.p>
+          We bring legal, property investment and development across Australia into one
+          connected group, creating lasting value for people and communities nationwide.
+        </motion.h2>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}

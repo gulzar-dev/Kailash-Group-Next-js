@@ -54,6 +54,34 @@ pseudo-3D parallax and an orbital company hub.
 - Added LinkedIn (https://www.linkedin.com/in/amit-pall-a0236710/) and mailto
   (amit@kailashgroup.com.au) links to Amit Pall's contact icons on About page.
 
+## SEO / Technical Hardening (2026-08-14)
+- Route-level metadata added per page (canonical/openGraph built from NEXT_PUBLIC_SITE_URL):
+  `/`, `/company/kailash-lawyers`, `/company/koala-invest`, `/company/kuber-projects`,
+  `/legal/privacy`, `/legal/disclaimer`. Helper: `lib/seo.js` (`buildMetadata`).
+  Home page split into server `app/page.jsx` (metadata) + client `components/HomeClient.jsx`
+  (Next.js disallows metadata export from "use client" files).
+- JSON-LD: `lib/jsonld.js` — Organization + Person in root layout `<head>`; LegalService
+  (Kailash Lawyers & Consultants, with the Google Maps sameAs) injected only on
+  `/company/kailash-lawyers`. NAP centralised in `lib/data.js` `CONTACT` (address, addressParts,
+  phoneIntl, mapUrl).
+- `app/sitemap.js` + `app/robots.js` (plain JS, project has no TypeScript setup) — both read
+  `NEXT_PUBLIC_SITE_URL`.
+- `next.config.js`: 308 redirects for legacy `.html` routes; `X-Robots-Tag: noindex` header
+  applied whenever request Host != `NEXT_PUBLIC_SITE_URL` host (works on any host, not
+  Vercel-specific — verified via curl with different Host headers).
+- Hero sub-headline converted to `<h2>` containing "legal, property investment and
+  development across Australia"; copy rewritten to surface all 3 services + national
+  footprint near the top of the page (h1 unchanged).
+- Footer/contact NAP corrected to "Suite 1, Level 2, 60 Phillip Street, Parramatta NSW 2150,
+  Australia"; Contact "Visit" link now points to the real Google Maps place; LinkedIn
+  "Follow" link points to https://au.linkedin.com/in/amit-pall-a0236710; privacy page
+  contact block now sources email/phone/address from `CONTACT` (removed stray info@ email).
+- `.env.example` added for frontend and backend (placeholders + one-line comments);
+  `.gitignore` hardened (`.env`, `.env.*.local`).
+- Added `NEXT_PUBLIC_SITE_URL=https://kailashgroup.com.au` to frontend `.env` (drives
+  canonicals/schema; also means the current preview host correctly gets noindex).
+- No Vercel-specific APIs; standard `next build`/`next start`, no static export.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.

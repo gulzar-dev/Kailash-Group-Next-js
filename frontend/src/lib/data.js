@@ -2,8 +2,17 @@
 
 export const CONTACT = {
   phone: "02 9633 4233",
+  phoneIntl: "+61 2 9633 4233",
   email: "amit@kailashgroup.com.au",
-  address: "60 Phillip Street, Parramatta, NSW 2150, Australia",
+  address: "Suite 1, Level 2, 60 Phillip Street, Parramatta NSW 2150, Australia",
+  addressParts: {
+    streetAddress: "Suite 1, Level 2, 60 Phillip Street",
+    addressLocality: "Parramatta",
+    addressRegion: "NSW",
+    postalCode: "2150",
+    addressCountry: "AU",
+  },
+  mapUrl: "https://maps.app.goo.gl/U8qqMxhN64TUYtFm9",
   mapEmbed:
     "https://www.google.com/maps?q=60+Phillip+Street+Parramatta+NSW+2150&output=embed",
 };

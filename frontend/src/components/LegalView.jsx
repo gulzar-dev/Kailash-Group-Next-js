@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { CONTACT } from "@/lib/data";
 
 const PRIVACY_SECTIONS = [
   { h: "1. Introduction", p: [
@@ -115,9 +116,9 @@ const PRIVACY_SECTIONS = [
   { h: "18. Contact Us", p: [
     "For questions, access or correction requests, or privacy-related concerns, please contact:",
     "Kailash Group",
-    "Suite 1, Level 2, 60 Phillip Street, Parramatta NSW 2150, Australia",
-    "Phone: 02 9633 4233",
-    "Email: info@kailashgroup.com.au",
+    CONTACT.address,
+    `Phone: ${CONTACT.phone}`,
+    `Email: ${CONTACT.email}`,
   ]},
 ];
 

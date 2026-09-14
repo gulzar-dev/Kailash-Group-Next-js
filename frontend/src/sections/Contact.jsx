@@ -74,9 +74,9 @@ export const Contact = () => {
               {[
                 { Icon: Phone, label: "Call", val: CONTACT.phone, href: `tel:${CONTACT.phone}` },
                 { Icon: Mail, label: "Email", val: CONTACT.email, href: `mailto:${CONTACT.email}` },
-                { Icon: MapPin, label: "Visit", val: "Parramatta, NSW", href: "#" },
+                { Icon: MapPin, label: "Visit", val: "Parramatta, NSW", href: CONTACT.mapUrl },
               ].map(({ Icon, label, val, href }) => (
-                <a key={label} href={href} className="glass rounded-2xl p-5 hover:-translate-y-1 transition-transform block">
+                <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} className="glass rounded-2xl p-5 hover:-translate-y-1 transition-transform block">
                   <Icon className="text-champagne mb-3" size={20} />
                   <div className="overline text-[0.6rem] mb-1">{label}</div>
                   <div className="text-sm text-[#0A2540] break-words">{val}</div>
