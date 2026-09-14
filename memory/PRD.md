@@ -84,6 +84,55 @@ pseudo-3D parallax and an orbital company hub.
 - `/about` main heading ("One Group. Three specialisms...") changed h2 -> h1 (same classes,
   no visual change); every route now has exactly one h1.
 
+## New Features (2026-08-14) — LinkedIn section (data-driven) + Enquiry form (Resend)
+- Frontend now supports TypeScript (added `typescript@5`, `@types/node`, `@types/react`,
+  `@types/react-dom`; `tsconfig.json` created, `jsconfig.json` left in place unused).
+  IMPORTANT: pin `typescript@^5` — `^6`/latest installs TS7 native compiler which Next 15.5
+  does not support ("Failed to compile").
+- `src/data/linkedin-posts.ts` — typed `LinkedInPost[]`, `getLinkedInPosts()` async getter
+  (TODO comment marks where to swap in a CMS/DB call). Seeded with the original 3 posts;
+  `reactions` = sum of old likes+comments+reposts; permalinks = LinkedIn profile URL.
+- `src/app/api/linkedin-posts/route.ts` — GET, returns the same shape as JSON, documented.
+- Home page (`app/page.jsx`, server component) calls `getLinkedInPosts()` server-side,
+  passes top-3 as a prop through `HomeClient` -> `LinkedInPosts` (still "use client" for
+  the Reveal/motion wrapper, but data is embedded in the server-rendered HTML — not
+  fetched client-side, not lazy). Section returns `null` (hides entirely) if the array is
+  empty or the source throws.
+- `src/app/api/enquiry/route.ts` — new Resend-based enquiry endpoint (Node runtime):
+  zod validation (name/email/message required, phone optional, company restricted to the
+  3 company names + "General" or blank), honeypot field (`website`), in-memory per-IP rate
+  limit (5/hour, comment notes moving to Redis if ever multi-instance), owner email
+  (reply-to = enquirer) + confirmation email to enquirer via Resend, structured JSON
+  console.log per submission, Sydney-time timestamp + submitting page in the owner email.
+  Reads `RESEND_API_KEY`, `LEAD_NOTIFICATION_EMAIL`, `TRANSACTIONAL_FROM_EMAIL` from env —
+  NOTE: Resend Node SDK resolves `{ data, error }` instead of throwing on API-level
+  failures; route checks `.error` explicitly.
+- `src/instrumentation.ts` — `register()` throws a clear error naming `RESEND_API_KEY` if
+  missing, so the whole server fails to start on the VPS if it's unset (verified: crashes
+  cleanly when unset, restored placeholder value afterwards so the preview stays up).
+- `sections/Contact.jsx` — posts to relative `/api/enquiry` (same-origin, no more
+  `NEXT_PUBLIC_BACKEND_URL` for this form); added hidden honeypot input, inline
+  success/error message under the submit button, `window.dataLayer.push({event:
+  "enquiry_submitted"})` on success (GA4-ready, no GA snippet installed yet).
+- `.env` / `.env.example` — added `RESEND_API_KEY` (placeholder — user hasn't signed up
+  yet), `LEAD_NOTIFICATION_EMAIL=amit@kailashgroup.com.au`, `TRANSACTIONAL_FROM_EMAIL=
+  onboarding@resend.dev` (Resend's test sender, only delivers to the account owner's own
+  verified email until a domain is verified — user chose this for now).
+- KNOWN PLATFORM QUIRK (this preview only): the Emergent ingress routes ALL `/api/*`
+  requests on the public preview domain to the legacy FastAPI service on :8001, never to
+  Next.js on :3000. So `/api/enquiry` and `/api/linkedin-posts` are unreachable through the
+  public browser URL here — verified this is ingress-level (curl to a nonexistent /api/*
+  path returns FastAPI's `{"detail":"Not Found"}`). Both routes were verified directly via
+  curl to `localhost:3000` inside the container (bypasses ingress) and work correctly;
+  the LinkedIn section itself is unaffected (SSR calls the data function directly, no HTTP
+  hop). On the real VPS deploy target (`next start`, no such ingress split) both routes
+  will work through the public form exactly as coded. FastAPI's old `/api/enquiries` route
+  (Emergent-managed email) still exists in `backend/server.py`, untouched, now unused by
+  the frontend — safe to remove later if this Next.js-only path is confirmed as the
+  permanent architecture.
+- User has not yet created a Resend account/API key; `RESEND_API_KEY` is a placeholder.
+  Real lead emails will not send until the user replaces it with a real key.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.

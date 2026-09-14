@@ -12,7 +12,7 @@ import { Community } from "@/sections/Community";
 import { Contact } from "@/sections/Contact";
 import { Footer } from "@/components/Footer";
 
-export function HomeClient() {
+export function HomeClient({ linkedinPosts = [] }) {
   const scrollTo = useCallback((id) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   }, []);
@@ -32,7 +32,7 @@ export function HomeClient() {
       <Services />
       <About />
       <Awards />
-      <LinkedInPosts />
+      <LinkedInPosts posts={linkedinPosts} />
       <Community />
       <Contact />
       <Footer />

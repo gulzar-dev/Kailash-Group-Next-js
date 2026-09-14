@@ -3,15 +3,14 @@
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
-import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { Reveal } from "../components/Reveal";
 import { CONTACT, COMPANIES } from "../lib/data";
 
-const API = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api`;
-
 export const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "", website: "" });
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | success | error
 
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
 
@@ -22,12 +21,22 @@ export const Contact = () => {
       return;
     }
     setLoading(true);
+    setStatus("idle");
     try {
-      await axios.post(`${API}/enquiries`, form);
+      await axios.post("/api/enquiry", {
+        ...form,
+        page: typeof window !== "undefined" ? window.location.pathname : "/",
+      });
+      setStatus("success");
       toast.success("Thank you, your enquiry has been sent. We'll be in touch shortly.");
-      setForm({ name: "", email: "", phone: "", company: "", message: "" });
+      if (typeof window !== "undefined") {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "enquiry_submitted" });
+      }
+      setForm({ name: "", email: "", phone: "", company: "", message: "", website: "" });
     } catch (err) {
-      toast.error("Something went wrong. Please try again or call us directly.");
+      setStatus("error");
+      toast.error("Something went wrong. Please try again or call us on 02 9633 4233.");
     } finally {
       setLoading(false);
     }
@@ -49,6 +58,18 @@ export const Contact = () => {
           {/* Form panel */}
           <Reveal className="glass rounded-3xl p-8 sm:p-10">
             <form onSubmit={submit} className="space-y-5" data-testid="contact-form">
+              {/* Honeypot: hidden from real visitors, left blank by them; bots often fill it */}
+              <input
+                type="text"
+                name="website"
+                value={form.website}
+                onChange={set("website")}
+                autoComplete="off"
+                tabIndex={-1}
+                aria-hidden="true"
+                data-testid="contact-honeypot"
+                style={{ position: "absolute", left: "-9999px", width: 0, height: 0, opacity: 0 }}
+              />
               <div className="grid sm:grid-cols-2 gap-5">
                 <input data-testid="contact-name" className={inputCls} placeholder="Full name *" value={form.name} onChange={set("name")} />
                 <input data-testid="contact-email" type="email" className={inputCls} placeholder="Email address *" value={form.email} onChange={set("email")} />
@@ -65,6 +86,16 @@ export const Contact = () => {
               <button data-testid="contact-submit" type="submit" disabled={loading} className="btn-gold px-8 py-4 text-sm inline-flex items-center gap-2 w-full sm:w-auto justify-center">
                 {loading ? <><Loader2 size={18} className="animate-spin" /> Sending…</> : <>Send Enquiry <Send size={16} /></>}
               </button>
+              {status === "success" && (
+                <p data-testid="contact-success-message" className="flex items-center gap-2 text-sm text-emerald-600 font-medium">
+                  <CheckCircle2 size={16} /> Thank you — your enquiry has been received. We'll be in touch shortly.
+                </p>
+              )}
+              {status === "error" && (
+                <p data-testid="contact-error-message" className="flex items-center gap-2 text-sm text-red-500 font-medium">
+                  <AlertCircle size={16} /> Something went wrong. Please call us on 02 9633 4233.
+                </p>
+              )}
             </form>
           </Reveal>
 
