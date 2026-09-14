@@ -90,22 +90,22 @@ export function AboutView() {
               Advisors, operators and builders, united by a shared standard of care.
             </p>
           </Reveal>
-          <div className="grid max-w-sm mx-auto">
+          <div className="max-w-3xl mx-auto">
             {TEAM.map((p, i) => (
               <Reveal key={p.name} delay={i * 0.1}>
                 <motion.div
                   whileHover={{ y: -6 }}
                   transition={{ type: "spring", stiffness: 220, damping: 22 }}
                   data-testid={`team-${p.initials.toLowerCase()}`}
-                  className="bg-white rounded-3xl overflow-hidden border border-[#D9E1EC] h-full flex flex-col"
+                  className="bg-white rounded-3xl overflow-hidden border border-[#D9E1EC] flex flex-col sm:flex-row"
                 >
-                  <div className="p-4">
+                  <div className="p-4 sm:w-64 sm:shrink-0">
                     <Avatar person={p} />
                   </div>
-                  <div className="px-7 pb-7 pt-1 flex-1 flex flex-col">
+                  <div className="px-7 pb-7 pt-1 sm:pt-7 flex-1 flex flex-col justify-center">
                     <div className="font-display font-semibold text-2xl text-[#0A2540]">{p.name}</div>
                     <div className="mt-1 text-sm text-champagne font-medium tracking-wide uppercase">{p.role}</div>
-                    <p className="mt-4 text-[#475569] font-light leading-relaxed flex-1">{p.bio}</p>
+                    <p className="mt-4 text-[#475569] font-light leading-relaxed">{p.bio}</p>
                     <div className="mt-6 flex gap-3">
                       <a
                         href={p.linkedin}

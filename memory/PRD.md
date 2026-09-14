@@ -177,6 +177,10 @@ pseudo-3D parallax and an orbital company hub.
   title/description locations.
 - Documentation only — no code changes in this pass.
 
+- About page leadership card (Amit Pall) changed from vertical to sideways/horizontal
+  layout on desktop (photo left, details right) for a more balanced look; stacks vertically
+  on mobile (`components/AboutView.jsx`).
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
