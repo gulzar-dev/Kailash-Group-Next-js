@@ -1,70 +1,194 @@
-# Getting Started with Create React App
+# Kailash Group — Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Marketing site and lead-generation forms for Kailash Group (legal services, property
+investment advisory and property development, operating across Australia from Parramatta,
+NSW). This document is for the developer deploying this repo to production.
 
-## Available Scripts
+## Stack
 
-In the project directory, you can run:
+- **Next.js 15** (App Router, `src/app`), React 19.
+- **Tailwind CSS** for styling, **Framer Motion** + **Lenis** for animation/smooth scroll.
+- **Zod** for server-side validation, **Resend** for transactional email.
+- No database. No CMS (LinkedIn post content is a static TypeScript file — see below).
+- A legacy FastAPI service lives in `../backend` (Python, MongoDB). **It is not used by the
+  current frontend** — the enquiry form and LinkedIn posts are served by this Next.js app's
+  own API routes (`src/app/api/enquiry`, `src/app/api/linkedin-posts`). You do not need to
+  deploy `../backend` for this site to work. It's kept in the repo only in case some other
+  part of the org still calls it directly.
 
-### `npm start`
+## Local setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+cd frontend
+yarn install
+cp .env.example .env.local   # fill in real values, see table below
+yarn start                   # next dev -p 3000 -H 0.0.0.0
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Open `http://localhost:3000`.
 
-### `npm test`
+`.env.local` is git-ignored and always overrides `.env` — use it for your own local secrets
+instead of editing `.env`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Environment variables
 
-### `npm run build`
+All variables are read via `process.env` — there are no hardcoded fallbacks anywhere in the
+codebase, so a missing variable fails fast (either the app won't build/start, or the
+specific feature that depends on it will error).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Variable | Used for | What breaks if it's missing |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Canonical domain for all metadata (`<link rel="canonical">`, Open Graph `url`), `app/sitemap.js`, `app/robots.js`, `app/llms.txt`, all JSON-LD `url` fields, and the noindex-guard host check in `next.config.js`. | `layout.jsx`'s `metadataBase = new URL(SITE_URL)` **throws at build/start time** if this is unset or not a valid URL — the whole app fails to boot. Must be set to `https://kailashgroup.com.au` in production. |
+| `RESEND_API_KEY` | Authenticates the Resend SDK in `src/app/api/enquiry/route.ts`. | `src/instrumentation.ts` throws on server startup if this is unset, naming the variable in the error — the whole app refuses to start. This is intentional: a missing key should be impossible to miss on a VPS. |
+| `LEAD_NOTIFICATION_EMAIL` | The inbox that receives every enquiry-form submission (`to:` on the owner email). | Enquiry emails have nowhere to go — Resend will reject the send (invalid/empty recipient) and the form shows its "please call us" fallback error instead of succeeding. |
+| `TRANSACTIONAL_FROM_EMAIL` | The `from:` address for both the owner-notification and the enquirer-confirmation emails. Must be verified in your Resend account (or use Resend's sandbox address `onboarding@resend.dev`, which only delivers to your own Resend account email). | Same failure mode as above — Resend rejects the send, form shows the fallback error. |
+| `NEXT_PUBLIC_BACKEND_URL`, `REACT_APP_BACKEND_URL` | **Legacy, unused.** Left over from an earlier build that called the FastAPI backend directly. Nothing in `src/` reads these anymore (the enquiry form now posts to the relative path `/api/enquiry`). | Nothing — safe to delete once you're comfortable, kept for now so nothing that might still reference them elsewhere breaks. |
+| `WDS_SOCKET_PORT`, `ENABLE_HEALTH_CHECK` | **Legacy, unused.** Left over from the original Create React App scaffold (`craco.config.js`, `webpack-dev-server`). Next.js's own dev server doesn't read either. | Nothing. Safe to remove. |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Build and run
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+yarn build     # next build
+yarn start:prod # next start -p 3000 -H 0.0.0.0
+```
 
-### `npm run eject`
+**This is not a static export.** There is no `output: 'export'` in `next.config.js`, and
+there must not be one added — `/api/enquiry` and `/api/linkedin-posts` are server-side
+Route Handlers that run Node code (Resend SDK calls, in-memory rate limiting, `zod`
+validation) on every request. A static export would silently drop these routes. Always run
+`next build` followed by `next start` on a persistent Node process — never `next export` or
+a static file host.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Recommended VPS setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Node.js LTS** (Node 20 or 22). Check `node -v` before anything else — Next.js 15
+   requires Node ≥ 18.18, but stick to an LTS release for stability.
+2. **Install `sharp`** on the server: `npm install sharp` (or `yarn add sharp`) inside the
+   project. Next.js's built-in image optimisation (`next/image`, used indirectly by the
+   `images.remotePatterns` config) uses `sharp` in production when it's available and falls
+   back to a slower, unoptimised path without it. It's an optional dependency, so it's easy
+   to forget — install it explicitly on the VPS.
+3. **Process manager** — keep the Node process alive across reboots and crashes. Either:
+   - **pm2**: `pm2 start "yarn start:prod" --name kailash-group` then `pm2 save` and
+     `pm2 startup` to survive reboots; or
+   - **systemd unit**, e.g. `/etc/systemd/system/kailash-group.service`:
+     ```ini
+     [Unit]
+     Description=Kailash Group Next.js site
+     After=network.target
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+     [Service]
+     WorkingDirectory=/var/www/kailash-group/frontend
+     ExecStart=/usr/bin/yarn start:prod
+     Restart=always
+     Environment=NODE_ENV=production
+     EnvironmentFile=/var/www/kailash-group/frontend/.env
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+     [Install]
+     WantedBy=multi-user.target
+     ```
+     Then `systemctl enable --now kailash-group`.
+4. **nginx reverse proxy** — proxy the public domain to the Next.js port (3000 by default):
+   ```nginx
+   server {
+     listen 80;
+     server_name kailashgroup.com.au www.kailashgroup.com.au;
 
-## Learn More
+     location / {
+       proxy_pass http://127.0.0.1:3000;
+       proxy_http_version 1.1;
+       proxy_set_header Upgrade $http_upgrade;
+       proxy_set_header Connection "upgrade";
+       proxy_set_header Host $host;
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_set_header X-Forwarded-Proto $scheme;
+     }
+   }
+   ```
+   `X-Forwarded-For` matters: the enquiry form's rate limiter
+   (`src/app/api/enquiry/route.ts`) reads `x-forwarded-for` to identify the caller's IP.
+   Without it, every request looks like it comes from the same address (nginx's own IP)
+   and the 5-per-hour limit is shared across all real visitors.
+5. **TLS via Let's Encrypt** — `certbot --nginx -d kailashgroup.com.au -d www.kailashgroup.com.au`
+   (or your preferred ACME client). Renewals are automatic with certbot's default systemd
+   timer; just confirm `certbot renew --dry-run` succeeds once after setup.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Do not duplicate the redirects in nginx
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`next.config.js` already defines seven permanent (308) redirects for the old `.html` URLs:
 
-### Code Splitting
+```
+/index.html          -> /
+/about.html           -> /#about
+/company.html         -> /#companies
+/award.html           -> /#awards
+/contact.html         -> /#contact
+/privacy-policy.html  -> /legal/privacy
+/disclaimer.html      -> /legal/disclaimer
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+These are handled entirely inside Next.js. **Do not also add `rewrite`/`return 301` rules
+for these paths in the nginx config** — nginx runs in front of Next.js, so if it intercepts
+these paths first, Next's redirect logic never runs, and the two configs can silently drift
+out of sync over time. Let every request pass through to Next.js and let `next.config.js`
+be the single source of truth for these routes.
 
-### Analyzing the Bundle Size
+## The noindex safety header — do not remove
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+`next.config.js`'s `headers()` function adds `X-Robots-Tag: noindex` to every response **on
+any host that does not exactly match `NEXT_PUBLIC_SITE_URL`**:
 
-### Making a Progressive Web App
+```js
+const SITE_HOST = new URL(process.env.NEXT_PUBLIC_SITE_URL).host;
+// ...has: [{ type: "host", value: `^(?!${escapedHost}$).*$` }]
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This means if the same build is ever reachable through another hostname — a staging
+subdomain, a bare server IP, a CDN preview URL, a misconfigured DNS entry — that hostname is
+automatically blocked from search indexing, while `kailashgroup.com.au` itself is left
+untouched (no noindex header there). This prevents duplicate-content penalties and
+accidental indexing of non-production copies of the site.
 
-### Advanced Configuration
+**Keep this logic in place.** If you ever change domains, update `NEXT_PUBLIC_SITE_URL` —
+don't remove or bypass the header check.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Post-launch SEO checklist
 
-### Deployment
+Once DNS points at the VPS and the site is live on `https://kailashgroup.com.au`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [ ] Verify the domain in **Google Search Console** (DNS TXT record or HTML file method).
+- [ ] Submit `https://kailashgroup.com.au/sitemap.xml` in Search Console.
+- [ ] Confirm all seven legacy redirects return **308**, e.g.:
+      `curl -I https://kailashgroup.com.au/about.html` → `HTTP/1.1 308` with
+      `Location: /#about`.
+- [ ] Test the enquiry form end to end on the live domain (`/#contact`) and confirm:
+      - the success message appears inline,
+      - the lead email actually arrives at `LEAD_NOTIFICATION_EMAIL`,
+      - the confirmation email arrives at the test address used, and
+      - replying to the lead email reaches the enquirer (reply-to is set to their address).
+- [ ] Validate structured data with Google's **Rich Results Test**
+      (https://search.google.com/test/rich-results) against the homepage (Organization,
+      Person, FAQPage) and against `/company/kailash-lawyers` (LegalService).
+- [ ] Spot-check `https://kailashgroup.com.au/robots.txt` and `https://kailashgroup.com.au/llms.txt`
+      load correctly and are not returning the noindex header (only non-production hosts
+      should get that header).
 
-### `npm run build` fails to minify
+## Editing LinkedIn post content
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+LinkedIn posts shown in the homepage "From the founder" section are **not** pulled live
+from LinkedIn — they're a small static data file:
+
+```
+frontend/src/data/linkedin-posts.ts
+```
+
+Each post is `{ id, date, excerpt, tag, reactions, permalink, image? }`. The homepage
+always shows the 3 most recent by `date`. This same file backs the public
+`GET /api/linkedin-posts` JSON endpoint (`src/app/api/linkedin-posts/route.ts`), so both the
+page and the API stay in sync automatically.
+
+**To swap this for a CMS or database later:** replace the body of the exported
+`getLinkedInPosts()` function in `linkedin-posts.ts` with a fetch/query call that resolves to
+the same `LinkedInPost[]` shape. Nothing else needs to change — the homepage section and the
+API route both just call `getLinkedInPosts()` and don't care where the data comes from.

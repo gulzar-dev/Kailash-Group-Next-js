@@ -160,6 +160,23 @@ pseudo-3D parallax and an orbital company hub.
   + question text + award schema all present in raw HTML) and via screenshot (FAQ open/closed,
   matches site design, no visual regressions).
 
+## Deployment Documentation (2026-08-14)
+- `README.md` (rewritten, was stale CRA boilerplate) and `CONTENT.md` (new) added at
+  `frontend/` root for the developer who deploys this repo to the VPS.
+- README covers: stack, local setup, full env var table (including which 4 vars are
+  legacy/unused — `NEXT_PUBLIC_BACKEND_URL`, `REACT_APP_BACKEND_URL`, `WDS_SOCKET_PORT`,
+  `ENABLE_HEALTH_CHECK`), build/run (`next build` + `next start`, explicitly not a static
+  export), VPS setup (Node LTS, `sharp`, pm2/systemd, nginx reverse proxy sample config,
+  Let's Encrypt), the 308 redirect list + warning not to duplicate in nginx, how/why the
+  noindex-on-wrong-host header must stay, a post-launch SEO checklist, and how to edit/swap
+  LinkedIn post content.
+- CONTENT.md covers non-developer content edits with file paths: LinkedIn posts
+  (`src/data/linkedin-posts.ts`), awards (`lib/data.js` AWARDS + AwardsView.jsx
+  COMPANY_AWARDS), FAQ answers (`lib/data.js` FAQS), NAP (`lib/data.js` CONTACT), company
+  descriptions/services (`lib/data.js` COMPANIES + llms.txt route's COMPANY_FACTS), and page
+  title/description locations.
+- Documentation only — no code changes in this pass.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
