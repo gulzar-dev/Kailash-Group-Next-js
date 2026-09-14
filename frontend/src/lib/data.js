@@ -119,7 +119,7 @@ export const AWARDS = [
 export const COMMUNITY = [
   {
     title: "Koala Conservation Australia",
-    desc: "For every client who joins the Koala Invest family, we adopt a koala in their name, protecting an emblem of our natural heritage.",
+    desc: "When you join Koala Invest, we donate to Koala Conservation Australia on your behalf to support our native wildlife.",
     image: "https://images.unsplash.com/photo-1610616649366-93774a4ee9d4?auto=format&fit=crop&w=1400&q=80",
     tag: "Wildlife",
   },

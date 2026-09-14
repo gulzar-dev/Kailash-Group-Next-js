@@ -17,22 +17,6 @@ const TEAM = [
     bio: "Nearly two decades of leadership across legal services, property investment and development. Amit founded Kailash Group on a simple conviction: expertise is a means, and purpose is the destination.",
     color: "#0A2540",
   },
-  {
-    name: "Dhawal Amlani",
-    role: "Chief Financial Officer",
-    initials: "DA",
-    image: "/dhawal-amlani.jpeg",
-    bio: "Steward of the Group's financial discipline, architecting resilient capital structures across our legal, investment and development businesses.",
-    color: "#1E4E8C",
-  },
-  {
-    name: "Sumeet Gupta",
-    role: "Business Consultant",
-    initials: "SG",
-    image: "/sumeet-gupta.jpeg",
-    bio: "Strategic advisor helping the Group scale with rigour, from operational excellence to market intelligence across Australia and beyond.",
-    color: "#C6A15B",
-  },
 ];
 
 const values = [
@@ -104,7 +88,7 @@ export function AboutView() {
               Advisors, operators and builders, united by a shared standard of care.
             </p>
           </Reveal>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid max-w-sm mx-auto">
             {TEAM.map((p, i) => (
               <Reveal key={p.name} delay={i * 0.1}>
                 <motion.div

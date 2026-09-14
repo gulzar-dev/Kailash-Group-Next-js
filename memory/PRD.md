@@ -44,6 +44,14 @@ pseudo-3D parallax and an orbital company hub.
   and contact form -> FastAPI -> Resend email all working post-migration.
 - NOTE: non-default stack — Emergent one-click deploy support may be limited for Next.js.
 
+## Updates (2026-08-14)
+- About page Leadership team: removed Dhawal Amlani and Sumeet Gupta; only Amit Pall remains
+  (single centered card, `components/AboutView.jsx`).
+- Community section: Koala Conservation Australia description updated to "When you join
+  Koala Invest, we donate to Koala Conservation Australia on your behalf to support our
+  native wildlife." (`lib/data.js`).
+- Verified via screenshot.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
