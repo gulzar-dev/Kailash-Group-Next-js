@@ -81,6 +81,8 @@ pseudo-3D parallax and an orbital company hub.
 - Added `NEXT_PUBLIC_SITE_URL=https://kailashgroup.com.au` to frontend `.env` (drives
   canonicals/schema; also means the current preview host correctly gets noindex).
 - No Vercel-specific APIs; standard `next build`/`next start`, no static export.
+- `/about` main heading ("One Group. Three specialisms...") changed h2 -> h1 (same classes,
+  no visual change); every route now has exactly one h1.
 
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).

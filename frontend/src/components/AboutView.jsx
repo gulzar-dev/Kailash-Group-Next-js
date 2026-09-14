@@ -61,9 +61,9 @@ export function AboutView() {
             <div className="text-[11px] tracking-[0.28em] uppercase text-champagne font-semibold mb-4">
               Our team
             </div>
-            <h2 className="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[#0A2540] leading-[1.15]">
+            <h1 className="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[#0A2540] leading-[1.15]">
               One Group. Three specialisms. <span className="italic font-accent text-champagne">One shared standard.</span>
-            </h2>
+            </h1>
             <div className="mt-10 space-y-8">
               {values.map((v) => (
                 <div key={v.n} className="flex gap-6">
