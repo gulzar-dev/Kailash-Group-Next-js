@@ -16,6 +16,8 @@ const TEAM = [
     image: "/amit-pall.jpeg",
     bio: "Nearly two decades of leadership across legal services, property investment and development. Amit founded Kailash Group on a simple conviction: expertise is a means, and purpose is the destination.",
     color: "#0A2540",
+    linkedin: "https://www.linkedin.com/in/amit-pall-a0236710/",
+    email: "amit@kailashgroup.com.au",
   },
 ];
 
@@ -105,12 +107,22 @@ export function AboutView() {
                     <div className="mt-1 text-sm text-champagne font-medium tracking-wide uppercase">{p.role}</div>
                     <p className="mt-4 text-[#475569] font-light leading-relaxed flex-1">{p.bio}</p>
                     <div className="mt-6 flex gap-3">
-                      <span className="w-9 h-9 rounded-full border border-[#D9E1EC] flex items-center justify-center text-[#0A2540] hover:bg-[#0A2540] hover:text-white transition-colors cursor-pointer">
+                      <a
+                        href={p.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-testid={`team-${p.initials.toLowerCase()}-linkedin`}
+                        className="w-9 h-9 rounded-full border border-[#D9E1EC] flex items-center justify-center text-[#0A2540] hover:bg-[#0A2540] hover:text-white transition-colors cursor-pointer"
+                      >
                         <Linkedin size={15} />
-                      </span>
-                      <span className="w-9 h-9 rounded-full border border-[#D9E1EC] flex items-center justify-center text-[#0A2540] hover:bg-[#0A2540] hover:text-white transition-colors cursor-pointer">
+                      </a>
+                      <a
+                        href={`mailto:${p.email}`}
+                        data-testid={`team-${p.initials.toLowerCase()}-email`}
+                        className="w-9 h-9 rounded-full border border-[#D9E1EC] flex items-center justify-center text-[#0A2540] hover:bg-[#0A2540] hover:text-white transition-colors cursor-pointer"
+                      >
                         <Mail size={15} />
-                      </span>
+                      </a>
                     </div>
                   </div>
                 </motion.div>

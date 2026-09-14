@@ -51,6 +51,8 @@ pseudo-3D parallax and an orbital company hub.
   Koala Invest, we donate to Koala Conservation Australia on your behalf to support our
   native wildlife." (`lib/data.js`).
 - Verified via screenshot.
+- Added LinkedIn (https://www.linkedin.com/in/amit-pall-a0236710/) and mailto
+  (amit@kailashgroup.com.au) links to Amit Pall's contact icons on About page.
 
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
