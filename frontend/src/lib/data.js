@@ -116,13 +116,80 @@ export const TIMELINE = [
 ];
 
 export const AWARDS = [
-  { year: "2025", title: "Best Breakthrough Developer", org: "PropertyGuru Asia Property Awards" },
-  { year: "2025", title: "Best Housing Development (WA)", org: "PropertyGuru Asia Property Awards" },
-  { year: "2025", title: "Best Investment Housing Development", org: "PropertyGuru Asia Property Awards" },
-  { year: "2023", title: "Small Business Champion", org: "Australian Professionals SBC Awards" },
-  { year: "2022", title: "NSW Volunteer of the Year", org: "NSW Government" },
-  { year: "2022", title: "Local Business Awards", org: "Finalist & Winner" },
-  { year: "2021", title: "Local Business Awards", org: "Finalist" },
+  {
+    year: "2025",
+    title: "Best Breakthrough Developer",
+    org: "PropertyGuru Asia Property Awards",
+    sentence:
+      "Kuber Projects won Best Breakthrough Developer at the PropertyGuru Asia Property Awards in 2025.",
+  },
+  {
+    year: "2025",
+    title: "Best Housing Development (WA)",
+    org: "PropertyGuru Asia Property Awards",
+    sentence:
+      "Kuber Projects won Best Housing Development (Western Australia) at the PropertyGuru Asia Property Awards in 2025.",
+  },
+  {
+    year: "2025",
+    title: "Best Investment Housing Development",
+    org: "PropertyGuru Asia Property Awards",
+    sentence:
+      "Kuber Projects won Best Investment Housing Development at the PropertyGuru Asia Property Awards in 2025.",
+  },
+  {
+    year: "2023",
+    title: "Small Business Champion",
+    org: "Australian Professionals SBC Awards",
+    sentence:
+      "Kailash Group was recognised as a Small Business Champion at the Australian Professionals Small Business Champion Awards in 2023.",
+  },
+  {
+    year: "2022",
+    title: "NSW Volunteer of the Year",
+    org: "NSW Government",
+    sentence:
+      "Kailash Lawyers & Consultants received NSW Volunteer of the Year from the NSW Government in 2022.",
+  },
+  {
+    year: "2022",
+    title: "Local Business Awards",
+    org: "Finalist & Winner",
+    sentence: "Kailash Group was a finalist and winner at the Local Business Awards in 2022.",
+  },
+  {
+    year: "2021",
+    title: "Local Business Awards",
+    org: "Finalist",
+    sentence: "Kailash Group was a finalist at the Local Business Awards in 2021.",
+  },
+];
+
+export const FAQS = [
+  {
+    q: "What does Kailash Group do?",
+    a: "Kailash Group is an Australian company group operating three businesses: Kailash Lawyers & Consultants (legal services), Koala Invest (property investment advisory) and Kuber Projects (property development). Together they offer legal counsel, research-led property investment and low-rise residential development to clients across Australia.",
+  },
+  {
+    q: "Which companies are part of Kailash Group?",
+    a: "Kailash Group is made up of three companies: Kailash Lawyers & Consultants, Koala Invest and Kuber Projects. Each operates in a distinct discipline, law, property investment and property development, under the same group.",
+  },
+  {
+    q: "Where does Kailash Group operate?",
+    a: "Kailash Group serves clients across Australia. Its head office is in Parramatta, NSW, with Koala Invest also maintaining an office in Gurgaon, India.",
+  },
+  {
+    q: "Who founded Kailash Group?",
+    a: "Kailash Group was founded by Amit Pall, who serves as Founder & Principal. Amit Pall began his legal practice in 2005 and established Kailash Lawyers & Consultants in 2012, the first of the group's three companies.",
+  },
+  {
+    q: "What awards has Kailash Group won?",
+    a: "Kuber Projects won Best Breakthrough Developer, Best Housing Development (Western Australia) and Best Investment Housing Development at the 2025 PropertyGuru Asia Property Awards. Kailash Lawyers & Consultants has also received NSW Volunteer of the Year (2022) and recognition at the Australian Small Business Champion Awards (2023).",
+  },
+  {
+    q: "Does Kailash Lawyers offer pro bono services?",
+    a: "Yes, Kailash Lawyers & Consultants offers pro bono legal support to clients who need it most. This sits alongside its property, family, immigration and commercial law services.",
+  },
 ];
 
 export const COMMUNITY = [

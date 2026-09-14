@@ -44,6 +44,15 @@ const COMPANY_AWARDS = [
   },
 ];
 
+const NOTE_VERB = {
+  Winner: "won",
+  Finalist: "was a finalist for",
+  Recognition: "was recognised for",
+};
+
+const awardSentence = (companyName, item) =>
+  `${companyName} ${NOTE_VERB[item.note] || "was recognised for"} ${item.title} in ${item.year}.`;
+
 export function AwardsView() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -121,6 +130,7 @@ export function AwardsView() {
                             {a.note}
                           </span>
                         )}
+                        <span className="sr-only">{awardSentence(co.name, a)}</span>
                       </div>
                     </motion.div>
                   ))}

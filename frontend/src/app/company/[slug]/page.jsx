@@ -5,7 +5,7 @@ import { legalServiceJsonLd } from "@/lib/jsonld";
 
 const SEO = {
   "kailash-lawyers": {
-    title: "Property & Family Lawyers Australia | Kailash Lawyers",
+    title: "Property & Family Lawyers Australia | Kailash Lawyers & Consultants",
     description:
       "Australian law firm led by Amit Pall. Property and conveyancing, family, immigration and commercial law, with pro bono support.",
   },

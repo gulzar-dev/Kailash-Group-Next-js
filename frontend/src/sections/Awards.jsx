@@ -37,6 +37,7 @@ export const Awards = () => (
               <div className="font-display text-5xl text-[#0A2540]">{a.year}</div>
               <h3 className="mt-4 font-medium text-lg text-[#0A2540] leading-snug">{a.title}</h3>
               <p className="mt-2 text-sm text-[#5B6B7F] font-light">{a.org}</p>
+              <span className="sr-only">{a.sentence}</span>
             </div>
           </motion.div>
         ))}

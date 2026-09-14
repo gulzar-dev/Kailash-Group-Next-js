@@ -9,6 +9,7 @@ import { About } from "@/sections/About";
 import { Awards } from "@/sections/Awards";
 import { LinkedInPosts } from "@/sections/LinkedInPosts";
 import { Community } from "@/sections/Community";
+import { FAQ } from "@/sections/FAQ";
 import { Contact } from "@/sections/Contact";
 import { Footer } from "@/components/Footer";
 
@@ -34,6 +35,7 @@ export function HomeClient({ linkedinPosts = [] }) {
       <Awards />
       <LinkedInPosts posts={linkedinPosts} />
       <Community />
+      <FAQ />
       <Contact />
       <Footer />
     </main>

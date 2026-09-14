@@ -1,5 +1,5 @@
 // JSON-LD structured data builders, all URLs sourced from env, NAP sourced from data.js
-import { CONTACT } from "./data";
+import { CONTACT, AWARDS } from "./data";
 import { SITE_URL } from "./seo";
 
 const LINKEDIN_URL = "https://au.linkedin.com/in/amit-pall-a0236710";
@@ -24,6 +24,7 @@ export const organizationJsonLd = () => ({
   telephone: CONTACT.phoneIntl,
   email: CONTACT.email,
   areaServed: "AU",
+  award: AWARDS.map((a) => a.sentence),
   sameAs: [
     "https://www.kailash.com.au/",
     "https://koalainvest.com.au/",
@@ -49,4 +50,14 @@ export const legalServiceJsonLd = () => ({
   parentOrganization: { "@type": "Organization", name: "Kailash Group", url: SITE_URL },
   areaServed: "AU",
   sameAs: ["https://www.kailash.com.au/", CONTACT.mapUrl],
+});
+
+export const faqPageJsonLd = (faqs) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 });

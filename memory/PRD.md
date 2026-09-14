@@ -133,6 +133,33 @@ pseudo-3D parallax and an orbital company hub.
 - User has not yet created a Resend account/API key; `RESEND_API_KEY` is a placeholder.
   Real lead emails will not send until the user replaces it with a real key.
 
+## AI Search / LLM Optimisation (2026-08-14)
+- `src/app/robots.js` extended (not replaced) — added explicit allow rules for GPTBot,
+  OAI-SearchBot, PerplexityBot, ClaudeBot, Google-Extended, alongside the existing `*` rule.
+- `src/app/llms.txt/route.js` — new, serves plain-text factual company profile at
+  `/llms.txt` (Content-Type text/plain), built from `lib/data.js` (COMPANIES-derived facts,
+  CONTACT, AWARDS) and `NEXT_PUBLIC_SITE_URL`. No marketing language by design (separate
+  from the persuasive `body`/`intro` copy used in the UI).
+- `src/sections/FAQ.jsx` — new homepage section (native `<details>/<summary>`, always in
+  DOM/server-rendered HTML regardless of open/closed state), FAQPage JSON-LD embedded
+  inline. 6 seed Q&As added to `lib/data.js` (`FAQS`), each answer's first sentence directly
+  answers the question. Inserted in `HomeClient.jsx` between Community and Contact.
+- `lib/data.js` `AWARDS` entries now carry a `sentence` field (single statement with award
+  name + category + awarding body + year, correct company attribution cross-referenced from
+  `AwardsView.jsx`'s per-company breakdown). Used in: visually-hidden (`sr-only`) text inside
+  each award card on `sections/Awards.jsx` and `components/AwardsView.jsx` (zero visual
+  change, fully extractable in server-rendered HTML), `llms.txt`, and the Organization
+  JSON-LD `award` property (`lib/jsonld.js`) — schema.org's standard repeatable Text
+  property for awards on Organization.
+- `lib/jsonld.js` — added `faqPageJsonLd()`; `organizationJsonLd()` now includes `award: [...]`.
+- Entity naming fix: company page meta title for kailash-lawyers now uses the full
+  "Kailash Lawyers & Consultants" (was abbreviated "Kailash Lawyers"). Audited whole
+  codebase for other variants — none found (the one FAQ question using "Kailash Lawyers"
+  was seeded verbatim per this task's exact wording; its answer uses the full name).
+- Everything above verified server-rendered via curl (llms.txt, robots.txt, FAQPage schema
+  + question text + award schema all present in raw HTML) and via screenshot (FAQ open/closed,
+  matches site design, no visual regressions).
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
