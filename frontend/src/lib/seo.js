@@ -1,5 +1,6 @@
 // Shared SEO metadata builder, canonicals and OG tags always derive from NEXT_PUBLIC_SITE_URL
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://kailashgroup.com.au";
 
 export function buildMetadata({ path, title, description }) {
   const url = `${SITE_URL}${path}`;
