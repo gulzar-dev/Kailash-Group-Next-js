@@ -1,0 +1,17 @@
+{
+  "name": "kailash-group-studio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "sanity dev",
+    "deploy": "sanity deploy",
+    "build": "sanity build"
+  },
+  "dependencies": {
+    "@sanity/client": "^6.29.1",
+    "@sanity/image-url": "^1.2.0",
+    "sanity": "^6.15.0",
+    "sanity-plugin-media": "^6.2.0",
+    "styled-components": "^6.5.3"
+  }
+}
