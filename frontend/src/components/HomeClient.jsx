@@ -13,7 +13,25 @@ import { FAQ } from "@/sections/FAQ";
 import { Contact } from "@/sections/Contact";
 import { Footer } from "@/components/Footer";
 
-export function HomeClient({ linkedinPosts = [] }) {
+export function HomeClient({
+  siteSettings,
+  navigation,
+  hero,
+  companies = [],
+  services = [],
+  about,
+  ecosystem,
+  servicesSection,
+  communitySection,
+  faqSection,
+  contactSection,
+  marquee,
+  timeline = [],
+  faqs = [],
+  community = [],
+  awards = [],
+  linkedinPosts = [],
+}) {
   const scrollTo = useCallback((id) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   }, []);
@@ -27,17 +45,21 @@ export function HomeClient({ linkedinPosts = [] }) {
 
   return (
     <main data-testid="home-page">
-      <Hero onExplore={() => scrollTo("#companies")} onContact={() => scrollTo("#contact")} />
-      <ValueMarquee />
-      <Ecosystem />
-      <Services />
-      <About />
-      <Awards />
+      <Hero
+        data={hero}
+        onExplore={() => scrollTo("#companies")}
+        onContact={() => scrollTo("#contact")}
+      />
+      <ValueMarquee data={marquee} />
+      <Ecosystem data={ecosystem} companies={companies} />
+      <Services data={servicesSection} services={services} />
+      <About data={about} timeline={timeline} />
+      <Awards awards={awards} />
       <LinkedInPosts posts={linkedinPosts} />
-      <Community />
-      <FAQ />
-      <Contact />
-      <Footer />
+      <Community data={communitySection} partners={community} />
+      <FAQ data={faqSection} items={faqs} />
+      <Contact data={contactSection} siteSettings={siteSettings} />
+      <Footer siteSettings={siteSettings} companies={companies} />
     </main>
   );
 }

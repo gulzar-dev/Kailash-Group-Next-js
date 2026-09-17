@@ -5,7 +5,7 @@ import Lenis from "lenis";
 import { Toaster } from "sonner";
 import { Nav } from "@/components/Nav";
 
-export function SiteChrome({ children }) {
+export function SiteChrome({ children, navigation, companies }) {
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) return;
@@ -24,7 +24,7 @@ export function SiteChrome({ children }) {
 
   return (
     <div className="App">
-      <Nav />
+      <Nav navigation={navigation} companies={companies} />
       {children}
       <Toaster position="top-center" richColors />
     </div>

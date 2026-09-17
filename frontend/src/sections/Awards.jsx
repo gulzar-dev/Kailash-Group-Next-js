@@ -5,7 +5,9 @@ import { Trophy } from "lucide-react";
 import { Reveal } from "../components/Reveal";
 import { AWARDS } from "../lib/data";
 
-export const Awards = () => (
+export const Awards = ({ awards: awardsProp, ...props }) => {
+  const awards = awardsProp || AWARDS;
+  return (
   <section id="awards" data-testid="awards-section" className="relative z-10 bg-white py-20 md:py-28 overflow-hidden">
     <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
       <Reveal className="max-w-2xl mb-10">
@@ -18,7 +20,7 @@ export const Awards = () => (
     {/* Horizontal scrolling timeline */}
     <div className="relative">
       <div className="flex gap-6 overflow-x-auto px-6 sm:px-12 pb-8 snap-x [scrollbar-width:none] [-ms-overflow-style:none]" style={{ scrollbarWidth: "none" }} data-testid="awards-track">
-        {AWARDS.map((a, i) => (
+        {awards.map((a, i) => (
           <motion.div
             key={i}
             data-testid={`award-${i}`}
@@ -47,4 +49,5 @@ export const Awards = () => (
       <span className="text-xs text-[#94A3B8]">← Scroll to explore the full timeline</span>
     </div>
   </section>
-);
+  );
+};

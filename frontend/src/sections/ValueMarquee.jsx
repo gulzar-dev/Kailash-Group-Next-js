@@ -2,7 +2,7 @@
 
 import Marquee from "react-fast-marquee";
 
-const items = [
+const DEFAULT_ITEMS = [
   "Award-Winning Group",
   "Recognised Since 2021",
   "Local Business Award Winner",
@@ -12,7 +12,9 @@ const items = [
   "Best Housing Development \u2013 WA",
 ];
 
-export const ValueMarquee = () => (
+export const ValueMarquee = ({ data, ...props }) => {
+  const items = data?.items || DEFAULT_ITEMS;
+  return (
   <section data-testid="value-marquee" className="py-8 bg-[#0A2540] relative z-10 overflow-hidden">
     <Marquee speed={45} gradient={false} autoFill pauseOnHover>
       {items.map((w, i) => (
@@ -30,4 +32,5 @@ export const ValueMarquee = () => (
       ))}
     </Marquee>
   </section>
-);
+  );
+};

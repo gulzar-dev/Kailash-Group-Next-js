@@ -1,39 +1,35 @@
-import { COMPANIES } from "@/lib/data";
+import { sanityFetch } from "@/lib/sanity";
+import { COMPANIES_QUERY, COMPANY_BY_SLUG_QUERY, SEO_QUERY } from "@/lib/queries";
 import { CompanyView } from "@/components/CompanyView";
-import { buildMetadata } from "@/lib/seo";
 import { legalServiceJsonLd } from "@/lib/jsonld";
 
-const SEO = {
-  "kailash-lawyers": {
-    title: "Property & Family Lawyers Australia | Kailash Lawyers & Consultants",
-    description:
-      "Australian law firm led by Amit Pall. Property and conveyancing, family, immigration and commercial law, with pro bono support.",
-  },
-  "koala-invest": {
-    title: "Property Investment Advisory Australia | Koala Invest",
-    description:
-      "Licensed, research-led residential property advisory. Suburb research, portfolio strategy and buyer representation across Australia.",
-  },
-  "kuber-projects": {
-    title: "Low-Rise Property Developer Australia | Kuber Projects",
-    description:
-      "End-to-end delivery of low-rise residential developments, from site acquisition and feasibility through to handover and investor returns.",
-  },
-};
-
-export function generateStaticParams() {
-  return COMPANIES.map((c) => ({ slug: c.slug }));
+export async function generateStaticParams() {
+  const companies = await sanityFetch(COMPANIES_QUERY);
+  return (companies || []).map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const company = COMPANIES.find((c) => c.slug === slug);
-  const seo = SEO[slug] || { title: company ? company.name : "Kailash Group", description: company?.intro };
-  return buildMetadata({ path: `/company/${slug}`, ...seo });
+  const company = await sanityFetch(COMPANY_BY_SLUG_QUERY, { slug });
+  const seo = await sanityFetch(SEO_QUERY, { page: `/company/${slug}` });
+  return {
+    title: seo?.title || company?.seo?.title || company?.name || "Kailash Group",
+    description: seo?.description || company?.seo?.description || company?.intro || "",
+    alternates: { canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "https://kailashgroup.com.au"}/company/${slug}` },
+    openGraph: {
+      title: seo?.title || company?.seo?.title || company?.name || "Kailash Group",
+      description: seo?.description || company?.seo?.description || company?.intro || "",
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://kailashgroup.com.au"}/company/${slug}`,
+      siteName: "Kailash Group",
+    },
+  };
 }
 
 export default async function CompanyPage({ params }) {
   const { slug } = await params;
+  const company = await sanityFetch(COMPANY_BY_SLUG_QUERY, { slug });
+  const allCompanies = await sanityFetch(COMPANIES_QUERY);
+
   return (
     <>
       {slug === "kailash-lawyers" && (
@@ -42,7 +38,7 @@ export default async function CompanyPage({ params }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(legalServiceJsonLd()) }}
         />
       )}
-      <CompanyView slug={slug} />
+      <CompanyView slug={slug} company={company} companies={allCompanies || []} />
     </>
   );
 }

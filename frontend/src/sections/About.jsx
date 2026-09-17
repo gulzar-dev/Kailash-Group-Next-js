@@ -4,14 +4,24 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Reveal } from "../components/Reveal";
 import { TIMELINE, IMAGES } from "../lib/data";
+import { urlFor } from "@/lib/sanity";
 
-const chapters = [
+const getImageUrl = (img) => {
+  if (!img) return "";
+  if (typeof img === "string") return img;
+  return urlFor(img)?.url() || "";
+};
+
+const DEFAULT_CHAPTERS = [
   { n: "01", t: "A principled foundation", d: "Two decades of leadership under Amit Pall, built on integrity, trust and an unwavering commitment to clients." },
   { n: "02", t: "Integrated expertise", d: "Legal counsel, investment research and property development, three disciplines, one accountable team." },
   { n: "03", t: "Australian at heart", d: "Rooted in Parramatta, serving clients across Australia." },
 ];
 
-export const About = () => {
+export const About = ({ data, timeline: timelineProp, ...props }) => {
+  const timeline = timelineProp || TIMELINE;
+  const portrait = data?.portrait || IMAGES.portrait;
+  const chapters = data?.chapters || DEFAULT_CHAPTERS;
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
@@ -23,7 +33,7 @@ export const About = () => {
           {/* Portrait with clipped frame + spotlight */}
           <Reveal className="relative order-2 lg:order-1">
             <div ref={ref} className="relative rounded-2xl overflow-hidden aspect-[4/5] border border-[#D9E1EC] shadow-[0_30px_80px_rgba(0,0,0,0.1)]">
-              <motion.img style={{ y }} src={IMAGES.portrait} alt="Amit Pall" className="w-full h-[116%] object-cover" />
+              <motion.img style={{ y }} src={getImageUrl(portrait)} alt="Amit Pall" className="w-full h-[116%] object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540]/40 to-transparent" />
               <div className="absolute bottom-6 left-6 glass rounded-xl px-5 py-4">
                 <div className="font-display text-lg text-[#0A2540]">Amit Pall</div>
@@ -35,7 +45,7 @@ export const About = () => {
 
           <div className="order-1 lg:order-2">
             <h2 className="font-display font-semibold text-4xl sm:text-5xl tracking-tight text-[#0A2540] leading-[1.05]">
-              Nearly <span className="italic font-accent text-champagne">20 years</span> of trusted leadership.
+              {data?.heading || "Nearly "}<span className="italic font-accent text-champagne">{data?.headingAccent || "20 years"}</span>{data?.headingSuffix || " of trusted leadership."}
             </h2>
             <div className="mt-10 space-y-8">
               {chapters.map((c, i) => (
@@ -54,9 +64,9 @@ export const About = () => {
         {/* Timeline */}
         <div className="mt-20">
           <div className="grid md:grid-cols-5 gap-8">
-            {TIMELINE.map((t, i) => (
+            {timeline.map((t, i) => (
               <div key={t.year} className="relative">
-                {i < TIMELINE.length - 1 && (
+                  {i < timeline.length - 1 && (
                   <div className="hidden md:block absolute top-[7px] left-1/2 w-full h-px bg-[#D9E1EC] z-0" />
                 )}
                 <Reveal delay={i * 0.08}>

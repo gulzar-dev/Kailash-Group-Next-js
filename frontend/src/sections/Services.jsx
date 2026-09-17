@@ -5,8 +5,16 @@ import Tilt from "react-parallax-tilt";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "../components/Reveal";
 import { SERVICES } from "../lib/data";
+import { urlFor } from "@/lib/sanity";
 
-export const Services = () => {
+const getImageUrl = (img) => {
+  if (!img) return "";
+  if (typeof img === "string") return img;
+  return urlFor(img)?.url() || "";
+};
+
+export const Services = ({ data, services: servicesProp, ...props }) => {
+  const services = servicesProp || SERVICES;
   const router = useRouter();
   return (
     <section id="services" data-testid="services-section" className="relative z-10 bg-white py-20 md:py-28">
@@ -14,18 +22,18 @@ export const Services = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
           <Reveal className="max-w-2xl">
             <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.1]">
-              Expertise, <span className="italic font-accent text-champagne">end to end.</span>
+              {data?.heading || "Expertise, "}<span className="italic font-accent text-champagne">{data?.headingAccent || "end to end."}</span>
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
-            <p className="max-w-sm text-[#475569] font-light">
-              From the first legal consultation to the handover of keys, every stage handled with precision and care.
-            </p>
+              <p className="max-w-sm text-[#475569] font-light">
+                {data?.description || "From the first legal consultation to the handover of keys, every stage handled with precision and care."}
+              </p>
           </Reveal>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {SERVICES.map((s, i) => (
+          {services.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.12}>
               <Tilt
                 glareEnable
@@ -44,7 +52,7 @@ export const Services = () => {
                   className="group relative h-[460px] w-full rounded-2xl overflow-hidden border border-[#D9E1EC] bg-white text-left cursor-pointer"
                 >
                   <div className="absolute inset-0">
-                    <img src={s.image} alt={s.title} className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-[1200ms]" />
+                    <img src={getImageUrl(s.image)} alt={s.title} className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-[1200ms]" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540] via-[#0A2540]/70 via-40% to-transparent" />
                   </div>
                   <div className="relative h-full flex flex-col justify-end p-8 text-white">

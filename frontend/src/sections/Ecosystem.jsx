@@ -5,10 +5,18 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "../components/Reveal";
 import { COMPANIES } from "../lib/data";
+import { urlFor } from "@/lib/sanity";
+
+const getImageUrl = (img) => {
+  if (!img) return "";
+  if (typeof img === "string") return img;
+  return urlFor(img)?.url() || "";
+};
 
 // Orbital hub: three companies orbit the Kailash Group logo (desktop),
 // graceful grid on mobile.
-export const Ecosystem = () => {
+export const Ecosystem = ({ data, companies: companiesProp, ...props }) => {
+  const companies = companiesProp || COMPANIES;
   const router = useRouter();
   const radius = 230;
 
@@ -17,11 +25,10 @@ export const Ecosystem = () => {
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         <Reveal className="max-w-2xl mb-12">
           <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.1]">
-            One group,<br /><span className="italic font-accent text-champagne">three specialisms.</span>
+            {data?.heading || "One group,"}<br /><span className="italic font-accent text-champagne">{data?.headingAccent || "three specialisms."}</span>
           </h2>
           <p className="mt-6 text-lg text-[#475569] font-light">
-            Three companies orbit a single vision, connected by the Kailash Group brand,
-            each an expert in its own right.
+            {data?.description || "Three companies orbit a single vision, connected by the Kailash Group brand, each an expert in its own right."}
           </p>
         </Reveal>
 
@@ -37,7 +44,7 @@ export const Ecosystem = () => {
               animate={{ rotate: 360 }}
               transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
             >
-              {COMPANIES.map((c, i) => {
+              {companies.map((c, i) => {
                 const angle = (i / COMPANIES.length) * Math.PI * 2 - Math.PI / 2;
                 const cx = 310 + radius * Math.cos(angle) - 90;
                 const cy = 310 + radius * Math.sin(angle) - 90;
@@ -66,7 +73,7 @@ export const Ecosystem = () => {
             {/* center logo */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <div className="w-44 h-44 rounded-full bg-[#0A2540] flex items-center justify-center shadow-[0_20px_60px_rgba(10,37,64,0.35)]">
-                <img src="/kailash-logo-vertical-white.png" alt="Kailash Group" className="w-32 h-32 object-contain" />
+                <img src={getImageUrl(data?.logo || "/kailash-logo-vertical-white.png")} alt="Kailash Group" className="w-32 h-32 object-contain" />
               </div>
             </div>
           </div>
@@ -74,7 +81,7 @@ export const Ecosystem = () => {
 
         {/* Mobile / tablet grid */}
         <div className="lg:hidden grid sm:grid-cols-3 gap-5">
-          {COMPANIES.map((c) => (
+          {companies.map((c) => (
             <Reveal key={c.slug}>
               <button
                 data-testid={`orbit-mobile-${c.slug}`}

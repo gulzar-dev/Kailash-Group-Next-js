@@ -7,7 +7,9 @@ import { Phone, Mail, MapPin, Send, Loader2, CheckCircle2, AlertCircle } from "l
 import { Reveal } from "../components/Reveal";
 import { CONTACT, COMPANIES } from "../lib/data";
 
-export const Contact = () => {
+export const Contact = ({ data, siteSettings, ...props }) => {
+  const contact = siteSettings?.contact || CONTACT;
+  const companies = siteSettings?.companies || COMPANIES;
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "", website: "" });
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("idle"); // idle | success | error
@@ -49,8 +51,8 @@ export const Contact = () => {
     <section id="contact" data-testid="contact-section" className="relative z-10 bg-white py-20 md:py-28">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         <Reveal className="max-w-2xl mb-10">
-          <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.1]">
-            Reach out <span className="italic font-accent text-champagne">to us.</span>
+            <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.1]">
+            {data?.heading || "Reach out "}<span className="italic font-accent text-champagne">{data?.headingAccent || "to us."}</span>
           </h2>
         </Reveal>
 
@@ -78,7 +80,7 @@ export const Contact = () => {
                 <input data-testid="contact-phone" className={inputCls} placeholder="Phone" value={form.phone} onChange={set("phone")} />
                 <select data-testid="contact-company" className={inputCls} value={form.company} onChange={set("company")}>
                   <option value="">Area of interest</option>
-                  {COMPANIES.map((c) => <option key={c.slug} value={c.name}>{c.name}</option>)}
+                  {companies.map((c) => <option key={c.slug} value={c.name}>{c.name}</option>)}
                   <option value="General">General enquiry</option>
                 </select>
               </div>
@@ -103,9 +105,9 @@ export const Contact = () => {
           <Reveal delay={0.15} className="flex flex-col gap-6">
             <div className="grid sm:grid-cols-3 gap-4">
               {[
-                { Icon: Phone, label: "Call", val: CONTACT.phone, href: `tel:${CONTACT.phone}` },
-                { Icon: Mail, label: "Email", val: CONTACT.email, href: `mailto:${CONTACT.email}` },
-                { Icon: MapPin, label: "Visit", val: "Parramatta, NSW", href: CONTACT.mapUrl },
+                { Icon: Phone, label: "Call", val: contact.phone, href: `tel:${contact.phone}` },
+                { Icon: Mail, label: "Email", val: contact.email, href: `mailto:${contact.email}` },
+                { Icon: MapPin, label: "Visit", val: "Parramatta, NSW", href: contact.mapUrl },
               ].map(({ Icon, label, val, href }) => (
                 <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} className="glass rounded-2xl p-5 hover:-translate-y-1 transition-transform block">
                   <Icon className="text-champagne mb-3" size={20} />
@@ -118,7 +120,7 @@ export const Contact = () => {
               <iframe
                 title="Kailash Group, Parramatta NSW"
                 data-testid="contact-map"
-                src={CONTACT.mapEmbed}
+                src={contact.mapEmbed}
                 className="w-full h-full min-h-[300px] rounded-2xl"
                 style={{ border: 0 }}
                 loading="lazy"

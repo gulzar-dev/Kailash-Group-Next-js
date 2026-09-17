@@ -1,47 +1,58 @@
 import Link from "next/link";
-import { CONTACT, COMPANIES } from "@/lib/data";
 
-export const Footer = () => (
-  <footer data-testid="site-footer" className="bg-[#0A2540] text-white pt-24 pb-10 relative z-10">
-    <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
-      <div className="grid md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
-        <div className="md:col-span-5">
-          <div className="inline-block">
-            <img src="/logo-footer.png" alt="Kailash Group" className="h-14 w-auto" />
+const defaultContact = {
+  phone: "02 9633 4233",
+  email: "amit@kailashgroup.com.au",
+  address: "Suite 1, Level 2, 60 Phillip Street, Parramatta NSW 2150, Australia",
+};
+
+const defaultCompanies = [];
+
+export const Footer = ({ siteSettings, companies = defaultCompanies }) => {
+  const contact = siteSettings || defaultContact;
+  const companyList = companies?.length ? companies : defaultCompanies;
+
+  return (
+    <footer data-testid="site-footer" className="bg-[#0A2540] text-white pt-24 pb-10 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
+        <div className="grid md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+          <div className="md:col-span-5">
+            <div className="inline-block">
+              <img src="/logo-footer.png" alt="Kailash Group" className="h-14 w-auto" />
+            </div>
+            <p className="mt-6 max-w-md text-white/60 font-light leading-relaxed">
+              {siteSettings?.footerTagline || "Where legal expertise meets property investment and development, delivering trusted solutions across Australia."}
+            </p>
           </div>
-          <p className="mt-6 max-w-md text-white/60 font-light leading-relaxed">
-            Where legal expertise meets property investment and development, delivering
-            trusted solutions across Australia.
-          </p>
+          <div className="md:col-span-3">
+            <div className="text-sm font-semibold text-white mb-5">Companies</div>
+            <ul className="space-y-3">
+              {companyList.map((c) => (
+                <li key={c.slug}>
+                  <Link href={`/company/${c.slug}`} className="text-white/70 hover:text-champagne transition-colors">
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="md:col-span-4">
+            <div className="text-sm font-semibold text-white mb-5">Contact</div>
+            <ul className="space-y-3 text-white/70">
+              <li><a href={`tel:${contact.phone}`} className="hover:text-champagne transition-colors">{contact.phone}</a></li>
+              <li><a href={`mailto:${contact.email}`} className="hover:text-champagne transition-colors">{contact.email}</a></li>
+              <li className="text-white/50 font-light">{contact.address}</li>
+            </ul>
+          </div>
         </div>
-        <div className="md:col-span-3">
-          <div className="text-sm font-semibold text-white mb-5">Companies</div>
-          <ul className="space-y-3">
-            {COMPANIES.map((c) => (
-              <li key={c.slug}>
-                <Link href={`/company/${c.slug}`} className="text-white/70 hover:text-champagne transition-colors">
-                  {c.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="md:col-span-4">
-          <div className="text-sm font-semibold text-white mb-5">Contact</div>
-          <ul className="space-y-3 text-white/70">
-            <li><a href={`tel:${CONTACT.phone}`} className="hover:text-champagne transition-colors">{CONTACT.phone}</a></li>
-            <li><a href={`mailto:${CONTACT.email}`} className="hover:text-champagne transition-colors">{CONTACT.email}</a></li>
-            <li className="text-white/50 font-light">{CONTACT.address}</li>
-          </ul>
-        </div>
-      </div>
-      <div className="pt-8 flex flex-col sm:flex-row justify-between gap-4 text-sm text-white/40">
-        <span>© {new Date().getFullYear()} Kailash Group. All rights reserved.</span>
-        <div className="flex flex-wrap gap-x-6 gap-y-2">
-          <Link href="/legal/privacy" className="hover:text-champagne transition-colors" data-testid="footer-privacy">Privacy Policy</Link>
-          <Link href="/legal/disclaimer" className="hover:text-champagne transition-colors" data-testid="footer-disclaimer">Disclaimer</Link>
+        <div className="pt-8 flex flex-col sm:flex-row justify-between gap-4 text-sm text-white/40">
+          <span>© {new Date().getFullYear()} Kailash Group. All rights reserved.</span>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <Link href="/legal/privacy" className="hover:text-champagne transition-colors" data-testid="footer-privacy">Privacy Policy</Link>
+            <Link href="/legal/disclaimer" className="hover:text-champagne transition-colors" data-testid="footer-disclaimer">Disclaimer</Link>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};

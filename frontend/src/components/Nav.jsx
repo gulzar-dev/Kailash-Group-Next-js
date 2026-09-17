@@ -5,9 +5,8 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { COMPANIES } from "@/lib/data";
 
-const links = [
+const defaultLinks = [
   { label: "Companies", to: "#companies", isDropdown: true },
   { label: "Services", to: "#services" },
   { label: "About", to: "/about", isPage: true },
@@ -15,7 +14,13 @@ const links = [
   { label: "Community", to: "#community" },
 ];
 
-export const Nav = () => {
+export const Nav = ({ navigation, companies = [] }) => {
+  const links = navigation?.items?.length
+    ? navigation.items.sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0))
+    : defaultLinks;
+  const ctaText = navigation?.ctaText || "Contact Us";
+  const ctaLink = navigation?.ctaLink || "#contact";
+  const COMPANIES = companies?.length ? companies : [];
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
@@ -126,10 +131,10 @@ export const Nav = () => {
 
         <button
           data-testid="nav-contact-btn"
-          onClick={() => goToHash("#contact")}
+          onClick={() => goToHash(ctaLink)}
           className="hidden lg:inline-flex btn-gold px-6 py-2.5 text-sm"
         >
-          Contact Us
+          {ctaText}
         </button>
 
         <button
@@ -163,8 +168,8 @@ export const Nav = () => {
                 {c.name}
               </Link>
             ))}
-            <button onClick={() => goToHash("#contact")} className="btn-gold px-6 py-3 text-sm mt-2">
-              Contact Us
+            <button onClick={() => goToHash(ctaLink)} className="btn-gold px-6 py-3 text-sm mt-2">
+              {ctaText}
             </button>
           </div>
         </motion.div>
