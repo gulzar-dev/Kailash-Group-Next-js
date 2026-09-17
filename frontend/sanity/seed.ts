@@ -68,8 +68,6 @@ async function seed() {
     },
     mapUrl: 'https://maps.app.goo.gl/U8qqMxhN64TUYtFm9',
     mapEmbed: 'https://www.google.com/maps?q=60+Phillip+Street+Parramatta+NSW+2150&output=embed',
-    logoHeader: {_type: 'image', asset: {_ref: 'image-logoHeader', _type: 'sanity.imageAsset'}},
-    logoFooter: {_type: 'image', asset: {_ref: 'image-logoFooter', _type: 'sanity.imageAsset'}},
     socialLinks: [
       {label: 'LinkedIn', url: 'https://au.linkedin.com/in/amit-pall-a0236710'},
       {label: 'Kailash Lawyers', url: 'https://www.kailash.com.au/'},
