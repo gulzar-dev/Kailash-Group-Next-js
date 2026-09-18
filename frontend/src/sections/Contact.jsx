@@ -8,7 +8,15 @@ import { Reveal } from "../components/Reveal";
 import { CONTACT, COMPANIES } from "../lib/data";
 
 export const Contact = ({ data, siteSettings, ...props }) => {
-  const contact = siteSettings?.contact || CONTACT;
+  const contact = {
+    phone: siteSettings?.phone || CONTACT.phone,
+    phoneIntl: siteSettings?.phoneIntl || CONTACT.phoneIntl,
+    email: siteSettings?.email || CONTACT.email,
+    address: siteSettings?.address || CONTACT.address,
+    addressParts: siteSettings?.addressParts || CONTACT.addressParts,
+    mapUrl: siteSettings?.mapUrl || CONTACT.mapUrl,
+    mapEmbed: siteSettings?.mapEmbed || CONTACT.mapEmbed,
+  };
   const companies = siteSettings?.companies || COMPANIES;
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "", website: "" });
   const [loading, setLoading] = useState(false);

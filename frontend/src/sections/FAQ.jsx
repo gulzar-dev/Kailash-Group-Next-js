@@ -4,8 +4,32 @@ import { Reveal } from "@/components/Reveal";
 import { FAQS } from "@/lib/data";
 import { faqPageJsonLd } from "@/lib/jsonld";
 
+function extractText(value) {
+  if (!value) return "";
+  if (typeof value === "string") return value;
+  if (Array.isArray(value)) {
+    return value
+      .map((block) => {
+        if (block._type === "block" && block.children) {
+          return block.children.map((c) => c.text || "").join("");
+        }
+        return "";
+      })
+      .join(" ");
+  }
+  return "";
+}
+
+function normalizeFaqItems(items) {
+  if (!items?.length) return FAQS;
+  return items.map((item) => ({
+    q: item.q || item.question || "",
+    a: item.a || extractText(item.answer),
+  }));
+}
+
 export const FAQ = ({ data, items: itemsProp, ...props }) => {
-  const items = itemsProp || FAQS;
+  const items = normalizeFaqItems(itemsProp);
   return (
   <section id="faq" data-testid="faq-section" className="relative z-10 bg-[#F5F8FC] py-20 md:py-28">
     <script
