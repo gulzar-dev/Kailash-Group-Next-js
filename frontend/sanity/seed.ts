@@ -69,10 +69,10 @@ async function seed() {
     mapUrl: 'https://maps.app.goo.gl/U8qqMxhN64TUYtFm9',
     mapEmbed: 'https://www.google.com/maps?q=60+Phillip+Street+Parramatta+NSW+2150&output=embed',
     socialLinks: [
-      {label: 'LinkedIn', url: 'https://au.linkedin.com/in/amit-pall-a0236710'},
-      {label: 'Kailash Lawyers', url: 'https://www.kailash.com.au/'},
-      {label: 'Koala Invest', url: 'https://koalainvest.com.au/'},
-      {label: 'Kuber Projects', url: 'https://kuberprojects.com.au/'},
+      {_key: nanoid(), label: 'LinkedIn', url: 'https://au.linkedin.com/in/amit-pall-a0236710'},
+      {_key: nanoid(), label: 'Kailash Lawyers', url: 'https://www.kailash.com.au/'},
+      {_key: nanoid(), label: 'Koala Invest', url: 'https://koalainvest.com.au/'},
+      {_key: nanoid(), label: 'Kuber Projects', url: 'https://kuberprojects.com.au/'},
     ],
     footerTagline: 'Where legal expertise meets property investment and development, delivering trusted solutions across Australia.',
   })
@@ -83,11 +83,11 @@ async function seed() {
     _id: 'navigation',
     _type: 'navigation',
     items: [
-      {label: 'Companies', href: '#companies', isDropdown: true, children: [], sortOrder: 1},
-      {label: 'Services', href: '#services', isDropdown: false, children: [], sortOrder: 2},
-      {label: 'About', href: '/about', isDropdown: false, children: [], sortOrder: 3},
-      {label: 'Awards', href: '/awards', isDropdown: false, children: [], sortOrder: 4},
-      {label: 'Community', href: '#community', isDropdown: false, children: [], sortOrder: 5},
+      {_key: nanoid(), label: 'Companies', href: '#companies', isDropdown: true, children: [], sortOrder: 1},
+      {_key: nanoid(), label: 'Services', href: '#services', isDropdown: false, children: [], sortOrder: 2},
+      {_key: nanoid(), label: 'About', href: '/about', isDropdown: false, children: [], sortOrder: 3},
+      {_key: nanoid(), label: 'Awards', href: '/awards', isDropdown: false, children: [], sortOrder: 4},
+      {_key: nanoid(), label: 'Community', href: '#community', isDropdown: false, children: [], sortOrder: 5},
     ],
     ctaText: 'Contact Us',
     ctaLink: '#contact',
@@ -302,9 +302,9 @@ async function seed() {
     _type: 'aboutSection',
     heading: 'Nearly 20 years of trusted leadership.',
     chapters: [
-      {number: '01', title: 'A principled foundation', description: 'Two decades of leadership under Amit Pall, built on integrity, trust and an unwavering commitment to clients.'},
-      {number: '02', title: 'Integrated expertise', description: 'Legal counsel, investment research and property development, three disciplines, one accountable team.'},
-      {number: '03', title: 'Australian at heart', description: 'Rooted in Parramatta, serving clients across Australia.'},
+      {_key: nanoid(), number: '01', title: 'A principled foundation', description: 'Two decades of leadership under Amit Pall, built on integrity, trust and an unwavering commitment to clients.'},
+      {_key: nanoid(), number: '02', title: 'Integrated expertise', description: 'Legal counsel, investment research and property development, three disciplines, one accountable team.'},
+      {_key: nanoid(), number: '03', title: 'Australian at heart', description: 'Rooted in Parramatta, serving clients across Australia.'},
     ],
     portraitAlt: 'Amit Pall',
     nameLabel: 'Amit Pall',
@@ -355,9 +355,9 @@ async function seed() {
     successMessage: 'Thank you — your enquiry has been received. We\'ll be in touch shortly.',
     errorMessage: 'Something went wrong. Please call us on 02 9633 4233.',
     contactCards: [
-      {label: 'Call', icon: 'phone'},
-      {label: 'Email', icon: 'mail'},
-      {label: 'Visit', icon: 'mapPin'},
+      {_key: nanoid(), label: 'Call', icon: 'phone'},
+      {_key: nanoid(), label: 'Email', icon: 'mail'},
+      {_key: nanoid(), label: 'Visit', icon: 'mapPin'},
     ],
   })
 
@@ -405,9 +405,9 @@ async function seed() {
     introText: 'Kailash Group is an Australian company group operating three businesses: legal services, property investment advisory and property development. Head office: Suite 1, Level 2, 60 Phillip Street, Parramatta NSW 2150. Areas served: Australia-wide.',
     founderText: 'Amit Pall, Founder & Principal of Kailash Group.',
     companies: [
-      {name: 'Kailash Lawyers & Consultants', what: 'An Australian law firm providing property and conveyancing, family, immigration and commercial law services. Founded by Amit Pall in 2012.', services: ['Property Law & Conveyancing', 'Family Law', 'Immigration Law', 'Business & Commercial Law', 'Pro Bono Services'], website: 'https://www.kailash.com.au/'},
-      {name: 'Koala Invest', what: 'A licensed real estate research and advisory firm focused on residential property investment for long-term wealth.', services: ['Investment Strategy', 'Market & Suburb Research', 'Portfolio Advisory', 'Buyer Representation'], website: 'https://koalainvest.com.au/'},
-      {name: 'Kuber Projects', what: 'An end-to-end property development company specialising in low-rise density projects with strong investor returns.', services: ['Site Acquisition', 'Feasibility & Design', 'Project Delivery', 'Investor Returns'], website: 'https://kuberprojects.com.au/'},
+      {_key: nanoid(), name: 'Kailash Lawyers & Consultants', what: 'An Australian law firm providing property and conveyancing, family, immigration and commercial law services. Founded by Amit Pall in 2012.', services: ['Property Law & Conveyancing', 'Family Law', 'Immigration Law', 'Business & Commercial Law', 'Pro Bono Services'], website: 'https://www.kailash.com.au/'},
+      {_key: nanoid(), name: 'Koala Invest', what: 'A licensed real estate research and advisory firm focused on residential property investment for long-term wealth.', services: ['Investment Strategy', 'Market & Suburb Research', 'Portfolio Advisory', 'Buyer Representation'], website: 'https://koalainvest.com.au/'},
+      {_key: nanoid(), name: 'Kuber Projects', what: 'An end-to-end property development company specialising in low-rise density projects with strong investor returns.', services: ['Site Acquisition', 'Feasibility & Design', 'Project Delivery', 'Investor Returns'], website: 'https://kuberprojects.com.au/'},
     ],
   })
 
