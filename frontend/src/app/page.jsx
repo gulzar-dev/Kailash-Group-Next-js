@@ -6,6 +6,8 @@ import {
   SEO_QUERY,
 } from "@/lib/queries";
 
+export const revalidate = 0;
+
 export async function generateMetadata() {
   const seo = await sanityFetch(SEO_QUERY, { page: "/" });
   return {

@@ -3,6 +3,8 @@ import { COMPANIES_QUERY, COMPANY_BY_SLUG_QUERY, SEO_QUERY } from "@/lib/queries
 import { CompanyView } from "@/components/CompanyView";
 import { legalServiceJsonLd } from "@/lib/jsonld";
 
+export const revalidate = 0;
+
 export async function generateStaticParams() {
   const companies = await sanityFetch(COMPANIES_QUERY);
   return (companies || []).map((c) => ({ slug: c.slug }));

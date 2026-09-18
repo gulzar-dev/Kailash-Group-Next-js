@@ -5,6 +5,8 @@ import { organizationJsonLd, personJsonLd } from "@/lib/jsonld";
 import { sanityFetch } from "@/lib/sanity";
 import { SITE_SETTINGS_QUERY, NAVIGATION_QUERY, COMPANIES_QUERY } from "@/lib/queries";
 
+export const revalidate = 0;
+
 export async function generateMetadata() {
   let siteSettings = null;
   try {
