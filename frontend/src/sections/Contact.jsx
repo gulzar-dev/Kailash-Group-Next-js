@@ -101,10 +101,9 @@ export const Contact = () => {
 
           {/* Details + Map */}
           <Reveal delay={0.15} className="flex flex-col gap-6">
-            <div className="grid sm:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 gap-4">
               {[
                 { Icon: Phone, label: "Call", val: CONTACT.phone, href: `tel:${CONTACT.phone}` },
-                { Icon: Mail, label: "Email", val: CONTACT.email, href: `mailto:${CONTACT.email}` },
                 { Icon: MapPin, label: "Visit", val: "Parramatta, NSW", href: CONTACT.mapUrl },
               ].map(({ Icon, label, val, href }) => (
                 <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} className="glass rounded-2xl p-5 hover:-translate-y-1 transition-transform block">
@@ -114,6 +113,17 @@ export const Contact = () => {
                 </a>
               ))}
             </div>
+            <a
+              href={`mailto:${CONTACT.email}`}
+              data-testid="contact-email-card"
+              className="glass rounded-2xl p-5 hover:-translate-y-1 transition-transform flex items-center gap-4"
+            >
+              <Mail className="text-champagne shrink-0" size={20} />
+              <div>
+                <div className="overline text-[0.6rem] mb-1">Email</div>
+                <div className="text-sm text-[#0A2540] whitespace-nowrap">{CONTACT.email}</div>
+              </div>
+            </a>
             <div className="rounded-3xl overflow-hidden border border-[#D9E1EC] flex-1 min-h-[320px] glass p-2">
               <iframe
                 title="Kailash Group, Parramatta NSW"

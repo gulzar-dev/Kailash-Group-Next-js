@@ -6,8 +6,8 @@ import { CONTACT, AWARDS } from "@/lib/data";
 const COMPANY_FACTS = [
   {
     name: "Kailash Lawyers & Consultants",
-    what: "Law firm founded by Amit Pall, offering property and conveyancing, family, immigration and commercial law, plus pro bono services.",
-    services: ["Property Law & Conveyancing", "Family Law", "Immigration Law", "Business & Commercial Law", "Pro Bono Services"],
+    what: "Law firm founded by Amit Pall, offering property and conveyancing, and commercial law, plus pro bono services.",
+    services: ["Property Law & Conveyancing", "Business & Commercial Law", "Pro Bono Services"],
     website: "https://www.kailash.com.au/",
   },
   {

@@ -21,7 +21,7 @@ const POSTS: LinkedInPost[] = [
     excerpt:
       "Honoured to see Koala Invest recognised again at the Local Business Awards. Awards are lovely, but the trust of every family who invests with us matters more. Grateful.",
     tag: "Recognition",
-    reactions: 471,
+    reactions: 68,
     permalink: LINKEDIN_PROFILE_URL,
   },
   {
@@ -30,7 +30,7 @@ const POSTS: LinkedInPost[] = [
     excerpt:
       "Best Investment Housing Development at the PropertyGuru Asia Property Awards, thank you to our Kuber Projects team, partners and every homeowner backing our vision for better Australian communities.",
     tag: "Kuber Projects",
-    reactions: 935,
+    reactions: 92,
     permalink: LINKEDIN_PROFILE_URL,
   },
   {
@@ -39,7 +39,7 @@ const POSTS: LinkedInPost[] = [
     excerpt:
       "Twenty years ago I opened a small law office in Parramatta. Today Kailash Group is a family of three companies. The lesson? Purpose compounds faster than capital.",
     tag: "Reflection",
-    reactions: 1504,
+    reactions: 84,
     permalink: LINKEDIN_PROFILE_URL,
   },
 ];

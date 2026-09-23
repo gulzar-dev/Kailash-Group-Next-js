@@ -181,6 +181,29 @@ pseudo-3D parallax and an orbital company hub.
   layout on desktop (photo left, details right) for a more balanced look; stacks vertically
   on mobile (`components/AboutView.jsx`).
 
+## Content Updates (2026-09-23)
+- Company contact email changed sitewide to `info@kailashgroup.com.au` (was
+  `amit@kailashgroup.com.au`): `lib/data.js` CONTACT.email (flows through footer, contact
+  section, privacy page, Organization JSON-LD, llms.txt), plus `.env`
+  `LEAD_NOTIFICATION_EMAIL` (receiving) and `TRANSACTIONAL_FROM_EMAIL` (sending). Amit
+  Pall's personal mailto icon on the About page leadership card intentionally left as
+  `amit@kailashgroup.com.au` (personal, not the general company inbox).
+  CAVEAT: `TRANSACTIONAL_FROM_EMAIL=info@kailashgroup.com.au` requires the
+  kailashgroup.com.au domain to be verified in Resend before real sends will work — user
+  still hasn't signed up for Resend (`RESEND_API_KEY` is still a placeholder), so this is a
+  no-op today but is set correctly for when they do.
+- `sections/Contact.jsx` — email now rendered in its own full-width card so it always
+  displays on one line (was cramped in a 3-column grid with `break-words`).
+- `data/linkedin-posts.ts` — reduced all 3 seeded posts' `reactions` into the 50–100 range
+  (68 / 92 / 84, was 471 / 935 / 1504).
+- Kailash Lawyers & Consultants no longer handles Family Law or Immigration Law — removed
+  from `lib/data.js` (COMPANIES practice list, body copy, SERVICES desc, FAQS pro-bono
+  answer), `app/company/[slug]/page.jsx` SEO title+description (title also dropped
+  "Family Lawyers"), and `app/llms.txt/route.js` COMPANY_FACTS. Remaining practice areas:
+  Property Law & Conveyancing, Business & Commercial Law, Pro Bono Services.
+- All verified via curl (no family/immigration mentions remain, new email present
+  everywhere expected, reactions updated) and a screenshot of the Contact section.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.

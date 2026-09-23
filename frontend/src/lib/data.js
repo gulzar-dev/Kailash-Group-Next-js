@@ -3,7 +3,7 @@
 export const CONTACT = {
   phone: "02 9633 4233",
   phoneIntl: "+61 2 9633 4233",
-  email: "amit@kailashgroup.com.au",
+  email: "info@kailashgroup.com.au",
   address: "Suite 1, Level 2, 60 Phillip Street, Parramatta NSW 2150, Australia",
   addressParts: {
     streetAddress: "Suite 1, Level 2, 60 Phillip Street",
@@ -35,13 +35,11 @@ export const COMPANIES = [
       "A Parramatta-based law firm founded by Amit Pall, delivering clear, principled legal advice with a personal touch.",
     practice: [
       "Property Law & Conveyancing",
-      "Family Law",
-      "Immigration Law",
       "Business & Commercial Law",
       "Pro Bono Services",
     ],
     body:
-      "Kailash Lawyers & Consultants brings clarity to complexity. Whether you are buying a home, protecting a family, migrating to Australia or building a business, our team combines rigorous legal expertise with genuine care, serving clients across Australia. We are also proud to offer pro bono support to those who need it most.",
+      "Kailash Lawyers & Consultants brings clarity to complexity. Whether you are buying a home or building a business, our team combines rigorous legal expertise with genuine care, serving clients across Australia. We are also proud to offer pro bono support to those who need it most.",
     accent: "#0A2540",
     image: IMG.legal,
     website: "https://www.kailash.com.au/",
@@ -90,7 +88,7 @@ export const SERVICES = [
   {
     slug: "kailash-lawyers",
     title: "Legal Services",
-    desc: "Property, family, immigration and commercial law, plus pro bono support, principled counsel with a personal touch.",
+    desc: "Property, conveyancing and commercial law, plus pro bono support, principled counsel with a personal touch.",
     image: IMG.legal,
   },
   {
@@ -188,7 +186,7 @@ export const FAQS = [
   },
   {
     q: "Does Kailash Lawyers offer pro bono services?",
-    a: "Yes, Kailash Lawyers & Consultants offers pro bono legal support to clients who need it most. This sits alongside its property, family, immigration and commercial law services.",
+    a: "Yes, Kailash Lawyers & Consultants offers pro bono legal support to clients who need it most. This sits alongside its property, conveyancing and commercial law services.",
   },
 ];
 
