@@ -204,6 +204,25 @@ pseudo-3D parallax and an orbital company hub.
 - All verified via curl (no family/immigration mentions remain, new email present
   everywhere expected, reactions updated) and a screenshot of the Contact section.
 
+## Bug Fix (2026-09-23) — Vercel build failure
+- Root cause: `src/app/layout.jsx` had `metadataBase: new URL(SITE_URL)` unconditionally.
+  On Vercel, `NEXT_PUBLIC_SITE_URL` wasn't configured in the project's dashboard env vars
+  (this app's local `.env` has no effect on Vercel), so `new URL(undefined)` threw during
+  `next build`'s page-data collection for `/_not-found`, crashing the ENTIRE production
+  build (`Failed to collect configuration for /_not-found` / `Invalid URL`).
+- Fix: `layout.jsx` now only sets `metadataBase` when `SITE_URL` is truthy
+  (`...(SITE_URL ? { metadataBase: new URL(SITE_URL) } : {})`). `lib/seo.js`
+  `buildMetadata()` similarly guarded to avoid `"undefined/path"` canonical/OG URLs when
+  `SITE_URL` is missing (returns metadata without `alternates.canonical`/OG `url` instead).
+- Verified: reproduced locally (`mv .env .env.bak && yarn build` -> confirmed crash before
+  fix, confirmed success after), then `testing_agent` ran full regression (build with/without
+  env var, all pages/sitemap/robots/llms.txt/FAQ/LinkedIn/Contact/enquiry-form) — 100% pass,
+  no issues found.
+- ACTION NEEDED FROM USER: this code fix stops the Vercel build from crashing, but for
+  correct absolute canonical/OG URLs on the live Vercel deployment, they still must add
+  `NEXT_PUBLIC_SITE_URL=https://kailashgroup.com.au` in Vercel Project Settings →
+  Environment Variables (this repo's `.env` file is not read by Vercel).
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
