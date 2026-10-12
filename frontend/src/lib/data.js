@@ -106,7 +106,6 @@ export const SERVICES = [
 ];
 
 export const TIMELINE = [
-  { year: "2005", title: "The Foundation", desc: "Amit Pall begins building a practice grounded in integrity and client care." },
   { year: "2011", title: "Kailash Lawyers & Consultants", desc: "A full-service law firm established in the heart of Parramatta." },
   { year: "2015", title: "Koala Invest", desc: "Research-led property investment advisory launched to guide Australian investors." },
   { year: "2019", title: "Kuber Projects", desc: "Property development arm formed to deliver low-rise residential communities." },
@@ -173,8 +172,8 @@ export const FAQS = [
 
 export const COMMUNITY = [
   {
-    title: "Koala Conservation Australia",
-    desc: "When you join Koala Invest, we donate to Koala Conservation Australia on your behalf to support our native wildlife.",
+    title: "Supporting Native Wildlife",
+    desc: "We're committed to supporting native wildlife and contributing to its protection and preservation.",
     image: "https://images.unsplash.com/photo-1610616649366-93774a4ee9d4?auto=format&fit=crop&w=1400&q=80",
     tag: "Wildlife",
   },

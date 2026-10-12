@@ -140,7 +140,7 @@ export function AboutView() {
               The <span className="italic font-accent text-champagne">journey.</span>
             </h2>
           </Reveal>
-          <div className="grid md:grid-cols-5 gap-8">
+          <div className="grid md:grid-cols-4 gap-8">
             {TIMELINE.map((t, i) => (
               <div key={`${t.year}-${i}`} className="relative">
                 {i < TIMELINE.length - 1 && (

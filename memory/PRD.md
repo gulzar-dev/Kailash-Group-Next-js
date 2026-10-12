@@ -257,6 +257,32 @@ pseudo-3D parallax and an orbital company hub.
 - Verified via `testing_agent` (iteration_3.json) — 100% pass, 2 minor findings (duplicate
   React key, since fixed; alt text reviewed as still accurate, left unchanged).
 
+## Content Updates Round 2 (2026-10-12)
+- `sections/FounderQuote.jsx` — added heading "Founder's philosophy." above the quote card.
+- Community "Koala Conservation Australia" card: title changed to "Supporting Native
+  Wildlife", desc to "We're committed to supporting native wildlife and contributing to
+  its protection and preservation." (`lib/data.js` COMMUNITY).
+- `lib/data.js` TIMELINE: removed the 2005 "The Foundation" entry, now starts at 2011
+  (4 entries total). Grid changed `md:grid-cols-5` -> `md:grid-cols-4` in both
+  `sections/About.jsx` (homepage) and `components/AboutView.jsx` (/about page); also fixed
+  a pre-existing duplicate-key warning in About.jsx's TIMELINE.map (key now `${year}-${i}`,
+  matching the earlier AboutView.jsx fix).
+- `/awards` page: added `image` field to Kailash Lawyers & Consultants' 5 COMPANY_AWARDS
+  items (`components/AwardsView.jsx`), images downloaded to `public/awards/`. Card layout
+  changed to image-on-top (fixed-height container, `object-contain`, white background —
+  handles both portrait and landscape certificates cleanly) + year/title/note below.
+  Corrected the 2025 entry's note from "Recognition" to "Finalist" and title to include
+  "Legal Services" per the actual certificate image provided.
+  Cards WITHOUT an `image` field (Koala Invest, Kuber Projects — images not yet provided)
+  still render the original icon+text layout, conditionally.
+- PENDING FROM USER: they said they'll attach 5 more images for Koala Invest and 3 for
+  Kuber Projects in follow-up messages (platform limits 5 image attachments per message).
+  When received, add `image` field to the matching `COMPANY_AWARDS` items for those two
+  companies (same pattern as Kailash Lawyers) — no other code changes needed, the card
+  layout already supports it conditionally.
+- Verified via curl (new copy present) and screenshots (founder quote title, Koala card,
+  awards page images render well-aligned for both orientations).
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.

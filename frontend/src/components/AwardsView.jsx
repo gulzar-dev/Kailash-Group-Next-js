@@ -13,11 +13,11 @@ const COMPANY_AWARDS = [
     name: "Kailash Lawyers & Consultants",
     color: "#0A2540",
     items: [
-      { year: "2021", title: "Parramatta Local Business Awards", note: "Winner" },
-      { year: "2022", title: "NSW Volunteer of the Year", note: "Recognition" },
-      { year: "2022", title: "Parramatta Local Business Awards, Outstanding Professional Services", note: "Finalist" },
-      { year: "2023", title: "Australian Small Business Champion Awards, Legal Services", note: "Finalist" },
-      { year: "2025", title: "Australian Small Business Champion Awards", note: "Recognition" },
+      { year: "2021", title: "Parramatta Local Business Awards", note: "Winner", image: "/awards/kailash-lawyers-2021-local-business-winner.webp" },
+      { year: "2022", title: "NSW Volunteer of the Year", note: "Recognition", image: "/awards/kailash-lawyers-2022-nsw-volunteer.jpg" },
+      { year: "2022", title: "Parramatta Local Business Awards, Outstanding Professional Services", note: "Finalist", image: "/awards/kailash-lawyers-2022-parramatta-finalist.jpg" },
+      { year: "2023", title: "Australian Small Business Champion Awards, Legal Services", note: "Finalist", image: "/awards/kailash-lawyers-2023-sbc-finalist.jpg" },
+      { year: "2025", title: "Australian Professionals Small Business Champion Awards, Legal Services", note: "Finalist", image: "/awards/kailash-lawyers-2025-sbc-finalist.jpg" },
     ],
   },
   {
@@ -112,15 +112,25 @@ export function AwardsView() {
                     <motion.div
                       key={`${co.key}-${i}`}
                       whileHover={{ y: -4 }}
-                      className="rounded-2xl border border-[#D9E1EC] p-6 bg-[#F5F8FC] flex gap-4 items-start"
+                      className="rounded-2xl border border-[#D9E1EC] bg-[#F5F8FC] overflow-hidden flex flex-col"
                     >
-                      <div
-                        className="w-11 h-11 rounded-full flex items-center justify-center shrink-0"
-                        style={{ background: `${co.color}18` }}
-                      >
-                        <Trophy size={18} style={{ color: co.color }} />
-                      </div>
-                      <div>
+                      {a.image ? (
+                        <div className="h-60 sm:h-64 bg-white flex items-center justify-center p-4 border-b border-[#D9E1EC]">
+                          <img
+                            src={a.image}
+                            alt={`${co.name} — ${a.title} (${a.year})`}
+                            className="max-h-full max-w-full object-contain"
+                          />
+                        </div>
+                      ) : (
+                        <div
+                          className="w-11 h-11 rounded-full flex items-center justify-center shrink-0 mt-6 ml-6"
+                          style={{ background: `${co.color}18` }}
+                        >
+                          <Trophy size={18} style={{ color: co.color }} />
+                        </div>
+                      )}
+                      <div className="p-6">
                         <div className="font-display font-semibold text-2xl text-[#0A2540] leading-none">
                           {a.year}
                         </div>
