@@ -1,0 +1,25 @@
+{
+  "summary": "Frontend-only content/structural review for the Kailash Group Next.js site. Verified all 11 requested items via SSR curl + Playwright. All checks pass. Pages return 200; /api/linkedin-posts correctly returns 404. Homepage has new founder-quote-section (server-rendered with Amit Pall photo, italic curly-quoted line, 'Amit Pall — Founder & CEO, Kailash Group' signature). LinkedIn posts section/UI is fully gone (only remaining LinkedIn references are Amit Pall's profile URL inside JSON-LD sameAs structured data, which is expected). 'From the first legal consultation…' subtext removed. New Legal Services description 'Pro Bono Services supporting those in need…' present. About timeline years render 2005, 2011, 2015, 2019, 2019 in order. FAQ answers updated (2011 instead of 2012 for KL&C, 'Residential & Commercial development' present, no 'Small Business Champion'). Homepage Awards shows exactly 4 cards (award-0..3), none referencing Small Business Champion or generic Local Business Awards. /awards page has NO 'Bandeesh'/'Woh Lamhe'/'Certificate of Appreciation' strings and shows new 'Legal advisor' CTA; per-company breakdowns intact. /company/kailash-lawyers shows new tagline 'Trusted Legal Advisory across Australia.' with ordered services Pro Bono / Property Law & Conveyancing / Business & Commercial Law, no Family Law or Immigration Law, no 'Legal Counsel'. Community section replaced AASHA with Pro Bono Services card; /pro-bono-giving-back.webp loads 200. All regression pages (/legal/privacy, /legal/disclaimer, /company/koala-invest, /company/kuber-projects) HTTP 200.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "/about timeline (and anywhere TIMELINE renders)", "issues": ["React console warning: 'Encountered two children with the same key, 2019' – TIMELINE items for Kuber Projects (2019) and Kailash Group (2019) share the same year used as React key. Non-blocking but should use a unique id/index as key."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Minor: Fix React duplicate-key warning in the timeline map (two 2019 entries). Use a stable unique id or index-based key instead of the year to avoid potential rendering glitches."
+  ],
+  "critical_code_review_comments": [
+    "Duplicate React key ('2019') in timeline rendering – replace year-as-key with a unique id or array index.",
+    "Hero image alt on /awards still reads 'Kailash Group team at the Australian Professionals Small Business Champion Awards 2025'. Not explicitly asked to change, but worth noting since the generic Kailash Group Small Business Champion awards were removed from the main AWARDS list – alt text may be considered inconsistent with the trimmed award set."
+  ],
+  "updated_files": [],
+  "success_rate": { "backend": "n/a (skipped per request)", "frontend": "100%" },
+  "seed_data_creation": "",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "All content/structural changes from this batch are live and verified. If further changes are made to TIMELINE, revisit the duplicate React key warning. /api/linkedin-posts is deleted – do not add it back. Public preview URL: https://homepage-redesign-78.preview.emergentagent.com"
+}

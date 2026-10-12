@@ -142,7 +142,7 @@ export function AboutView() {
           </Reveal>
           <div className="grid md:grid-cols-5 gap-8">
             {TIMELINE.map((t, i) => (
-              <div key={t.year} className="relative">
+              <div key={`${t.year}-${i}`} className="relative">
                 {i < TIMELINE.length - 1 && (
                   <div className="hidden md:block absolute top-[7px] left-1/2 w-full h-px bg-[#D9E1EC] z-0" />
                 )}

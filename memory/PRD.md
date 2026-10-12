@@ -223,6 +223,40 @@ pseudo-3D parallax and an orbital company hub.
   `NEXT_PUBLIC_SITE_URL=https://kailashgroup.com.au` in Vercel Project Settings →
   Environment Variables (this repo's `.env` file is not read by Vercel).
 
+## Content Overhaul (2026-10-12)
+- "Legal Counsel" -> "Legal Advisor" sitewide (About pillar 02, /awards CTA, homepage meta
+  description). One FAQ answer ("What does Kailash Group do?") intentionally keeps
+  lowercase "legal counsel" per user's exact dictated text.
+- Removed Services section subtext line ("From the first legal consultation...").
+- Legal Services card desc updated to lead with Pro Bono Services.
+- TIMELINE (`lib/data.js`, drives both /about and anywhere else it's used) years changed:
+  Kailash Lawyers & Consultants 2011, Koala Invest 2015, Kuber Projects 2019, "An
+  Integrated Group" 2019 (2005 "The Foundation" unchanged). Fixed duplicate-React-key
+  warning from the two 2019 entries (`AboutView.jsx` key now `${year}-${index}`).
+- REMOVED the entire LinkedIn "From the founder" feature: deleted `sections/LinkedInPosts.jsx`,
+  `data/linkedin-posts.ts`, `app/api/linkedin-posts/` route. Replaced with new
+  `sections/FounderQuote.jsx` — single horizontal card, Amit's photo + italic one-line
+  quote on business values, server-rendered.
+- FAQS updated: "Who founded..." now says 2011 (keeps 2005); "What does Kailash Group
+  do?" replaced with user's exact text (mentions "Residential & Commercial development");
+  "What awards..." no longer mentions the removed Small Business Champion award.
+- AWARDS (`lib/data.js`) trimmed from 7 to 4 — removed the 3 generic "Kailash Group"
+  entries (Small Business Champion 2023, Local Business Awards 2022/2021); kept 3x Kuber
+  Projects PropertyGuru 2025 + Kailash Lawyers & Consultants NSW Volunteer of the Year 2022.
+  This list feeds the homepage Awards section, Organization JSON-LD `award` property, and
+  llms.txt — all three automatically reflect the trim.
+- `/awards` page: removed the entire "Kailash Group" Certificate of Appreciation section
+  (Bandeesh Group / Woh Lamhe Musical sponsorship text) completely. Per-company award
+  breakdowns (unaffected) still legitimately include their own Small Business Champion
+  entries — reviewed, still accurate, left as-is.
+- `/company/kailash-lawyers`: new tagline "Trusted Legal Advisory across Australia.", new
+  intro/body copy, practice list reordered to Pro Bono Services, Property Law &
+  Conveyancing, Business & Commercial Law. `llms.txt` COMPANY_FACTS synced to match.
+- Community "Giving back, naturally" section: removed AASHA Foundation card, replaced with
+  a new Pro Bono Services card + uploaded image (`public/pro-bono-giving-back.webp`).
+- Verified via `testing_agent` (iteration_3.json) — 100% pass, 2 minor findings (duplicate
+  React key, since fixed; alt text reviewed as still accurate, left unchanged).
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
