@@ -17,11 +17,6 @@ export const Services = () => {
               Expertise, <span className="italic font-accent text-champagne">end to end.</span>
             </h2>
           </Reveal>
-          <Reveal delay={0.15}>
-            <p className="max-w-sm text-[#475569] font-light">
-              From the first legal consultation to the handover of keys, every stage handled with precision and care.
-            </p>
-          </Reveal>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">

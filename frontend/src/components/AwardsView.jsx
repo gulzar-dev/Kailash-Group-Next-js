@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, Award, Trophy, Sparkles } from "lucide-react";
+import { ArrowLeft, Trophy, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { Footer } from "@/components/Footer";
 import { MaskLines, Reveal } from "@/components/Reveal";
@@ -163,45 +163,12 @@ export function AwardsView() {
         </div>
       </section>
 
-      {/* Certificate of Appreciation */}
-      <section className="bg-[#F5F8FC] py-20 md:py-24">
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
-          <Reveal className="mb-10">
-            <h2 className="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[#0A2540] leading-[1.1]">
-              Kailash <span className="italic font-accent text-champagne">Group.</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="rounded-3xl bg-white border border-[#D9E1EC] p-8 sm:p-12 flex flex-col md:flex-row gap-8 items-start"
-              data-testid="certificate-appreciation"
-            >
-              <div className="w-16 h-16 rounded-full bg-champagne/15 flex items-center justify-center shrink-0">
-                <Award size={26} className="text-champagne" />
-              </div>
-              <div>
-                <div className="text-xs tracking-widest uppercase text-champagne font-semibold mb-3">
-                  Certificate of Appreciation
-                </div>
-                <p className="font-display text-xl sm:text-2xl text-[#0A2540] font-light leading-snug max-w-3xl">
-                  Presented to <span className="font-semibold">Kailash Group of Companies</span> for
-                  valuable sponsorship of <em className="font-accent">Woh Lamhe Musical</em>,
-                  presented by <span className="font-semibold">Bandeesh Group</span> in support of
-                  Sri Om Foundation.
-                </p>
-              </div>
-            </motion.div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="bg-[#0A2540] py-16 md:py-20 text-white">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12 flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div>
             <h2 className="font-display font-semibold text-3xl sm:text-4xl">Work with an award-winning team.</h2>
-            <p className="mt-3 text-white/60 font-light">Legal counsel, investment research, and property development, under one roof.</p>
+            <p className="mt-3 text-white/60 font-light">Legal advisor, investment research, and property development, under one roof.</p>
           </div>
           <Link href="/#contact" className="inline-flex px-8 py-4 text-sm items-center gap-2 bg-champagne text-[#0A2540] rounded-[10px] font-medium hover:bg-white transition-colors">
             Reach out to us

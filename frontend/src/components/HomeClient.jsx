@@ -7,13 +7,13 @@ import { Ecosystem } from "@/sections/Ecosystem";
 import { Services } from "@/sections/Services";
 import { About } from "@/sections/About";
 import { Awards } from "@/sections/Awards";
-import { LinkedInPosts } from "@/sections/LinkedInPosts";
+import { FounderQuote } from "@/sections/FounderQuote";
 import { Community } from "@/sections/Community";
 import { FAQ } from "@/sections/FAQ";
 import { Contact } from "@/sections/Contact";
 import { Footer } from "@/components/Footer";
 
-export function HomeClient({ linkedinPosts = [] }) {
+export function HomeClient() {
   const scrollTo = useCallback((id) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   }, []);
@@ -33,7 +33,7 @@ export function HomeClient({ linkedinPosts = [] }) {
       <Services />
       <About />
       <Awards />
-      <LinkedInPosts posts={linkedinPosts} />
+      <FounderQuote />
       <Community />
       <FAQ />
       <Contact />
