@@ -322,6 +322,12 @@ pseudo-3D parallax and an orbital company hub.
   forced to a uniform height — verified via screenshot across all 3 company sections (13
   mixed-orientation images total).
 
+## Content Updates Round 6 (2026-10-12)
+- Koala Invest award order (`components/AwardsView.jsx`) changed to 2021, 2025, 2026, 2022,
+  2023 — moves 2025/2026 up into row 1 (fills it completely: 3/3) instead of leaving them
+  stranded on a mostly-empty row 2. Row 2 now only has 2022/2023. Purely a display-order
+  change, no data/content changes. Verified via screenshot.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.

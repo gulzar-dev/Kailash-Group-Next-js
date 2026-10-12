@@ -26,10 +26,10 @@ const COMPANY_AWARDS = [
     color: "#1E4E8C",
     items: [
       { year: "2021", title: "Parramatta City Local Business Awards", note: "Finalist", image: "/awards/koala-invest-2021-parramatta-finalist.jpg" },
-      { year: "2022", title: "Parramatta Local Business Awards", note: "Finalist", image: "/awards/koala-invest-2022-parramatta-finalist.jpg" },
-      { year: "2023", title: "Australian Small Business Champion Awards", note: "Finalist", image: "/awards/koala-invest-2023-sbc-finalist.webp" },
       { year: "2025", title: "Parramatta Local Business Awards", note: "Finalist", image: "/awards/koala-invest-2025-parramatta-finalist.jpg" },
       { year: "2026", title: "Parramatta Local Business Awards", note: "Finalist", image: "/awards/koala-invest-2026-parramatta-finalist.jpg" },
+      { year: "2022", title: "Parramatta Local Business Awards", note: "Finalist", image: "/awards/koala-invest-2022-parramatta-finalist.jpg" },
+      { year: "2023", title: "Australian Small Business Champion Awards", note: "Finalist", image: "/awards/koala-invest-2023-sbc-finalist.webp" },
     ],
   },
   {
