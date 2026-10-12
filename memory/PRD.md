@@ -299,9 +299,20 @@ pseudo-3D parallax and an orbital company hub.
 - Verified via screenshot (all 5 Koala Invest cards + Kailash 2021 rotated card render
   correctly, Kuber Projects section unchanged/still pending).
 
+## Content Updates Round 4 (2026-10-12)
+- Rotated `public/awards/koala-invest-2023-sbc-finalist.webp` 90° CW to portrait (certificate
+  text was sideways landscape scan) — verified renders correctly, matches other Koala cards.
+- Added Kuber Projects' 3 PropertyGuru award images (Best Breakthrough Developer, Best
+  Housing Development Mandurah, Best Investment Housing Development Golden Bay), saved to
+  `public/awards/kuber-projects-*.webp`. Since user said these are vertical, borderless, titled
+  below: added `borderless: true` flag on the `kuber-projects` COMPANY_AWARDS entry
+  (`components/AwardsView.jsx`) and a new conditional JSX branch — 3-col grid, no
+  border/background box, rounded image with shadow, year/title/note plain text below (vs.
+  the bordered box+fixed-height-image style used for Kailash Lawyers/Koala Invest).
+  Verified via screenshot — all 3 cards render cleanly, text legible.
+- All 3 company award sections now fully populated with real images (15 total award images).
+
 ## Backlog / Next
-- P1: Kuber Projects award images — user said 3 images coming in a future message; when
-  received, add `image` field to `COMPANY_AWARDS` kuber-projects items (same pattern).
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
 - P2: Blog/insights, testimonials carousel, real brand logos & Amit Pall photo.
