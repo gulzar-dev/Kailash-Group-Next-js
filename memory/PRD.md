@@ -312,6 +312,16 @@ pseudo-3D parallax and an orbital company hub.
   Verified via screenshot — all 3 cards render cleanly, text legible.
 - All 3 company award sections now fully populated with real images (15 total award images).
 
+## Content Updates Round 5 (2026-10-12)
+- Applied the Kuber Projects borderless card style sitewide to Kailash Lawyers & Koala
+  Invest too (`components/AwardsView.jsx`) — removed the old bordered/fixed-height-box
+  variant entirely, now one unified template: rounded shadowed image (no border/background
+  box) + year/title/note plain text below, grid `sm:grid-cols-2 lg:grid-cols-3 items-start`.
+  `items-start` (not stretch) lets each card size to its own image's natural aspect ratio,
+  so landscape and portrait certificates sit cleanly side-by-side without being cropped or
+  forced to a uniform height — verified via screenshot across all 3 company sections (13
+  mixed-orientation images total).
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.

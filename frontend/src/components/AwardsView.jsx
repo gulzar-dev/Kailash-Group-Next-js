@@ -36,7 +36,6 @@ const COMPANY_AWARDS = [
     key: "kuber-projects",
     name: "Kuber Projects",
     color: "#C6A15B",
-    borderless: true,
     items: [
       { year: "2025", title: "PropertyGuru Asia Property Awards (Australia), Best Breakthrough Developer", note: "Winner", image: "/awards/kuber-projects-2025-best-breakthrough-developer.webp" },
       { year: "2025", title: "PropertyGuru Asia Property Awards (Australia), Best Housing Development (Western Australia), Kuber Villas, Mandurah", note: "Winner", image: "/awards/kuber-projects-2025-best-housing-development.webp" },
@@ -108,10 +107,10 @@ export function AwardsView() {
                   </p>
                 </div>
 
-                <div className={co.borderless ? "lg:col-span-8 grid sm:grid-cols-3 gap-6" : "lg:col-span-8 grid sm:grid-cols-2 gap-4"}>
+                <div className="lg:col-span-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 items-start">
                   {co.items.map((a, i) => (
-                    co.borderless ? (
-                      <motion.div key={`${co.key}-${i}`} whileHover={{ y: -4 }} className="flex flex-col">
+                    <motion.div key={`${co.key}-${i}`} whileHover={{ y: -4 }} className="flex flex-col">
+                      {a.image ? (
                         <div className="rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(10,37,64,0.12)]">
                           <img
                             src={a.image}
@@ -119,55 +118,27 @@ export function AwardsView() {
                             className="w-full h-auto object-contain"
                           />
                         </div>
-                        <div className="mt-4">
-                          <div className="font-display font-semibold text-xl text-[#0A2540] leading-none">
-                            {a.year}
-                          </div>
-                          <div className="mt-2 text-sm text-[#334155] leading-snug">{a.title}</div>
-                          {a.note && (
-                            <span className="mt-2 inline-block text-[10px] tracking-widest uppercase text-champagne font-semibold">
-                              {a.note}
-                            </span>
-                          )}
-                          <span className="sr-only">{awardSentence(co.name, a)}</span>
+                      ) : (
+                        <div
+                          className="w-11 h-11 rounded-full flex items-center justify-center shrink-0"
+                          style={{ background: `${co.color}18` }}
+                        >
+                          <Trophy size={18} style={{ color: co.color }} />
                         </div>
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key={`${co.key}-${i}`}
-                        whileHover={{ y: -4 }}
-                        className="rounded-2xl border border-[#D9E1EC] bg-[#F5F8FC] overflow-hidden flex flex-col"
-                      >
-                        {a.image ? (
-                          <div className="h-60 sm:h-64 bg-white flex items-center justify-center p-4 border-b border-[#D9E1EC]">
-                            <img
-                              src={a.image}
-                              alt={`${co.name} — ${a.title} (${a.year})`}
-                              className="max-h-full max-w-full object-contain"
-                            />
-                          </div>
-                        ) : (
-                          <div
-                            className="w-11 h-11 rounded-full flex items-center justify-center shrink-0 mt-6 ml-6"
-                            style={{ background: `${co.color}18` }}
-                          >
-                            <Trophy size={18} style={{ color: co.color }} />
-                          </div>
+                      )}
+                      <div className="mt-4">
+                        <div className="font-display font-semibold text-xl text-[#0A2540] leading-none">
+                          {a.year}
+                        </div>
+                        <div className="mt-2 text-sm text-[#334155] leading-snug">{a.title}</div>
+                        {a.note && (
+                          <span className="mt-2 inline-block text-[10px] tracking-widest uppercase text-champagne font-semibold">
+                            {a.note}
+                          </span>
                         )}
-                        <div className="p-6">
-                          <div className="font-display font-semibold text-2xl text-[#0A2540] leading-none">
-                            {a.year}
-                          </div>
-                          <div className="mt-2 text-sm text-[#334155] leading-snug">{a.title}</div>
-                          {a.note && (
-                            <span className="mt-2 inline-block text-[10px] tracking-widest uppercase text-champagne font-semibold">
-                              {a.note}
-                            </span>
-                          )}
-                          <span className="sr-only">{awardSentence(co.name, a)}</span>
-                        </div>
-                      </motion.div>
-                    )
+                        <span className="sr-only">{awardSentence(co.name, a)}</span>
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
