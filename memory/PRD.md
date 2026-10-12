@@ -283,7 +283,25 @@ pseudo-3D parallax and an orbital company hub.
 - Verified via curl (new copy present) and screenshots (founder quote title, Koala card,
   awards page images render well-aligned for both orientations).
 
+## Content Updates Round 3 (2026-10-12)
+- Rotated `public/awards/kailash-lawyers-2021-local-business-winner.webp` 90° to vertical
+  (matches certificate's actual portrait orientation) — verified renders correctly on
+  `/awards`, no card layout breakage.
+- Koala Invest `COMPANY_AWARDS` (`components/AwardsView.jsx`) updated from 5 generic
+  "Recognition" placeholder entries to 5 real Finalist certificates with images, downloaded
+  to `public/awards/koala-invest-*`: 2021 Parramatta City Local Business Awards, 2022
+  Parramatta Local Business Awards, 2023 Australian Small Business Champion Awards, 2025
+  Parramatta Local Business Awards, 2026 Parramatta Local Business Awards (new award year).
+  All verified rendering correctly (EXIF-rotated source JPEGs honored by browser).
+- User explicitly declined: replacing already-integrated Kailash Lawyers award images with
+  re-uploaded near-duplicates; adding the new vertical white Kailash Group logo anywhere;
+  re-adding the Pro Bono image (already in place).
+- Verified via screenshot (all 5 Koala Invest cards + Kailash 2021 rotated card render
+  correctly, Kuber Projects section unchanged/still pending).
+
 ## Backlog / Next
+- P1: Kuber Projects award images — user said 3 images coming in a future message; when
+  received, add `image` field to `COMPANY_AWARDS` kuber-projects items (same pattern).
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
 - P2: Blog/insights, testimonials carousel, real brand logos & Amit Pall photo.
