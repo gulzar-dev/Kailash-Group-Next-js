@@ -328,6 +328,26 @@ pseudo-3D parallax and an orbital company hub.
   stranded on a mostly-empty row 2. Row 2 now only has 2022/2023. Purely a display-order
   change, no data/content changes. Verified via screenshot.
 
+## Legal Pages Rewrite (2026-10-27)
+- Replaced `components/LegalView.jsx` PRIVACY_SECTIONS and DISCLAIMER_SECTIONS entirely with
+  content from user-supplied docx files ("Privacy Policy - Kailash Group.docx", "Disclaimer -
+  Kailash Group.docx"), extracted via `extract_file_tool` and transcribed faithfully (intro
+  entities section + numbered sections matching the docs' internal cross-references, e.g.
+  Privacy §12 Contact Details, §6/§7 refs; Disclaimer §13 Contact details).
+  - Added `ENTITIES` (3 legal entity names + ACNs: Koala Investment Property Pty Ltd ACN 603
+    793 308, Kailash Lawyers Pty Ltd ACN 604 582 550, Kuber Investment Group Pty Ltd ACN 602
+    779 199) and `CONTACT_BLOCKS` (4 per-entity contact lines: Group/Lawyers/Koala/Kuber,
+    each with phone/street/mailing address) — reused across both docs' Contact sections.
+  - `CONTACT.mailingAddress` ("PO Box 1220, Parramatta NSW 2124") added to `lib/data.js`
+    (doc specifies it, wasn't previously tracked). Doc left per-entity phone blank except
+    Legal (02 9633 4233) — used the one existing site-wide `CONTACT.phone` for all 4 blocks
+    rather than showing blank fields publicly (judgment call, noted here for visibility).
+  - `CONTENT` now carries a static `lastUpdated` per doc (Privacy: "13 October 2026",
+    Disclaimer: "13 August 2026") instead of the previous dynamic `new Date().getFullYear()`
+    — page now shows `doc.lastUpdated`.
+- Verified both `/legal/privacy` and `/legal/disclaimer` return 200 and render the new
+  content correctly via screenshot (entities list, numbered sections, contact blocks).
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.

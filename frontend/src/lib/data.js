@@ -12,6 +12,7 @@ export const CONTACT = {
     postalCode: "2150",
     addressCountry: "AU",
   },
+  mailingAddress: "PO Box 1220, Parramatta NSW 2124",
   mapUrl: "https://maps.app.goo.gl/U8qqMxhN64TUYtFm9",
   mapEmbed:
     "https://www.google.com/maps?q=60+Phillip+Street+Parramatta+NSW+2150&output=embed",
