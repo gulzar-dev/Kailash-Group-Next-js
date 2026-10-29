@@ -356,6 +356,17 @@ pseudo-3D parallax and an orbital company hub.
   (AWARDS data itself untouched in `lib/data.js`, still used by `/awards` page, llms.txt,
   and Organization JSON-LD). Verified via screenshot.
 
+## Homepage Awards Section Update (2026-10-29)
+- Replaced the homepage "Recognised for excellence." horizontal scrolling award cards
+  (`sections/Awards.jsx`) with a single showcase image (`public/awards-showcase.png`,
+  user-supplied composite photo of all trophies/certificates). Section title/heading
+  unchanged; removed `AWARDS` data import, `Trophy` icon and the scroll-track markup
+  (AWARDS data itself untouched in `lib/data.js`, still used by `/awards` page, llms.txt,
+  and Organization JSON-LD). Verified via screenshot.
+- Heading forced to one line + left-aligned (`whitespace-nowrap`, removed `max-w-2xl` wrap
+  constraint, responsive sizing `text-2xl sm:text-5xl lg:text-6xl` so it fits without
+  horizontal overflow on mobile). Verified on both desktop and 390px mobile viewport.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
