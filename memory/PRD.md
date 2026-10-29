@@ -348,6 +348,14 @@ pseudo-3D parallax and an orbital company hub.
 - Verified both `/legal/privacy` and `/legal/disclaimer` return 200 and render the new
   content correctly via screenshot (entities list, numbered sections, contact blocks).
 
+## Homepage Awards Section Update (2026-10-29)
+- Replaced the homepage "Recognised for excellence." horizontal scrolling award cards
+  (`sections/Awards.jsx`) with a single showcase image (`public/awards-showcase.png`,
+  user-supplied composite photo of all trophies/certificates). Section title/heading
+  unchanged; removed `AWARDS` data import, `Trophy` icon and the scroll-track markup
+  (AWARDS data itself untouched in `lib/data.js`, still used by `/awards` page, llms.txt,
+  and Organization JSON-LD). Verified via screenshot.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
