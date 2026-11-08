@@ -390,6 +390,12 @@ pseudo-3D parallax and an orbital company hub.
 - Verified via screenshot — Hero shows the new trophy image with existing gradient/text
   readable, Awards section back to original image.
 
+## Image Positioning Fix (2026-11-08)
+- `/awards` hero banner image (`components/AwardsView.jsx`, `public/awards-group.jpg`) had
+  faces cropped at the top due to default `object-cover` centering. Fixed with
+  `objectPosition: "center 25%"` (shifts the visible crop up/down so faces are fully shown).
+  Verified via screenshot.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.

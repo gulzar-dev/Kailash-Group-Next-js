@@ -65,6 +65,7 @@ export function AwardsView() {
             src="/awards-group.jpg"
             alt="Kailash Group team at the Australian Professionals Small Business Champion Awards 2025"
             className="w-full h-full object-cover opacity-95"
+            style={{ objectPosition: "center 25%" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540] via-[#0A2540]/55 to-[#0A2540]/10" />
         </div>
