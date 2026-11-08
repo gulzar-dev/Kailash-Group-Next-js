@@ -475,6 +475,11 @@ pseudo-3D parallax and an orbital company hub.
   Recognition count on `/awards` is computed dynamically from array length (`AwardsView.jsx`
   line ~108), so no separate count update needed. Verified via screenshot.
 
+## About Page Polish (2026-11-08, follow-up 4)
+- Executive Leadership role/designation text style now matches Senior Leadership exactly:
+  `text-[#5B6B7F]` -> `text-champagne font-medium` (was missing font-weight + wrong color).
+  Verified via screenshot.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.

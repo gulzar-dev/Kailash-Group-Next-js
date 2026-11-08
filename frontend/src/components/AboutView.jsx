@@ -146,7 +146,7 @@ export function AboutView() {
                     )}
                   </div>
                   <div className="mt-3 sm:mt-6 font-display font-semibold text-sm sm:text-xl text-[#0A2540]">{p.name}</div>
-                  <div className="mt-1 sm:mt-2 text-[10px] sm:text-sm text-[#5B6B7F] uppercase tracking-wide">{p.role}</div>
+                  <div className="mt-1 sm:mt-2 text-[10px] sm:text-sm text-champagne font-medium uppercase tracking-wide">{p.role}</div>
                 </div>
               </Reveal>
             ))}
