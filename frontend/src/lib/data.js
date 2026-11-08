@@ -193,7 +193,7 @@ export const COMMUNITY = [
 ];
 
 export const IMAGES = {
-  hero: "/hero-awards.png",
+  hero: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=1920&q=80",
   portrait: "/amit-pall.jpeg",
   trophy: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&w=1000&q=80",
 };

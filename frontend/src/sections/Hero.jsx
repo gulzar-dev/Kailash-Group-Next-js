@@ -18,7 +18,7 @@ export const Hero = ({ onExplore, onContact }) => {
     <section ref={ref} data-testid="hero-section" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Parallax background */}
       <motion.div style={{ y: imgY, scale: imgScale }} className="absolute inset-0 -z-10">
-        <img src={IMAGES.hero} alt="Kailash Group award trophies and certificates" className="w-full h-[120%] object-cover" />
+        <img src={IMAGES.hero} alt="Australian skyline" className="w-full h-[120%] object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/60 to-white" />
         <div className="absolute inset-0 bg-gradient-to-r from-white/70 to-transparent" />
       </motion.div>

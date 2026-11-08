@@ -396,6 +396,16 @@ pseudo-3D parallax and an orbital company hub.
   `objectPosition: "center 25%"` (shifts the visible crop up/down so faces are fully shown).
   Verified via screenshot.
 
+## Image Adjustments (2026-11-08, follow-up)
+- `/awards` hero banner `objectPosition` adjusted further from "center 25%" to "center 10%"
+  per user request to drag the image down more — team faces + "SUB-ZERO/WOLF/HLB" sponsor
+  logos now fully visible at top.
+- Homepage Hero banner reverted back to the original Unsplash Sydney Opera House skyline
+  image (`lib/data.js` `IMAGES.hero` back to the Unsplash URL, `sections/Hero.jsx` alt text
+  back to "Australian skyline") — undoing the "Homepage awards.png" swap from two turns ago
+  per explicit user request.
+- Verified via screenshot — both pages correct.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
