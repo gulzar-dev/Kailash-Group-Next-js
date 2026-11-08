@@ -18,6 +18,7 @@ const COMPANY_AWARDS = [
       { year: "2022", title: "Parramatta Local Business Awards, Outstanding Professional Services", note: "Finalist", image: "/awards/kailash-lawyers-2022-parramatta-finalist.jpg" },
       { year: "2023", title: "Australian Small Business Champion Awards, Legal Services", note: "Finalist", image: "/awards/kailash-lawyers-2023-sbc-finalist.jpg" },
       { year: "2025", title: "Australian Professionals Small Business Champion Awards, Legal Services", note: "Finalist", image: "/awards/kailash-lawyers-2025-sbc-finalist.jpg" },
+      { year: "2026", title: "Certificate of Excellence", note: "Winner", image: "/awards/kailash-lawyers-2026-certificate-excellence.jpg" },
     ],
   },
   {

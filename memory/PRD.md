@@ -469,6 +469,12 @@ pseudo-3D parallax and an orbital company hub.
 - Verified via screenshot on desktop (1920px) and mobile (390px) — no overflow, balanced
   with Senior section.
 
+## Award Addition (2026-11-08)
+- Added a 6th Kailash Lawyers award: 2026 "Certificate of Excellence" (Winner) — NSW
+  Parliament certificate awarded to Amit Pall, image `public/awards/kailash-lawyers-2026-certificate-excellence.jpg`.
+  Recognition count on `/awards` is computed dynamically from array length (`AwardsView.jsx`
+  line ~108), so no separate count update needed. Verified via screenshot.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
