@@ -378,6 +378,18 @@ pseudo-3D parallax and an orbital company hub.
   `/awards-group.jpg`.
 - Verified via screenshot — both pages render the new images correctly.
 
+## Image Correction (2026-11-08)
+- Reverted homepage "Recognised for excellence." section image back to the original trophy
+  podium photo (`public/awards-showcase.png` restored from "Awards_Showcase.png" source) —
+  previous turn had mistakenly overwritten it with the wrong asset.
+- Homepage Hero banner (`sections/Hero.jsx`, `lib/data.js` `IMAGES.hero`) replaced: was an
+  Unsplash Australian skyline stock photo, now `/hero-awards.png` (user's "Homepage awards.png"
+  trophy still-life, this is what the user meant by "homepage banner"). Alt text updated to
+  match. `/awards` page hero banner (`public/awards-group.jpg`, the team celebration photo)
+  unchanged from the prior turn.
+- Verified via screenshot — Hero shows the new trophy image with existing gradient/text
+  readable, Awards section back to original image.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
