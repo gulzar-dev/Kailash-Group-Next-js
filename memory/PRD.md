@@ -367,6 +367,17 @@ pseudo-3D parallax and an orbital company hub.
   constraint, responsive sizing `text-2xl sm:text-5xl lg:text-6xl` so it fits without
   horizontal overflow on mobile). Verified on both desktop and 390px mobile viewport.
 
+## Image Replacements (2026-11-08)
+- Homepage "Recognised for excellence." showcase image (`sections/Awards.jsx` ->
+  `public/awards-showcase.png`) replaced with user's new trophy/certificate still-life photo.
+- `/awards` hero banner (`components/AwardsView.jsx` -> was `public/awards-group.webp`)
+  replaced with user's new team celebration photo at PropertyGuru Asia Property Awards;
+  saved as `public/awards-group.jpg` (source was actually a JPEG despite the old .webp
+  filename/extension — renamed to match true format so the browser's content-type/decoder
+  matches the bytes, avoiding a broken-image risk). Reference in AwardsView.jsx updated to
+  `/awards-group.jpg`.
+- Verified via screenshot — both pages render the new images correctly.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.

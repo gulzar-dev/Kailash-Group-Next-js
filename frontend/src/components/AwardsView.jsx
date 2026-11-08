@@ -62,7 +62,7 @@ export function AwardsView() {
       <section className="relative min-h-[85vh] flex items-end overflow-hidden bg-[#0A2540]">
         <div className="absolute inset-0 -z-0">
           <img
-            src="/awards-group.webp"
+            src="/awards-group.jpg"
             alt="Kailash Group team at the Australian Professionals Small Business Champion Awards 2025"
             className="w-full h-full object-cover opacity-95"
           />
