@@ -63,10 +63,10 @@ export function AwardsView() {
       <section className="relative min-h-[85vh] flex items-end overflow-hidden bg-[#0A2540]">
         <div className="absolute inset-0 -z-0">
           <img
-            src="/awards-group.jpg"
-            alt="Kailash Group team at the Australian Professionals Small Business Champion Awards 2025"
+            src="/awards-group.png"
+            alt="Kailash Group team celebrating at the PropertyGuru Asia Property Awards Australia"
             className="w-full h-full object-cover opacity-95"
-            style={{ objectPosition: "center 10%" }}
+            style={{ objectPosition: "center 20%" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540] via-[#0A2540]/55 to-[#0A2540]/10" />
         </div>
