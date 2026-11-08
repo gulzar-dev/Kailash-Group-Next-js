@@ -480,6 +480,12 @@ pseudo-3D parallax and an orbital company hub.
   `text-[#5B6B7F]` -> `text-champagne font-medium` (was missing font-weight + wrong color).
   Verified via screenshot.
 
+## Image Replacement (2026-11-08, follow-up 5)
+- Homepage "Recognised for excellence." showcase image replaced with user's new composite
+  trophy/certificate render (`public/awards-showcase.jpg`, was `.png`; renamed to match true
+  JPEG format of the new source file; `sections/Awards.jsx` reference updated). Verified via
+  screenshot.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.

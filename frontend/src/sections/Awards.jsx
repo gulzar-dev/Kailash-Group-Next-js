@@ -21,7 +21,7 @@ export const Awards = () => (
         className="rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(10,37,64,0.12)]"
       >
         <img
-          src="/awards-showcase.png"
+          src="/awards-showcase.jpg"
           alt="Kailash Group's collection of award trophies and certificates, including PropertyGuru Asia Property Awards, Parramatta Local Business Awards and Australian Small Business Champion Awards"
           className="w-full h-auto object-cover"
         />
