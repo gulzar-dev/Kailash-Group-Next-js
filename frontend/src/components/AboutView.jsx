@@ -135,8 +135,8 @@ export function AboutView() {
           <div className="grid grid-cols-4 gap-3 sm:gap-6">
             {EXECUTIVE_TEAM.map((p, i) => (
               <Reveal key={p.name} delay={i * 0.06}>
-                <div data-testid={`executive-team-${p.initials.toLowerCase()}`} className="bg-[#F5F8FC] rounded-2xl p-5 sm:p-10 text-center flex flex-col items-center justify-center min-h-[200px] sm:min-h-[300px]">
-                  <div className="w-16 h-16 sm:w-36 sm:h-36 mx-auto rounded-full overflow-hidden border border-[#D9E1EC] flex items-center justify-center" style={{ background: `${p.color}14` }}>
+                <div data-testid={`executive-team-${p.initials.toLowerCase()}`} className="bg-[#F5F8FC] rounded-2xl p-3 sm:p-8 text-center flex flex-col items-center justify-center min-h-[180px] sm:min-h-[360px]">
+                  <div className="w-14 h-14 sm:w-44 sm:h-44 mx-auto rounded-full overflow-hidden border border-[#D9E1EC] flex items-center justify-center" style={{ background: `${p.color}14` }}>
                     {p.image ? (
                       <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
                     ) : (
@@ -145,8 +145,8 @@ export function AboutView() {
                       </span>
                     )}
                   </div>
-                  <div className="mt-3 sm:mt-6 font-medium text-xs sm:text-lg text-[#0A2540]">{p.name}</div>
-                  <div className="mt-1 text-[10px] sm:text-xs text-[#5B6B7F] uppercase tracking-wide">{p.role}</div>
+                  <div className="mt-3 sm:mt-6 font-display font-semibold text-sm sm:text-xl text-[#0A2540]">{p.name}</div>
+                  <div className="mt-1 sm:mt-2 text-[10px] sm:text-sm text-[#5B6B7F] uppercase tracking-wide">{p.role}</div>
                 </div>
               </Reveal>
             ))}

@@ -458,6 +458,17 @@ pseudo-3D parallax and an orbital company hub.
 - Gap between "Senior Leadership team." heading and its subtitle tightened (`mt-6` -> `mt-2`).
 - Verified via screenshot on desktop and mobile.
 
+## About Page Polish (2026-11-08, follow-up 3)
+- Executive Leadership cards significantly enlarged on desktop to balance visually against
+  Senior cards: avatar `sm:w-36/h-36` -> `sm:w-44/h-44`, card `sm:min-h-[300px]` ->
+  `sm:min-h-[360px]`, name font `sm:text-lg` -> `sm:text-xl` (matches Senior card name size),
+  role font `sm:text-xs` -> `sm:text-sm` uppercase (matches Senior). Mobile sizing tuned down
+  (`w-14/h-14` avatar, `p-3` card padding) to keep all 4 fitting in one row at 390px without
+  clipping (previous larger mobile avatar size caused the 4th card to overflow/clip —
+  caught and fixed via screenshot before finishing).
+- Verified via screenshot on desktop (1920px) and mobile (390px) — no overflow, balanced
+  with Senior section.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
