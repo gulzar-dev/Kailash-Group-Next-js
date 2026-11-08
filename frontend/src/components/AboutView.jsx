@@ -23,10 +23,10 @@ const SENIOR_TEAM = [
 ];
 
 const EXECUTIVE_TEAM = [
-  { name: "Victoria Soldatova", role: "Operations Administrator", initials: "VS", color: "#5B6B7F" },
-  { name: "Himanshu Kushwaha", role: "IT Support", initials: "HK", color: "#5B6B7F" },
-  { name: "Anshika Garg", role: "Human Resource", initials: "AG", color: "#5B6B7F" },
-  { name: "Hema Rawat", role: "Junior Accountant", initials: "HR", color: "#5B6B7F" },
+  { name: "Victoria Soldatova", role: "Operations Administrator", initials: "VS", image: "/victoria-soldatova.webp", color: "#5B6B7F" },
+  { name: "Himanshu Kushwaha", role: "IT Support", initials: "HK", image: "/himanshu-kushwaha.webp", color: "#5B6B7F" },
+  { name: "Anshika Garg", role: "Human Resource", initials: "AG", image: "/anshika-garg.webp", color: "#5B6B7F" },
+  { name: "Hema Rawat", role: "Junior Accountant", initials: "HR", image: "/hema-rawat.webp", color: "#5B6B7F" },
 ];
 
 const values = [
@@ -94,7 +94,7 @@ export function AboutView() {
             <h2 className="font-display font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight text-[#0A2540] leading-[1.1] whitespace-nowrap">
               Senior Leadership <span className="italic font-accent text-champagne">team.</span>
             </h2>
-            <p className="mt-6 text-lg text-[#475569] font-light">
+            <p className="mt-2 text-lg text-[#475569] font-light">
               The advisors and operators steering Kailash Group's strategy and standards.
             </p>
           </Reveal>
@@ -132,11 +132,11 @@ export function AboutView() {
               The people keeping day-to-day operations running smoothly.
             </p>
           </Reveal>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-4 gap-3 sm:gap-6">
             {EXECUTIVE_TEAM.map((p, i) => (
               <Reveal key={p.name} delay={i * 0.06}>
-                <div data-testid={`executive-team-${p.initials.toLowerCase()}`} className="bg-[#F5F8FC] rounded-2xl p-8 text-center flex flex-col items-center justify-center min-h-[220px]">
-                  <div className="w-28 h-28 mx-auto rounded-full overflow-hidden border border-[#D9E1EC] flex items-center justify-center" style={{ background: `${p.color}14` }}>
+                <div data-testid={`executive-team-${p.initials.toLowerCase()}`} className="bg-[#F5F8FC] rounded-2xl p-5 sm:p-10 text-center flex flex-col items-center justify-center min-h-[200px] sm:min-h-[300px]">
+                  <div className="w-16 h-16 sm:w-36 sm:h-36 mx-auto rounded-full overflow-hidden border border-[#D9E1EC] flex items-center justify-center" style={{ background: `${p.color}14` }}>
                     {p.image ? (
                       <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
                     ) : (
@@ -145,8 +145,8 @@ export function AboutView() {
                       </span>
                     )}
                   </div>
-                  <div className="mt-4 font-medium text-base text-[#0A2540]">{p.name}</div>
-                  <div className="mt-1 text-xs text-[#5B6B7F] uppercase tracking-wide">{p.role}</div>
+                  <div className="mt-3 sm:mt-6 font-medium text-xs sm:text-lg text-[#0A2540]">{p.name}</div>
+                  <div className="mt-1 text-[10px] sm:text-xs text-[#5B6B7F] uppercase tracking-wide">{p.role}</div>
                 </div>
               </Reveal>
             ))}

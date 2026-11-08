@@ -448,6 +448,16 @@ pseudo-3D parallax and an orbital company hub.
 - Verified via screenshot — all 5 Senior cards show real photos, layout balanced, Executive
   cards larger.
 
+## About Page Polish (2026-11-08, follow-up 2)
+- Executive Leadership team now uses real photos for all 4 (`public/victoria-soldatova.webp`,
+  `himanshu-kushwaha.webp`, `anshika-garg.webp`, `hema-rawat.webp`).
+- Executive cards enlarged significantly on desktop (avatar `w-28/h-28` -> `sm:w-36/h-36`,
+  card `min-h-[220px]` -> `sm:min-h-[300px]`, padding `p-8` -> `sm:p-10`), kept responsive
+  smaller sizing on mobile (`w-16/h-16`, `min-h-[200px]`) so all 4 stay in one grid-cols-4
+  row at every breakpoint without overflow (verified at 390px mobile).
+- Gap between "Senior Leadership team." heading and its subtitle tightened (`mt-6` -> `mt-2`).
+- Verified via screenshot on desktop and mobile.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
