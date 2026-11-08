@@ -428,6 +428,26 @@ pseudo-3D parallax and an orbital company hub.
 - Verified via screenshot — group photo horizontal, Senior cards large/prominent, Executive
   cards compact/distinct.
 
+## About Page Polish (2026-11-08, follow-up)
+- "Our team" banner/text balance fixed: image aspect changed `aspect-[8/5]` -> `aspect-[4/3]`
+  (taller, still horizontal), h1 and value-list typography/spacing reduced (text-2xl/3xl/4xl,
+  tighter `space-y-5`/`gap-5`) so left image and right text column read as balanced.
+- "Senior Leadership team." heading reduced (`text-4xl/5xl/6xl` -> `text-2xl/3xl/4xl`) +
+  `whitespace-nowrap` to keep it on one line.
+- Removed LinkedIn/email icons from Amit Pall's Senior card entirely (data fields + JSX
+  block + now-unused `Linkedin`/`Mail` icon imports removed from `AboutView.jsx`).
+- Executive Leadership cards enlarged: avatar `w-20 h-20` -> `w-28 h-28`, card padding
+  `p-5` -> `p-8` with `min-h-[220px]`, name/role text sizes bumped slightly.
+- Kunal Roy's role updated: "Marketing Head" -> "Head of Marketing".
+- Real 1:1 photos added for all 5 Senior Leadership members (`public/sumeet-gupta.webp`,
+  `parvesh-goyal.webp`, `siddharth-aggarwal.webp`, `kunal-roy.webp`; Amit Pall's photo also
+  refreshed to the new headshot, renamed `amit-pall.jpeg` -> `amit-pall.webp` to match true
+  file format — updated 3 references: `AboutView.jsx`, `FounderQuote.jsx`, `lib/data.js`
+  `IMAGES.portrait`). Executive Leadership still uses initials placeholders (no photos
+  provided yet for those 4).
+- Verified via screenshot — all 5 Senior cards show real photos, layout balanced, Executive
+  cards larger.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.

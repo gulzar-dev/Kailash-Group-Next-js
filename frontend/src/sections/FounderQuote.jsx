@@ -13,7 +13,7 @@ export const FounderQuote = () => (
       <Reveal>
         <div className="rounded-3xl border border-[#D9E1EC] bg-[#F5F8FC] overflow-hidden flex flex-col sm:flex-row items-center gap-8 sm:gap-10 p-8 sm:p-12">
           <div className="w-28 h-28 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-white shadow-[0_15px_40px_rgba(10,37,64,0.15)] shrink-0">
-            <img src="/amit-pall.jpeg" alt="Amit Pall" className="w-full h-full object-cover" />
+            <img src="/amit-pall.webp" alt="Amit Pall" className="w-full h-full object-cover" />
           </div>
           <div className="text-center sm:text-left">
             <p className="font-display italic text-xl sm:text-2xl lg:text-3xl text-[#0A2540] leading-snug">

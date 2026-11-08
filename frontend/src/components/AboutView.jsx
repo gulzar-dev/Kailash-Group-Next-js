@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Linkedin, Mail } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { TIMELINE } from "@/lib/data";
@@ -13,15 +13,13 @@ const SENIOR_TEAM = [
     name: "Amit Pall",
     role: "CEO & Founder",
     initials: "AP",
-    image: "/amit-pall.jpeg",
+    image: "/amit-pall.webp",
     color: "#0A2540",
-    linkedin: "https://www.linkedin.com/in/amit-pall-a0236710/",
-    email: "amit@kailashgroup.com.au",
   },
-  { name: "Sumeet Gupta", role: "Business Head – India Operations", initials: "SG", color: "#1E4E8C" },
-  { name: "CA Parvesh Goyal", role: "Group Finance Manager", initials: "PG", color: "#1E4E8C" },
-  { name: "Siddharth Aggarwal", role: "Group Operations Manager", initials: "SA", color: "#1E4E8C" },
-  { name: "Kunal Roy", role: "Marketing Head", initials: "KR", color: "#1E4E8C" },
+  { name: "Sumeet Gupta", role: "Business Head – India Operations", initials: "SG", image: "/sumeet-gupta.webp", color: "#1E4E8C" },
+  { name: "CA Parvesh Goyal", role: "Group Finance Manager", initials: "PG", image: "/parvesh-goyal.webp", color: "#1E4E8C" },
+  { name: "Siddharth Aggarwal", role: "Group Operations Manager", initials: "SA", image: "/siddharth-aggarwal.webp", color: "#1E4E8C" },
+  { name: "Kunal Roy", role: "Head of Marketing", initials: "KR", image: "/kunal-roy.webp", color: "#1E4E8C" },
 ];
 
 const EXECUTIVE_TEAM = [
@@ -63,24 +61,24 @@ export function AboutView() {
       <section className="bg-white pt-32 md:pt-40 pb-16 md:pb-24">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12 grid lg:grid-cols-12 gap-10 items-center">
           <Reveal className="lg:col-span-6">
-            <div className="relative rounded-3xl overflow-hidden border border-[#D9E1EC] aspect-[8/5] shadow-[0_30px_80px_rgba(10,37,64,0.12)]">
+            <div className="relative rounded-3xl overflow-hidden border border-[#D9E1EC] aspect-[4/3] shadow-[0_30px_80px_rgba(10,37,64,0.12)]">
               <img src="/about-banner.webp" alt="Kailash Group team" className="w-full h-full object-cover" />
             </div>
           </Reveal>
           <Reveal delay={0.15} className="lg:col-span-6">
-            <div className="text-[11px] tracking-[0.28em] uppercase text-champagne font-semibold mb-4">
+            <div className="text-[11px] tracking-[0.28em] uppercase text-champagne font-semibold mb-3">
               Our team
             </div>
-            <h1 className="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[#0A2540] leading-[1.15]">
+            <h1 className="font-display font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight text-[#0A2540] leading-[1.2]">
               One Group. Three specialisms. <span className="italic font-accent text-champagne">One shared standard.</span>
             </h1>
-            <div className="mt-10 space-y-8">
+            <div className="mt-7 space-y-5">
               {values.map((v) => (
-                <div key={v.n} className="flex gap-6">
-                  <span className="font-accent italic text-4xl text-champagne shrink-0 leading-none pt-1">{v.n}</span>
+                <div key={v.n} className="flex gap-5">
+                  <span className="font-accent italic text-2xl text-champagne shrink-0 leading-none pt-0.5">{v.n}</span>
                   <div>
-                    <h3 className="font-display font-semibold text-2xl text-[#0A2540]">{v.t}</h3>
-                    <p className="mt-2 text-[#475569] font-light leading-relaxed">{v.d}</p>
+                    <h3 className="font-display font-semibold text-lg text-[#0A2540]">{v.t}</h3>
+                    <p className="mt-1 text-sm text-[#475569] font-light leading-relaxed">{v.d}</p>
                   </div>
                 </div>
               ))}
@@ -93,7 +91,7 @@ export function AboutView() {
       <section className="bg-[#F5F8FC] py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
           <Reveal className="max-w-2xl mb-14">
-            <h2 className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0A2540] leading-[1.1]">
+            <h2 className="font-display font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight text-[#0A2540] leading-[1.1] whitespace-nowrap">
               Senior Leadership <span className="italic font-accent text-champagne">team.</span>
             </h2>
             <p className="mt-6 text-lg text-[#475569] font-light">
@@ -115,30 +113,6 @@ export function AboutView() {
                   <div className="px-6 pb-6 pt-1 flex-1 flex flex-col">
                     <div className="font-display font-semibold text-xl text-[#0A2540]">{p.name}</div>
                     <div className="mt-1 text-sm text-champagne font-medium tracking-wide uppercase">{p.role}</div>
-                    {(p.linkedin || p.email) && (
-                      <div className="mt-5 flex gap-3">
-                        {p.linkedin && (
-                          <a
-                            href={p.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            data-testid={`senior-team-${p.initials.toLowerCase()}-linkedin`}
-                            className="w-9 h-9 rounded-full border border-[#D9E1EC] flex items-center justify-center text-[#0A2540] hover:bg-[#0A2540] hover:text-white transition-colors cursor-pointer"
-                          >
-                            <Linkedin size={15} />
-                          </a>
-                        )}
-                        {p.email && (
-                          <a
-                            href={`mailto:${p.email}`}
-                            data-testid={`senior-team-${p.initials.toLowerCase()}-email`}
-                            className="w-9 h-9 rounded-full border border-[#D9E1EC] flex items-center justify-center text-[#0A2540] hover:bg-[#0A2540] hover:text-white transition-colors cursor-pointer"
-                          >
-                            <Mail size={15} />
-                          </a>
-                        )}
-                      </div>
-                    )}
                   </div>
                 </motion.div>
               </Reveal>
@@ -161,17 +135,17 @@ export function AboutView() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {EXECUTIVE_TEAM.map((p, i) => (
               <Reveal key={p.name} delay={i * 0.06}>
-                <div data-testid={`executive-team-${p.initials.toLowerCase()}`} className="bg-[#F5F8FC] rounded-2xl p-5 text-center">
-                  <div className="w-20 h-20 mx-auto rounded-full overflow-hidden border border-[#D9E1EC] flex items-center justify-center" style={{ background: `${p.color}14` }}>
+                <div data-testid={`executive-team-${p.initials.toLowerCase()}`} className="bg-[#F5F8FC] rounded-2xl p-8 text-center flex flex-col items-center justify-center min-h-[220px]">
+                  <div className="w-28 h-28 mx-auto rounded-full overflow-hidden border border-[#D9E1EC] flex items-center justify-center" style={{ background: `${p.color}14` }}>
                     {p.image ? (
                       <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
                     ) : (
-                      <span className="font-display font-semibold text-lg text-white w-full h-full flex items-center justify-center" style={{ background: p.color }}>
+                      <span className="font-display font-semibold text-2xl text-white w-full h-full flex items-center justify-center" style={{ background: p.color }}>
                         {p.initials}
                       </span>
                     )}
                   </div>
-                  <div className="mt-3 font-medium text-sm text-[#0A2540]">{p.name}</div>
+                  <div className="mt-4 font-medium text-base text-[#0A2540]">{p.name}</div>
                   <div className="mt-1 text-xs text-[#5B6B7F] uppercase tracking-wide">{p.role}</div>
                 </div>
               </Reveal>
