@@ -406,6 +406,28 @@ pseudo-3D parallax and an orbital company hub.
   per explicit user request.
 - Verified via screenshot — both pages correct.
 
+## About Page — Team Restructure (2026-11-08)
+- "Our team" banner image (`public/about-banner.webp`) replaced with user's new 8-person
+  group photo; aspect ratio changed from portrait (`aspect-[4/5] lg:aspect-[4/4.6]`) to
+  landscape (`aspect-[8/5]`) per "little horizontal layout" request.
+- Single "Leadership team" section (previously just Amit Pall) split into two distinct
+  sections in `components/AboutView.jsx`:
+  - `SENIOR_TEAM` (5 people: Amit Pall, Sumeet Gupta, CA Parvesh Goyal, Siddharth Aggarwal,
+    Kunal Roy) — larger, more prominent treatment: `bg-[#F5F8FC]` section, h2-size heading,
+    3-col grid, bordered white cards with square photo-on-top + name/role, Amit's existing
+    LinkedIn/email icons preserved (conditionally rendered — only shown if present on the
+    person object).
+  - `EXECUTIVE_TEAM` (4 people: Victoria Soldatova, Himanshu Kushwaha, Anshika Garg, Hema
+    Rawat) — compact/secondary treatment directly below: white section, smaller h3 heading,
+    4-col grid of minimal cards with small circular avatar + name/role only, no border/photo
+    card chrome — visually distinct and lower-weight vs. Senior section per request.
+  - `Avatar` component now defaults to 1:1 (`aspect-square`) placeholders (colored circle +
+    initials) since user will attach real 1:1 photos for each person later — just swap the
+    `image` field per person in `SENIOR_TEAM`/`EXECUTIVE_TEAM` when received (same pattern as
+    Amit Pall's `/amit-pall.jpeg`).
+- Verified via screenshot — group photo horizontal, Senior cards large/prominent, Executive
+  cards compact/distinct.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.
