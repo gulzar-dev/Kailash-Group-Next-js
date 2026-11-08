@@ -489,8 +489,9 @@ pseudo-3D parallax and an orbital company hub.
 ## Image Replacement (2026-11-08, follow-up 6)
 - `/awards` hero banner image replaced with user's new black-and-white celebratory
   PropertyGuru Asia Property Awards photo (`public/awards-group.png`, was `.jpg` — removed
-  old file, `AwardsView.jsx` reference updated). `objectPosition` reset to "center 20%" for
-  this new composition's framing. Verified via screenshot — faces fully visible, no cropping.
+  old file, `AwardsView.jsx` reference updated). `objectPosition` reset to "center 0%"
+  (top-aligned) after user reported faces still cropped at "center 20%". Verified via
+  screenshot — faces fully visible, no cropping.
 
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).

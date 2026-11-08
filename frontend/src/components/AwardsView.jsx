@@ -66,7 +66,7 @@ export function AwardsView() {
             src="/awards-group.png"
             alt="Kailash Group team celebrating at the PropertyGuru Asia Property Awards Australia"
             className="w-full h-full object-cover opacity-95"
-            style={{ objectPosition: "center 20%" }}
+            style={{ objectPosition: "center 0%" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540] via-[#0A2540]/55 to-[#0A2540]/10" />
         </div>
