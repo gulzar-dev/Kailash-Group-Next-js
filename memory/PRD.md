@@ -493,6 +493,12 @@ pseudo-3D parallax and an orbital company hub.
   (top-aligned) after user reported faces still cropped at "center 20%". Verified via
   screenshot — faces fully visible, no cropping.
 
+## Content Correction (2026-11-11)
+- FAQ "Who founded Kailash Group?" answer (`lib/data.js`): Amit Pall's legal practice start
+  year corrected from 2005 to 2008 (Kailash Lawyers & Consultants founding year, 2011,
+  unchanged). Searched entire codebase for other "2005" or founding-year references — this
+  was the only occurrence. Verified via screenshot.
+
 ## Backlog / Next
 - P1: Individual richer company microsites (projects gallery for Kuber, suburb data for Koala).
 - P1: CMS/admin to view enquiries in-app.

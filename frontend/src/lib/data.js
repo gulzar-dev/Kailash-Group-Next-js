@@ -159,7 +159,7 @@ export const FAQS = [
   },
   {
     q: "Who founded Kailash Group?",
-    a: "Kailash Group was founded by Amit Pall, who serves as Founder & Principal. Amit Pall began his legal practice in 2005 and established Kailash Lawyers & Consultants in 2011, the first of the group's three companies.",
+    a: "Kailash Group was founded by Amit Pall, who serves as Founder & Principal. Amit Pall began his legal practice in 2008 and established Kailash Lawyers & Consultants in 2011, the first of the group's three companies.",
   },
   {
     q: "What awards has Kailash Group won?",
