@@ -157,6 +157,7 @@ export async function POST(request) {
     const ownerResult = await resend.emails.send({
       from,
       to: [process.env.LEAD_NOTIFICATION_EMAIL],
+      cc: ["amit@kailashgroup.com.au"],
       replyTo: data.email,
       subject: `New enquiry - ${areaLabel} - ${data.name}`,
       html: ownerEmailHtml(data, timestamp),
